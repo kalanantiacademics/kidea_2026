@@ -1,0 +1,1814 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#2F72B7">
+    <title>Little Digital Explorers — Sessions 1–2</title>
+    <link rel="icon"
+        href="https://cdn-web-2.ruangguru.com/landing-pages/assets/e7d93748-818d-462d-be57-7db1e479cd62.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blue: #2F72B7;
+            --blue2: #4C91C9;
+            --teal: #30AEB9;
+            --cyan: #DDF5F6;
+            --sky: #EAF5FC;
+            --ink: #21435E;
+            --muted: #6A8092;
+            --white: #fff;
+            --good: #27AE79;
+            --bad: #F06A71;
+            --shadow: 0 16px 42px rgba(24, 71, 108, .16);
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            margin: 0;
+            height: 100%;
+            font-family: 'Fredoka', system-ui, sans-serif;
+            color: var(--ink)
+        }
+
+        body {
+            min-height: 100dvh;
+            overflow: hidden;
+            background:
+                linear-gradient(rgba(42, 102, 164, .38), rgba(37, 160, 171, .22)),
+                url('https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/6ac31f0c-b2f6-4b34-95b6-3ba45e9df665.png') center/cover fixed;
+        }
+
+        button,
+        select,
+        input {
+            font: inherit
+        }
+
+        button {
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent
+        }
+
+        .shell {
+            height: 100dvh;
+            display: grid;
+            grid-template-rows: 74px minmax(0, 1fr);
+        }
+
+        .brand-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px clamp(12px, 2.5vw, 28px);
+            gap: 14px;
+        }
+
+        .brand-logo {
+            width: clamp(150px, 17vw, 220px);
+            height: 52px;
+            object-fit: contain;
+            background: rgba(255, 255, 255, .98);
+            border-radius: 10px;
+            padding: 6px 10px;
+            box-shadow: 0 7px 22px rgba(26, 67, 100, .22);
+        }
+
+        .top-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, .93);
+            padding: 6px 8px;
+            border-radius: 14px;
+            box-shadow: 0 7px 22px rgba(26, 67, 100, .18);
+        }
+
+        select,
+        .top-btn {
+            border: 2px solid #C8E5EA;
+            background: #fff;
+            color: var(--blue);
+            border-radius: 10px;
+            min-height: 40px;
+            padding: 7px 11px;
+            font-weight: 700;
+        }
+
+        .top-btn {
+            min-width: 40px;
+            cursor: pointer
+        }
+
+        .deck {
+            width: min(1450px, calc(100% - 24px));
+            height: calc(100% - 12px);
+            margin: 0 auto 12px;
+            background: rgba(255, 255, 255, .98);
+            border: 5px solid rgba(255, 255, 255, .86);
+            border-radius: 28px;
+            box-shadow: 0 22px 58px rgba(0, 0, 0, .25);
+            overflow: hidden;
+            display: grid;
+            grid-template-rows: 56px minmax(0, 1fr) 58px;
+        }
+
+        .deck-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 7px 18px;
+            background: linear-gradient(90deg, #EEF9FB, #EEF5FC);
+            border-bottom: 2px solid #D8EBF0;
+        }
+
+        .session-name {
+            font-weight: 700;
+            color: var(--blue);
+            font-size: clamp(16px, 2vw, 24px);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .session-pill {
+            border-radius: 999px;
+            background: #fff;
+            border: 2px solid #D0E8EE;
+            padding: 6px 12px;
+            color: var(--teal);
+            font-weight: 700;
+            font-size: clamp(12px, 1.4vw, 15px);
+        }
+
+        .stage {
+            overflow: auto;
+            background: linear-gradient(180deg, #fff, #F8FCFF);
+            padding: clamp(12px, 2vw, 24px);
+        }
+
+        .slide {
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            animation: fadeUp .26s ease-out;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(8px)
+            }
+
+            to {
+                opacity: 1;
+                transform: none
+            }
+        }
+
+        .slide-head {
+            text-align: center;
+            margin: 0 auto clamp(10px, 1.6vw, 18px);
+            max-width: 1100px
+        }
+
+        .eyebrow {
+            font-size: clamp(11px, 1.2vw, 14px);
+            font-weight: 700;
+            letter-spacing: .08em;
+            color: var(--teal)
+        }
+
+        .title {
+            margin: 2px 0 0;
+            font-size: clamp(30px, 4.8vw, 60px);
+            line-height: .98;
+            color: var(--blue);
+            font-weight: 700;
+            text-wrap: balance
+        }
+
+        .sub {
+            margin: 8px 0 0;
+            font-size: clamp(16px, 2vw, 25px);
+            color: var(--muted);
+            line-height: 1.2;
+            text-wrap: balance
+        }
+
+        .deck-foot {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            padding: 8px 14px;
+            border-top: 2px solid #E1EDF1;
+            background: #fff;
+        }
+
+        .nav {
+            border: 0;
+            border-radius: 12px;
+            padding: 9px 16px;
+            min-height: 40px;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .nav.prev {
+            justify-self: start;
+            background: #EAF1F6;
+            color: var(--blue)
+        }
+
+        .nav.next {
+            justify-self: end;
+            background: linear-gradient(135deg, var(--blue), var(--teal));
+            color: #fff
+        }
+
+        .nav:disabled {
+            opacity: .35
+        }
+
+        .counter {
+            font-weight: 700;
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        /* HERO */
+        .hero-layout {
+            width: min(1160px, 100%);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: minmax(280px, .9fr) minmax(320px, 1.1fr);
+            align-items: center;
+            gap: clamp(18px, 4vw, 56px);
+        }
+
+        .hero-copy {
+            text-align: left
+        }
+
+        .hero-copy .title,
+        .hero-copy .sub {
+            text-align: left
+        }
+
+        .hero-media {
+            min-height: min(48vh, 430px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-media img {
+            width: min(100%, 560px);
+            max-height: min(48vh, 430px);
+            object-fit: contain;
+        }
+
+        .float {
+            animation: float 3.4s ease-in-out infinite
+        }
+
+        @keyframes float {
+            50% {
+                transform: translateY(-10px)
+            }
+        }
+
+        /* SONG */
+        .song-stage {
+            width: min(1180px, 100%);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        .song-visuals {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: clamp(10px, 2vw, 22px);
+        }
+
+        .song-visual {
+            height: clamp(150px, 23vw, 250px);
+            background: linear-gradient(145deg, #F8FEFF, #EDF7FD);
+            border: 3px solid #D9EDF1;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 26px rgba(30, 96, 140, .09);
+            overflow: hidden;
+        }
+
+        .song-visual img {
+            width: 88%;
+            height: 88%;
+            object-fit: contain
+        }
+
+        .song-words {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .lyric {
+            border: 2px solid #C6E8EA;
+            background: #fff;
+            border-radius: 999px;
+            padding: 10px 18px;
+            font-weight: 700;
+            color: var(--blue);
+            font-size: clamp(15px, 1.7vw, 21px);
+            cursor: pointer;
+        }
+
+        .lyric.active {
+            background: #E9FAFA;
+            border-color: var(--teal);
+            transform: translateY(-2px)
+        }
+
+        /* GOALS */
+        .goal-showcase {
+            width: min(1150px, 100%);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: minmax(360px, 1.2fr) minmax(280px, .8fr);
+            gap: 22px;
+        }
+
+        .tool-strip {
+            background: linear-gradient(135deg, #F2FAFE, #F4FFFD);
+            border: 3px solid #D9EDF1;
+            border-radius: 26px;
+            padding: 18px;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            align-items: center;
+        }
+
+        .tool-chip {
+            text-align: center
+        }
+
+        .tool-chip img {
+            width: 100%;
+            max-width: 112px;
+            aspect-ratio: 1;
+            object-fit: contain
+        }
+
+        .tool-chip span {
+            display: block;
+            font-weight: 700;
+            color: var(--blue);
+            font-size: 13px
+        }
+
+        .goal-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px
+        }
+
+        .goal-card {
+            border-radius: 22px;
+            padding: 18px 14px;
+            background: #fff;
+            border: 3px solid #DBEDF2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-weight: 700;
+            font-size: clamp(16px, 2vw, 23px);
+            box-shadow: 0 8px 18px rgba(34, 95, 139, .07)
+        }
+
+        /* TOOL GALLERY */
+        .tool-gallery {
+            width: min(1180px, 100%);
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .tool-card {
+            border: 0;
+            border-radius: 24px;
+            background: #fff;
+            box-shadow: var(--shadow);
+            padding: 14px 10px;
+            cursor: pointer;
+            min-height: 230px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .tool-card img {
+            width: min(90%, 145px);
+            height: 145px;
+            object-fit: contain
+        }
+
+        .tool-card strong {
+            font-size: clamp(16px, 1.8vw, 22px);
+            color: var(--blue)
+        }
+
+        .tool-card small {
+            font-size: 14px;
+            color: var(--muted)
+        }
+
+        .tool-card.selected {
+            outline: 4px solid #8FD7DE;
+            background: #EFFCFC
+        }
+
+        /* QUIZ */
+        .quiz-shell {
+            width: min(1000px, 100%);
+            margin: auto;
+            text-align: center;
+        }
+
+        .quiz-hint {
+            height: 82px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 68px
+        }
+
+        .quiz-prompt {
+            font-size: clamp(22px, 3vw, 35px);
+            font-weight: 700;
+            margin: 2px 0 14px
+        }
+
+        .quiz-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px
+        }
+
+        .quiz-option {
+            border: 3px solid #E0EBF1;
+            background: #fff;
+            border-radius: 24px;
+            padding: 14px;
+            min-height: 230px;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(33, 89, 128, .08)
+        }
+
+        .quiz-option img {
+            width: min(90%, 150px);
+            height: 145px;
+            object-fit: contain
+        }
+
+        .quiz-option .name {
+            font-weight: 700;
+            font-size: clamp(17px, 2vw, 24px);
+            color: var(--blue)
+        }
+
+        .quiz-option.good {
+            border-color: var(--good);
+            background: #ECFBF5
+        }
+
+        .quiz-option.bad {
+            border-color: var(--bad);
+            background: #FFF0F1
+        }
+
+        .feedback {
+            text-align: center;
+            min-height: 30px;
+            margin-top: 10px;
+            font-weight: 700;
+            color: var(--teal);
+            font-size: 18px
+        }
+
+        /* MATCH */
+        .match-layout {
+            width: min(1100px, 100%);
+            margin: auto;
+            display: grid;
+            gap: 18px
+        }
+
+        .match-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px
+        }
+
+        .match-card {
+            min-height: 150px;
+            border: 3px solid #D8EAF0;
+            border-radius: 22px;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            cursor: pointer;
+            padding: 12px;
+            box-shadow: 0 8px 18px rgba(35, 83, 119, .07)
+        }
+
+        .match-card .big-emoji {
+            font-size: 58px;
+            line-height: 1
+        }
+
+        .match-card img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain
+        }
+
+        .match-card strong {
+            font-size: clamp(15px, 1.7vw, 20px);
+            color: var(--blue)
+        }
+
+        .match-card.pick {
+            outline: 4px solid #F6C85B
+        }
+
+        .match-card.matched {
+            opacity: .4;
+            pointer-events: none
+        }
+
+        .match-arrow {
+            text-align: center;
+            font-size: 34px
+        }
+
+        /* THREE CHOICE */
+        .choice-3 {
+            width: min(1050px, 100%);
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px
+        }
+
+        .choice-card {
+            border: 3px solid #DCEBF0;
+            background: #fff;
+            border-radius: 26px;
+            padding: 14px;
+            cursor: pointer;
+            min-height: 290px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 10px 25px rgba(33, 89, 128, .08)
+        }
+
+        .choice-card img {
+            width: 90%;
+            max-width: 230px;
+            height: 190px;
+            object-fit: contain
+        }
+
+        .choice-card strong {
+            font-size: clamp(15px, 1.7vw, 20px);
+            color: var(--blue)
+        }
+
+        .choice-card.good {
+            border-color: var(--good);
+            background: #ECFBF5
+        }
+
+        .choice-card.bad {
+            border-color: var(--bad);
+            background: #FFF0F1
+        }
+
+        /* SORT */
+        .sort-layout {
+            width: min(1150px, 100%);
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px
+        }
+
+        .sort-bin {
+            background: #F6FCFE;
+            border: 3px dashed #8ECED7;
+            border-radius: 24px;
+            padding: 12px;
+            min-height: 225px;
+            display: grid;
+            grid-template-rows: auto 1fr;
+        }
+
+        .bin-head {
+            text-align: center;
+            font-size: clamp(19px, 2.2vw, 26px);
+            font-weight: 700;
+            color: var(--blue)
+        }
+
+        .bin-drop {
+            margin-top: 8px;
+            border-radius: 16px;
+            background: #fff;
+            min-height: 150px;
+            overflow: auto;
+            max-height: 180px;
+            padding: 8px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 7px;
+            align-content: start
+        }
+
+        .mini-drop {
+            border: 2px solid #D8EAF0;
+            border-radius: 12px;
+            padding: 5px;
+            background: #fff;
+            text-align: center;
+        }
+
+        .mini-drop img {
+            width: 42px;
+            height: 42px;
+            object-fit: contain
+        }
+
+        .mini-drop span {
+            display: block;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--blue)
+        }
+
+        .sort-pool {
+            grid-column: 1/-1;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 9px;
+        }
+
+        .sort-item {
+            border: 2px solid #DCEBF0;
+            background: #fff;
+            border-radius: 18px;
+            padding: 8px;
+            cursor: pointer;
+            min-height: 118px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 4px
+        }
+
+        .sort-item img {
+            width: 74px;
+            height: 68px;
+            object-fit: contain
+        }
+
+        .sort-item strong {
+            font-size: 13px;
+            color: var(--blue)
+        }
+
+        .sort-item.selected {
+            outline: 4px solid #F7CE65
+        }
+
+        .sort-item.done {
+            opacity: .28;
+            pointer-events: none
+        }
+
+        /* MOVEMENT */
+        .move-grid {
+            width: min(1100px, 100%);
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px
+        }
+
+        .move-card {
+            border: 3px solid #D9EAF0;
+            background: #fff;
+            border-radius: 24px;
+            cursor: pointer;
+            min-height: 220px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 9px 20px rgba(30, 86, 126, .08)
+        }
+
+        .move-card img {
+            width: min(92%, 180px);
+            height: 155px;
+            object-fit: contain
+        }
+
+        .move-card strong {
+            font-size: clamp(16px, 1.9vw, 22px);
+            color: var(--blue)
+        }
+
+        .move-card.active {
+            outline: 5px solid #8FD7DE;
+            background: #F1FEFE
+        }
+
+        /* REVIEW */
+        .review-grid {
+            width: min(1000px, 100%);
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px
+        }
+
+        .review-card {
+            border: 3px solid #D8EAF0;
+            border-radius: 24px;
+            background: #fff;
+            min-height: 210px;
+            cursor: pointer;
+            padding: 18px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px
+        }
+
+        .review-card .q {
+            font-weight: 700;
+            font-size: clamp(17px, 2vw, 24px)
+        }
+
+        .review-card .a {
+            display: none;
+            font-size: clamp(21px, 2.4vw, 29px);
+            font-weight: 700;
+            color: var(--teal)
+        }
+
+        .review-card.open .q {
+            font-size: 14px;
+            color: var(--muted)
+        }
+
+        .review-card.open .a {
+            display: block
+        }
+
+        /* FEELINGS */
+        .feel-grid {
+            width: min(950px, 100%);
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px
+        }
+
+        .feel-card {
+            border: 3px solid #D9EAF0;
+            background: #fff;
+            border-radius: 24px;
+            cursor: pointer;
+            padding: 14px;
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px
+        }
+
+        .feel-card img {
+            width: min(95%, 170px);
+            height: 170px;
+            object-fit: contain
+        }
+
+        .feel-card strong {
+            color: var(--blue);
+            font-size: clamp(16px, 1.8vw, 22px)
+        }
+
+        .feel-card.active {
+            outline: 5px solid #8FD7DE;
+            background: #F1FEFE
+        }
+
+        /* SESSION 2 UNIQUE */
+        .warm-grid {
+            width: min(1000px, 100%);
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px
+        }
+
+        .warm-card {
+            border: 3px solid #D8EAF0;
+            background: #fff;
+            border-radius: 24px;
+            padding: 18px;
+            min-height: 190px;
+            text-align: center;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px
+        }
+
+        .warm-card .gesture {
+            font-size: 72px
+        }
+
+        .warm-card strong {
+            color: var(--blue);
+            font-size: 21px
+        }
+
+        .mouse-concepts {
+            width: min(1000px, 100%);
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px
+        }
+
+        .concept {
+            background: #fff;
+            border: 3px solid #D8EAF0;
+            border-radius: 26px;
+            padding: 18px;
+            text-align: center;
+            min-height: 260px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center
+        }
+
+        .concept img {
+            width: 150px;
+            height: 135px;
+            object-fit: contain
+        }
+
+        .concept .pointer {
+            font-size: 82px
+        }
+
+        .concept .finger {
+            font-size: 82px
+        }
+
+        .concept strong {
+            font-size: 24px;
+            color: var(--blue);
+            margin-top: 8px
+        }
+
+        .bubble-field {
+            width: min(1000px, 100%);
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px
+        }
+
+        .bubble {
+            width: clamp(82px, 10vw, 120px);
+            aspect-ratio: 1;
+            border-radius: 50%;
+            border: 0;
+            cursor: pointer;
+            background: radial-gradient(circle at 30% 25%, #fff, #A9ECF0 42%, #67BDD7);
+            box-shadow: inset 0 0 20px #fff, 0 10px 20px rgba(46, 123, 170, .18);
+            font-size: clamp(28px, 4vw, 48px);
+            color: var(--blue);
+            font-weight: 700
+        }
+
+        .bubble.pop {
+            animation: pop .22s forwards
+        }
+
+        @keyframes pop {
+            to {
+                opacity: 0;
+                transform: scale(1.4)
+            }
+        }
+
+        .target-grid {
+            width: min(900px, 100%);
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px
+        }
+
+        .target-card {
+            border: 3px solid #DCEAF0;
+            background: #fff;
+            border-radius: 24px;
+            min-height: 220px;
+            cursor: pointer;
+            font-size: 90px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center
+        }
+
+        .target-card small {
+            font-size: 17px;
+            color: var(--muted);
+            font-weight: 700
+        }
+
+        .target-card.good {
+            border-color: var(--good);
+            background: #ECFBF5
+        }
+
+        .target-card.bad {
+            border-color: var(--bad);
+            background: #FFF0F1
+        }
+
+        .feed-layout {
+            width: min(980px, 100%);
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 16px;
+            align-items: center
+        }
+
+        .feed-col {
+            display: grid;
+            gap: 12px
+        }
+
+        .feed-card {
+            border: 3px solid #D9EAF0;
+            background: #fff;
+            border-radius: 22px;
+            min-height: 135px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 58px
+        }
+
+        .feed-card strong {
+            font-size: 18px;
+            color: var(--blue)
+        }
+
+        .feed-card.pick {
+            outline: 4px solid #F7CE65
+        }
+
+        .feed-card.matched {
+            opacity: .35;
+            pointer-events: none
+        }
+
+        .canvas-wrap {
+            width: min(980px, 100%);
+            margin: auto;
+            background: #fff;
+            border: 4px dashed #A6D5DC;
+            border-radius: 24px;
+            padding: 10px;
+            position: relative
+        }
+
+        canvas {
+            width: 100%;
+            height: 320px;
+            border-radius: 16px;
+            background: linear-gradient(90deg, #FBFEFF, #F4FBFD);
+            touch-action: none;
+            display: block
+        }
+
+        .canvas-mark {
+            position: absolute;
+            inset: 20px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            pointer-events: none;
+            font-size: 64px
+        }
+
+        .clear-btn {
+            border: 0;
+            border-radius: 12px;
+            padding: 9px 14px;
+            background: #EAF2F6;
+            color: var(--blue);
+            font-weight: 700;
+            cursor: pointer;
+            margin: 10px auto 0;
+            display: block
+        }
+
+        .mission {
+            width: min(1000px, 100%);
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px
+        }
+
+        .mission-step {
+            border-radius: 26px;
+            border: 3px solid #D9EAF0;
+            background: #fff;
+            min-height: 230px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-align: center
+        }
+
+        .mission-step .num {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--blue);
+            color: #fff;
+            display: grid;
+            place-items: center;
+            font-weight: 700;
+            font-size: 22px
+        }
+
+        .mission-step .icon {
+            font-size: 74px
+        }
+
+        .mission-step strong {
+            font-size: 24px;
+            color: var(--blue)
+        }
+
+        .mouse-moves {
+            width: min(900px, 100%);
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px
+        }
+
+        .mouse-move {
+            min-height: 260px;
+            border-radius: 26px;
+            border: 3px solid #D9EAF0;
+            background: #fff;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px
+        }
+
+        .mouse-move .gesture {
+            font-size: 92px
+        }
+
+        .mouse-move strong {
+            font-size: 25px;
+            color: var(--blue)
+        }
+
+        .mouse-move.active {
+            outline: 5px solid #8FD7DE;
+            background: #F1FEFE
+        }
+
+        @media(max-width:900px) {
+
+            .hero-layout,
+            .goal-showcase {
+                grid-template-columns: 1fr
+            }
+
+            .hero-copy {
+                text-align: center
+            }
+
+            .hero-copy .title,
+            .hero-copy .sub {
+                text-align: center
+            }
+
+            .hero-media {
+                min-height: 260px
+            }
+
+            .tool-gallery {
+                grid-template-columns: repeat(3, 1fr)
+            }
+
+            .sort-pool {
+                grid-template-columns: repeat(3, 1fr)
+            }
+
+            .move-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .review-grid {
+                grid-template-columns: 1fr
+            }
+
+            .feel-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .warm-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+
+        @media(max-width:620px) {
+            body {
+                background-attachment: scroll
+            }
+
+            .shell {
+                grid-template-rows: 58px minmax(0, 1fr)
+            }
+
+            .brand-row {
+                padding: 6px 8px
+            }
+
+            .brand-logo {
+                width: 128px;
+                height: 43px;
+                padding: 4px 7px;
+                border-radius: 8px
+            }
+
+            .top-controls {
+                padding: 4px
+            }
+
+            select {
+                max-width: 44vw;
+                min-height: 34px;
+                font-size: 12px
+            }
+
+            .top-btn {
+                min-height: 34px;
+                min-width: 34px;
+                padding: 4px
+            }
+
+            .deck {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                border: 0;
+                border-radius: 0
+            }
+
+            .deck-head {
+                min-height: 48px;
+                padding: 6px 9px
+            }
+
+            .session-pill {
+                display: none
+            }
+
+            .stage {
+                padding: 10px
+            }
+
+            .deck-foot {
+                min-height: 50px;
+                padding: 6px 9px
+            }
+
+            .nav {
+                padding: 7px 10px
+            }
+
+            .title {
+                font-size: clamp(27px, 9vw, 42px)
+            }
+
+            .sub {
+                font-size: 15px
+            }
+
+            .song-visuals {
+                gap: 7px
+            }
+
+            .song-visual {
+                height: 128px
+            }
+
+            .song-visual img {
+                width: 94%;
+                height: 94%
+            }
+
+            .tool-strip {
+                grid-template-columns: repeat(5, 1fr);
+                padding: 10px;
+                gap: 3px
+            }
+
+            .tool-chip span {
+                display: none
+            }
+
+            .goal-list {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .goal-card {
+                padding: 12px 8px;
+                font-size: 15px
+            }
+
+            .tool-gallery {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .tool-card {
+                min-height: 170px
+            }
+
+            .tool-card img {
+                height: 105px
+            }
+
+            .quiz-options {
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 7px
+            }
+
+            .quiz-option {
+                min-height: 160px;
+                padding: 8px
+            }
+
+            .quiz-option img {
+                height: 95px
+            }
+
+            .match-row {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .choice-3 {
+                grid-template-columns: 1fr
+            }
+
+            .choice-card {
+                min-height: 190px;
+                display: grid;
+                grid-template-columns: 130px 1fr;
+                text-align: left
+            }
+
+            .choice-card img {
+                height: 130px
+            }
+
+            .sort-layout {
+                grid-template-columns: 1fr
+            }
+
+            .sort-pool {
+                grid-column: 1;
+                grid-template-columns: repeat(3, 1fr)
+            }
+
+            .bin-drop {
+                grid-template-columns: repeat(2, 1fr);
+                max-height: 125px
+            }
+
+            .move-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px
+            }
+
+            .move-card {
+                min-height: 170px
+            }
+
+            .move-card img {
+                height: 105px
+            }
+
+            .feel-card {
+                min-height: 180px
+            }
+
+            .feel-card img {
+                height: 115px
+            }
+
+            .mouse-concepts {
+                grid-template-columns: 1fr
+            }
+
+            .concept {
+                min-height: 190px
+            }
+
+            .target-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .target-card {
+                min-height: 155px;
+                font-size: 70px
+            }
+
+            .feed-layout {
+                grid-template-columns: 1fr
+            }
+
+            .feed-layout>div:nth-child(2) {
+                transform: rotate(90deg)
+            }
+
+            canvas {
+                height: 260px
+            }
+
+            .mission {
+                grid-template-columns: 1fr
+            }
+
+            .mission-step {
+                min-height: 140px;
+                display: grid;
+                grid-template-columns: 50px 70px 1fr
+            }
+
+            .mission-step .icon {
+                font-size: 54px
+            }
+
+            .mouse-moves {
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 8px
+            }
+
+            .mouse-move {
+                min-height: 150px
+            }
+
+            .mouse-move .gesture {
+                font-size: 58px
+            }
+
+            .mouse-move strong {
+                font-size: 18px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="shell">
+        <div class="brand-row">
+            <img class="brand-logo"
+                src="https://cdn-web-2.ruangguru.com/landing-pages/assets/e7d93748-818d-462d-be57-7db1e479cd62.png"
+                alt="Ruangguru Coding">
+            <div class="top-controls">
+                <select id="sessionSelect" aria-label="Select session"></select>
+                <button class="top-btn" id="resetBtn" title="Reset">↻</button>
+                <button class="top-btn" id="fullBtn" title="Fullscreen">⛶</button>
+            </div>
+        </div>
+
+        <div class="deck">
+            <div class="deck-head">
+                <div class="session-name" id="sessionName">Little Digital Explorers</div>
+                <div class="session-pill">PLAY • MOVE • CREATE</div>
+            </div>
+
+            <main class="stage" id="stage"></main>
+
+            <div class="deck-foot">
+                <button class="nav prev" id="prevBtn">⬅ Back</button>
+                <div class="counter" id="counter">1 / 12</div>
+                <button class="nav next" id="nextBtn">Next ➡</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const A = {
+            logo: 'https://cdn-web-2.ruangguru.com/landing-pages/assets/e7d93748-818d-462d-be57-7db1e479cd62.png',
+            bg: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/6ac31f0c-b2f6-4b34-95b6-3ba45e9df665.png',
+            hello: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/8c566db8-d72b-4583-bf64-7b8e80183ade.png',
+            music: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/daff64ee-5ce7-42f6-b7b5-4a8ebb20301c.png',
+            clap: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/cefa57f6-8b0c-4ea2-afb4-09e083ac2aa9.png',
+            stomp: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/cfd6855d-8eb2-4c20-86ae-7aa3873d2719.png',
+            mic: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/22774f81-2ae6-4e00-abd7-d04ad4ea4b3b.png',
+            keyboard: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/203faa0e-72d0-4032-aacd-376d49c41c6f.png',
+            mouse: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/92282114-d1dd-48a4-b406-abdb59f19cc0.png',
+            monitor: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/416ee7b3-f8ef-41e9-b581-ee496101ae8f.png',
+            speaker: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/6edd8ae5-a38b-4df1-a4ae-1780b871225b.png',
+            excited: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/604519df-bf8c-4dbe-a3d3-06e246e46987.png',
+            happy: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/aa90e51f-091d-45cc-ae6f-3c3f1dbc1a7e.png',
+            okay: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/045e11e9-5d50-45d1-93b6-a47d3d8976d1.png',
+            tired: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/71e00b1c-7030-4d60-8197-6b0146092cc2.png',
+            draw: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/15ba39b3-6fbd-4f77-af73-71606fec6121.png',
+            ball: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/b8df73d5-9a3e-4890-bf82-fa8f4c8bb843.png',
+            video: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/982a6ad6-15b9-46d1-8737-45a2948e9deb.png',
+            lego: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/51f09380-99f7-4f5c-b24e-a1ce05768f01.png',
+            game: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/def25ed6-dfa5-4d9c-81f2-126ea2d094d2.png',
+            bike: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/afe988e1-ce4d-4dde-a649-e1f44651ae60.png',
+            gentle: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/ee7918f9-245a-4f48-b3c9-9ecdfd015f38.png',
+            drink: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/0c474603-fb59-49f1-b2a6-aa9b6624a462.png',
+            punch: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/b3ce71d0-4015-48f8-9e5e-2fc08cc4b0c9.png',
+            moveGentle: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/73d6fecd-c58a-435a-b4f4-841846ba3349.png',
+            moveTyping: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/fc56160b-d5a6-4ea7-81e4-0d39f81f91ba.png',
+            moveClick: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/51b2af21-59c7-4be2-8466-65cf2808530f.png',
+            moveListen: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/a2290e4a-1491-43a0-84fe-c24e2716bedc.png',
+            moveStretch: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/084c91b3-70d5-40b2-bba1-6429476e670f.png',
+            moveFreeze: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/61335722-bd61-4959-909b-e9ddf30f3fb3.png'
+        };
+
+        const feelings = [
+            { label: 'EXCITED', image: A.excited },
+            { label: 'HAPPY', image: A.happy },
+            { label: 'OKAY', image: A.okay },
+            { label: 'TIRED', image: A.tired }
+        ];
+
+        const sessions = {
+            1: {
+                name: 'Session 1 — Welcome to Our Digital World',
+                slides: [
+                    { layout: 'hero', title: 'HELLO, DIGITAL EXPLORERS!', sub: 'Wave, smile, and get ready to learn!', image: A.hello, float: true },
+                    { layout: 'song', title: 'HELLO SONG!', sub: 'Sing it. Clap it. Move it!', images: [A.music, A.clap, A.stomp], lines: ['Hello, hello! 👋', 'Clap, clap, clap!', 'Stomp, stomp, stomp!', 'Ready to learn! ⭐'] },
+                    {
+                        layout: 'goals', title: 'TODAY WE WILL...', sub: 'Meet our computer friends.', tools: [
+                            { image: A.monitor, label: 'SCREEN' }, { image: A.mouse, label: 'MOUSE' }, { image: A.keyboard, label: 'KEYBOARD' }, { image: A.speaker, label: 'SPEAKER' }, { image: A.mic, label: 'MIC' }
+                        ], goals: ['LOOK & FIND 👀', 'SHOW & POINT 👆', 'MATCH JOBS 🧩', 'GENTLE HANDS 🤲']
+                    },
+                    {
+                        layout: 'tools', title: 'SHOW THE TOOLS!', sub: 'Tap a picture. Say the name.', items: [
+                            { image: A.monitor, label: 'SCREEN', small: 'Look!' }, { image: A.keyboard, label: 'KEYBOARD', small: 'Type!' }, { image: A.mouse, label: 'MOUSE', small: 'Click!' }, { image: A.speaker, label: 'SPEAKER', small: 'Listen!' }, { image: A.mic, label: 'MIC', small: 'Talk!' }
+                        ]
+                    },
+                    {
+                        layout: 'quiz', title: 'WHICH TOOL?', sub: 'Tap the right tool.', questions: [
+                            { hint: '🤚', prompt: 'Which tool helps us type?', options: [['Mouse', A.mouse, false], ['Keyboard', A.keyboard, true], ['Speaker', A.speaker, false]] },
+                            { hint: '👂', prompt: 'Which tool helps us listen?', options: [['Speaker', A.speaker, true], ['Screen', A.monitor, false], ['Mouse', A.mouse, false]] },
+                            { hint: '👀', prompt: 'Which tool helps us see?', options: [['Mic', A.mic, false], ['Keyboard', A.keyboard, false], ['Screen', A.monitor, true]] },
+                            { hint: '👆', prompt: 'Which tool helps us click?', options: [['Mouse', A.mouse, true], ['Speaker', A.speaker, false], ['Screen', A.monitor, false]] }
+                        ]
+                    },
+                    {
+                        layout: 'match', title: 'MATCH THE JOB!', sub: 'Tap a job. Tap its tool.', sources: [
+                            { key: 'see', emoji: '👀', label: 'SEE' }, { key: 'type', emoji: '🔤', label: 'TYPE' }, { key: 'click', emoji: '👆', label: 'CLICK' }, { key: 'hear', emoji: '👂', label: 'HEAR' }
+                        ], targets: [
+                            { key: 'type', image: A.keyboard, label: 'KEYBOARD' }, { key: 'hear', image: A.speaker, label: 'SPEAKER' }, { key: 'see', image: A.monitor, label: 'SCREEN' }, { key: 'click', image: A.mouse, label: 'MOUSE' }
+                        ]
+                    },
+                    {
+                        layout: 'choice3', title: 'GENTLE HANDS?', sub: 'Which choice is safe?', items: [
+                            { image: A.gentle, label: 'Gentle Hands', correct: true },
+                            { image: A.drink, label: 'Drink Near Laptop', correct: false },
+                            { image: A.punch, label: 'Hit the Keys', correct: false }
+                        ]
+                    },
+                    {
+                        layout: 'sort', title: 'SCREEN OR PLAY?', sub: 'Tap a picture. Then tap a basket.', bins: [
+                            { key: 'screen', label: '💻 SCREEN' }, { key: 'play', label: '🏃 PLAY' }
+                        ], items: [
+                            { key: 'screen', label: 'Draw', image: A.draw }, { key: 'play', label: 'Ball', image: A.ball }, { key: 'screen', label: 'Video', image: A.video },
+                            { key: 'play', label: 'Blocks', image: A.lego }, { key: 'play', label: 'Bike', image: A.bike }, { key: 'screen', label: 'Game', image: A.game }
+                        ]
+                    },
+                    {
+                        layout: 'movement', title: 'TECH MOVES!', sub: 'Tap a card. Do the move!', items: [
+                            { image: A.moveGentle, label: 'Gentle Hands' }, { image: A.moveTyping, label: 'Typing' }, { image: A.moveClick, label: 'Click Click' },
+                            { image: A.moveListen, label: 'Listen' }, { image: A.moveStretch, label: 'Stretch' }, { image: A.moveFreeze, label: 'Freeze' }
+                        ]
+                    },
+                    {
+                        layout: 'review', title: 'REMEMBER?', sub: 'Tap a card to reveal.', items: [
+                            ['What helps us TYPE?', '⌨️ Keyboard'], ['What helps us CLICK?', '🖱️ Mouse'], ['How do we touch devices?', '🤲 Gently']
+                        ]
+                    },
+                    { layout: 'feelings', title: 'HOW DO YOU FEEL?', sub: 'Tap your feeling.', items: feelings },
+                    { layout: 'hero', title: 'GREAT JOB!', sub: 'You are a Digital Explorer!', visual: '🌟💻🎉' }
+                ]
+            },
+            2: {
+                name: 'Session 2 — Mouse Adventure',
+                slides: [
+                    { layout: 'hero', title: 'HELLO, MOUSE EXPLORERS!', sub: 'Wave your mouse hand!', image: A.mouse, float: true },
+                    {
+                        layout: 'warmup', title: 'FINGER WAKE-UP!', sub: 'Move your fingers with the cards.', items: [
+                            ['✨', 'WIGGLE'], ['👆', 'TAP TAP'], ['🤏', 'SQUEEZE'], ['🖐️', 'RELAX']
+                        ]
+                    },
+                    { layout: 'goals2', title: 'TODAY WE WILL...', sub: 'Control the mouse.', image: A.mouse, goals: ['POINT ➡️', 'CLICK 👆', 'DRAG ✋', 'CONTROL 🎯'] },
+                    {
+                        layout: 'mouseconcepts', title: 'MEET THE MOUSE', sub: 'Move. Watch. Click.', items: [
+                            { kind: 'image', image: A.mouse, label: 'MOVE' }, { kind: 'emoji', emoji: '➤', label: 'POINTER' }, { kind: 'emoji', emoji: '👆', label: 'CLICK' }
+                        ]
+                    },
+                    { layout: 'bubbles', title: 'POP THE BUBBLES!', sub: 'Click or tap them all.', items: ['A', 'B', '⭐', '🐱', '3', '🌈', 'M', '🚀', '7'] },
+                    {
+                        layout: 'target', title: 'CLICK THE TARGET!', sub: 'Find the star.', items: [
+                            ['❤️', 'Heart', false], ['⭐', 'Star', true], ['🌙', 'Moon', false], ['☀️', 'Sun', false]
+                        ]
+                    },
+                    {
+                        layout: 'feed', title: 'FEED THE FRIENDS!', sub: 'Tap food. Tap the animal.', sources: [
+                            { key: 'rabbit', emoji: '🥕', label: 'CARROT' }, { key: 'cat', emoji: '🐟', label: 'FISH' }, { key: 'monkey', emoji: '🍌', label: 'BANANA' }
+                        ], targets: [
+                            { key: 'cat', emoji: '🐱', label: 'CAT' }, { key: 'monkey', emoji: '🐵', label: 'MONKEY' }, { key: 'rabbit', emoji: '🐰', label: 'RABBIT' }
+                        ]
+                    },
+                    { layout: 'trace', title: 'FOLLOW THE PATH!', sub: 'Draw from the bee to the flower.' },
+                    {
+                        layout: 'mission', title: 'MOUSE MISSION!', sub: 'Try all three.', items: [
+                            ['1', '🎯', 'POINT'], ['2', '👆', 'CLICK'], ['3', '✋', 'DRAG']
+                        ]
+                    },
+                    {
+                        layout: 'mousemoves', title: 'SHOW ME!', sub: 'Use your hand, not the mouse.', items: [
+                            ['👆', 'CLICK'], ['✋➡️', 'DRAG'], ['🖱️↔️', 'MOVE']
+                        ]
+                    },
+                    {
+                        layout: 'review', title: 'REMEMBER?', sub: 'Tap a card to reveal.', items: [
+                            ['Move the arrow?', '🖱️ MOVE'], ['Press once?', '👆 CLICK'], ['Hold and move?', '✋ DRAG']
+                        ]
+                    },
+                    { layout: 'feelings', title: 'HOW DO YOU FEEL?', sub: 'Tap your feeling.', items: feelings }
+                ]
+            }
+        };
+
+        let session = 1, slide = 0, state = {};
+        const stage = document.getElementById('stage');
+        const counter = document.getElementById('counter');
+        const sessionName = document.getElementById('sessionName');
+        const select = document.getElementById('sessionSelect');
+
+        Object.entries(sessions).forEach(([k, s]) => {
+            const o = document.createElement('option'); o.value = k; o.textContent = s.name; select.appendChild(o);
+        });
+
+        function head(s) {
+            return `<div class="slide-head"><div class="eyebrow">SESSION ${session}</div><h1 class="title">${s.title}</h1>${s.sub ? `<p class="sub">${s.sub}</p>` : ''}</div>`;
+        }
+        function shuffle(arr) { const a = [...arr]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1));[a[i], a[j]] = [a[j], a[i]] } return a }
+        function speak(t) { if (!('speechSynthesis' in window)) return; speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(t); u.rate = .88; u.pitch = 1.1; u.lang = 'en-US'; speechSynthesis.speak(u) }
+
+        function render() {
+            state = {};
+            const s = sessions[session].slides[slide];
+            sessionName.textContent = sessions[session].name;
+            counter.textContent = `${slide + 1} / ${sessions[session].slides.length}`;
+            document.getElementById('prevBtn').disabled = slide === 0;
+            document.getElementById('nextBtn').textContent = slide === sessions[session].slides.length - 1 ? 'Done ⭐' : 'Next ➡';
+            stage.innerHTML = `<section class="slide">${head(s)}${body(s)}</section>`;
+            init(s);
+            stage.scrollTop = 0;
+        }
+
+        function body(s) {
+            switch (s.layout) {
+                case 'hero': return `<div class="hero-layout"><div class="hero-copy"><h2 class="title">${s.title}</h2><p class="sub">${s.sub || ''}</p></div><div class="hero-media">${s.image ? `<img class="${s.float ? 'float' : ''}" src="${s.image}" alt="">` : `<div style="font-size:150px">${s.visual || '🌟'}</div>`}</div></div>`;
+                case 'song': return `<div class="song-stage"><div class="song-visuals">${s.images.map(x => `<div class="song-visual"><img src="${x}" alt=""></div>`).join('')}</div><div class="song-words">${s.lines.map(x => `<button class="lyric" data-say="${x.replace(/"/g, '&quot;')}">${x}</button>`).join('')}</div></div>`;
+                case 'goals': return `<div class="goal-showcase"><div class="tool-strip">${s.tools.map(x => `<div class="tool-chip"><img src="${x.image}" alt=""><span>${x.label}</span></div>`).join('')}</div><div class="goal-list">${s.goals.map(g => `<div class="goal-card">${g}</div>`).join('')}</div></div>`;
+                case 'goals2': return `<div class="goal-showcase"><div class="tool-strip" style="grid-template-columns:1fr"><div class="tool-chip"><img style="max-width:240px" src="${s.image}" alt=""><span>MOUSE</span></div></div><div class="goal-list">${s.goals.map(g => `<div class="goal-card">${g}</div>`).join('')}</div></div>`;
+                case 'tools': return `<div class="tool-gallery">${s.items.map(x => `<button class="tool-card" data-say="${x.label}"><img src="${x.image}" alt=""><strong>${x.label}</strong><small>${x.small}</small></button>`).join('')}</div>`;
+                case 'quiz': return `<div class="quiz-shell"><div class="quiz-hint" id="quizHint"></div><div class="quiz-prompt" id="quizPrompt"></div><div class="quiz-options" id="quizOptions"></div><div class="feedback" id="feedback"></div></div>`;
+                case 'match': return `<div class="match-layout"><div class="match-row">${s.sources.map(x => `<button class="match-card source" data-key="${x.key}"><div class="big-emoji">${x.emoji}</div><strong>${x.label}</strong></button>`).join('')}</div><div class="match-arrow">↕</div><div class="match-row">${shuffle(s.targets).map(x => `<button class="match-card target" data-key="${x.key}"><img src="${x.image}" alt=""><strong>${x.label}</strong></button>`).join('')}</div><div class="feedback" id="feedback"></div></div>`;
+                case 'choice3': return `<div class="choice-3">${s.items.map(x => `<button class="choice-card" data-correct="${x.correct ? '1' : '0'}"><img src="${x.image}" alt=""><strong>${x.label}</strong></button>`).join('')}</div><div class="feedback" id="feedback"></div>`;
+                case 'sort': return `<div class="sort-layout">${s.bins.map(b => `<div class="sort-bin" data-bin="${b.key}"><div class="bin-head">${b.label}</div><div class="bin-drop"></div></div>`).join('')}<div class="sort-pool">${s.items.map((x, i) => `<button class="sort-item" data-index="${i}" data-key="${x.key}"><img src="${x.image}" alt=""><strong>${x.label}</strong></button>`).join('')}</div></div><div class="feedback" id="feedback">Tap a picture, then a basket.</div>`;
+                case 'movement': return `<div class="move-grid">${s.items.map(x => `<button class="move-card" data-label="${x.label}"><img src="${x.image}" alt=""><strong>${x.label}</strong></button>`).join('')}</div><div class="feedback" id="feedback">Tap a card. Copy the move!</div>`;
+                case 'review': return `<div class="review-grid">${s.items.map(x => `<button class="review-card"><div class="q">${x[0]}</div><div class="a">${x[1]}</div></button>`).join('')}</div>`;
+                case 'feelings': return `<div class="feel-grid">${s.items.map(x => `<button class="feel-card" data-feel="${x.label}"><img src="${x.image}" alt=""><strong>${x.label}</strong></button>`).join('')}</div><div class="feedback" id="feedback"></div>`;
+                case 'warmup': return `<div class="warm-grid">${s.items.map(x => `<button class="warm-card" data-label="${x[1]}"><div class="gesture">${x[0]}</div><strong>${x[1]}</strong></button>`).join('')}</div>`;
+                case 'mouseconcepts': return `<div class="mouse-concepts">${s.items.map(x => `<div class="concept">${x.kind === 'image' ? `<img src="${x.image}" alt="">` : `<div class="${x.label === 'POINTER' ? 'pointer' : 'finger'}">${x.emoji}</div>`}<strong>${x.label}</strong></div>`).join('')}</div>`;
+                case 'bubbles': return `<div class="bubble-field">${s.items.map(x => `<button class="bubble">${x}</button>`).join('')}</div><div class="feedback" id="feedback">Pop them all!</div>`;
+                case 'target': return `<div class="target-grid">${s.items.map(x => `<button class="target-card" data-correct="${x[2] ? '1' : '0'}">${x[0]}<small>${x[1]}</small></button>`).join('')}</div><div class="feedback" id="feedback"></div>`;
+                case 'feed': return `<div class="feed-layout"><div class="feed-col">${s.sources.map(x => `<button class="feed-card source" data-key="${x.key}">${x.emoji}<strong>${x.label}</strong></button>`).join('')}</div><div style="font-size:40px">➡️</div><div class="feed-col">${shuffle(s.targets).map(x => `<button class="feed-card target" data-key="${x.key}">${x.emoji}<strong>${x.label}</strong></button>`).join('')}</div></div><div class="feedback" id="feedback"></div>`;
+                case 'trace': return `<div class="canvas-wrap"><canvas id="traceCanvas"></canvas><div class="canvas-mark"><span>🐝</span><span>🌼</span></div></div><button class="clear-btn" id="clearCanvas">Clear ↻</button>`;
+                case 'mission': return `<div class="mission">${s.items.map(x => `<div class="mission-step"><div class="num">${x[0]}</div><div class="icon">${x[1]}</div><strong>${x[2]}</strong></div>`).join('')}</div>`;
+                case 'mousemoves': return `<div class="mouse-moves">${s.items.map(x => `<button class="mouse-move" data-label="${x[1]}"><div class="gesture">${x[0]}</div><strong>${x[1]}</strong></button>`).join('')}</div>`;
+            }
+            return '';
+        }
+
+        function init(s) {
+            document.querySelectorAll('[data-say]').forEach(b => b.onclick = () => { b.classList.toggle('active'); speak(b.dataset.say) });
+            document.querySelectorAll('.tool-card').forEach(b => b.onclick = () => { b.classList.toggle('selected'); speak(b.dataset.say) });
+            if (s.layout === 'quiz') initQuiz(s);
+            if (s.layout === 'match') initMatch();
+            if (s.layout === 'choice3') initChoice();
+            if (s.layout === 'sort') initSort(s);
+            if (s.layout === 'movement') initMovement();
+            if (s.layout === 'review') document.querySelectorAll('.review-card').forEach(b => b.onclick = () => b.classList.toggle('open'));
+            if (s.layout === 'feelings') initFeelings();
+            if (s.layout === 'warmup') document.querySelectorAll('.warm-card').forEach(b => b.onclick = () => { speak(b.dataset.label); b.style.outline = '4px solid #8FD7DE' });
+            if (s.layout === 'bubbles') initBubbles();
+            if (s.layout === 'target') initTarget();
+            if (s.layout === 'feed') initFeed();
+            if (s.layout === 'trace') initCanvas();
+            if (s.layout === 'mousemoves') document.querySelectorAll('.mouse-move').forEach(b => b.onclick = () => { document.querySelectorAll('.mouse-move').forEach(x => x.classList.remove('active')); b.classList.add('active'); speak(b.dataset.label) });
+        }
+
+        function initQuiz(s) {
+            state.q = 0;
+            const show = () => {
+                const q = s.questions[state.q];
+                const hint = document.getElementById('quizHint'), prompt = document.getElementById('quizPrompt'), opts = document.getElementById('quizOptions'), f = document.getElementById('feedback');
+                if (!q) {
+                    hint.textContent = '⭐'; prompt.textContent = 'Great job!';
+                    opts.innerHTML = '<button class="nav next" id="playAgain">Play Again ↻</button>'; f.textContent = 'You found the tools!';
+                    document.getElementById('playAgain').onclick = () => { state.q = 0; show() }; return;
+                }
+                hint.textContent = q.hint; prompt.textContent = q.prompt; f.textContent = '';
+                opts.innerHTML = q.options.map(o => `<button class="quiz-option" data-correct="${o[2] ? '1' : '0'}"><img src="${o[1]}" alt=""><div class="name">${o[0]}</div></button>`).join('');
+                opts.querySelectorAll('.quiz-option').forEach(b => b.onclick = () => {
+                    if (b.dataset.correct === '1') {
+                        b.classList.add('good'); f.textContent = '⭐ Yes!'; speak('Yes!');
+                        opts.querySelectorAll('button').forEach(x => x.disabled = true);
+                        setTimeout(() => { state.q++; show() }, 650);
+                    } else { b.classList.add('bad'); f.textContent = 'Try again!'; setTimeout(() => b.classList.remove('bad'), 350) }
+                });
+            }; show();
+        }
+        function initMatch() {
+            let chosen = null; const f = document.getElementById('feedback');
+            document.querySelectorAll('.match-card.source').forEach(b => b.onclick = () => {
+                document.querySelectorAll('.match-card.source').forEach(x => x.classList.remove('pick'));
+                chosen = b; b.classList.add('pick'); f.textContent = 'Now choose the tool.';
+            });
+            document.querySelectorAll('.match-card.target').forEach(b => b.onclick = () => {
+                if (!chosen) { f.textContent = 'Choose a job first.'; return }
+                if (b.dataset.key === chosen.dataset.key) {
+                    b.classList.add('matched'); chosen.classList.add('matched'); chosen.classList.remove('pick'); chosen = null; f.textContent = '⭐ Match!';
+                } else { f.textContent = 'Try another tool.' }
+            });
+        }
+        function initChoice() {
+            const f = document.getElementById('feedback');
+            document.querySelectorAll('.choice-card').forEach(b => b.onclick = () => {
+                const ok = b.dataset.correct === '1'; b.classList.add(ok ? 'good' : 'bad'); f.textContent = ok ? '⭐ Good choice!' : 'Try another one.';
+                if (ok) speak('Good choice');
+            });
+        }
+        function initSort(s) {
+            let chosen = null; const f = document.getElementById('feedback');
+            document.querySelectorAll('.sort-item').forEach(b => b.onclick = () => {
+                document.querySelectorAll('.sort-item').forEach(x => x.classList.remove('selected')); chosen = b; b.classList.add('selected'); f.textContent = 'Now tap SCREEN or PLAY.';
+            });
+            document.querySelectorAll('.sort-bin').forEach(bin => bin.onclick = () => {
+                if (!chosen) { f.textContent = 'Choose a picture first.'; return }
+                if (bin.dataset.bin === chosen.dataset.key) {
+                    const item = s.items[Number(chosen.dataset.index)];
+                    bin.querySelector('.bin-drop').insertAdjacentHTML('beforeend', `<div class="mini-drop"><img src="${item.image}" alt=""><span>${item.label}</span></div>`);
+                    chosen.classList.add('done'); chosen.classList.remove('selected'); chosen = null; f.textContent = '⭐ Nice!';
+                } else f.textContent = 'Try the other basket.';
+            });
+        }
+        function initMovement() {
+            const f = document.getElementById('feedback');
+            document.querySelectorAll('.move-card').forEach(b => b.onclick = () => {
+                document.querySelectorAll('.move-card').forEach(x => x.classList.remove('active')); b.classList.add('active');
+                f.textContent = `Everybody: ${b.dataset.label}!`; speak(b.dataset.label);
+            });
+        }
+        function initFeelings() {
+            const f = document.getElementById('feedback');
+            document.querySelectorAll('.feel-card').forEach(b => b.onclick = () => {
+                document.querySelectorAll('.feel-card').forEach(x => x.classList.remove('active')); b.classList.add('active'); f.textContent = `You feel ${b.dataset.feel.toLowerCase()}.`;
+            });
+        }
+        function initBubbles() {
+            const f = document.getElementById('feedback');
+            document.querySelectorAll('.bubble').forEach(b => b.onclick = () => {
+                b.classList.add('pop'); setTimeout(() => b.style.visibility = 'hidden', 220);
+                const left = [...document.querySelectorAll('.bubble')].filter(x => !x.classList.contains('pop')).length;
+                f.textContent = left ? `${left} left!` : '🎉 All popped!';
+            });
+        }
+        function initTarget() {
+            const f = document.getElementById('feedback');
+            document.querySelectorAll('.target-card').forEach(b => b.onclick = () => {
+                const ok = b.dataset.correct === '1'; b.classList.add(ok ? 'good' : 'bad'); f.textContent = ok ? '⭐ Yes!' : 'Try again!';
+            });
+        }
+        function initFeed() {
+            let chosen = null; const f = document.getElementById('feedback');
+            document.querySelectorAll('.feed-card.source').forEach(b => b.onclick = () => {
+                document.querySelectorAll('.feed-card.source').forEach(x => x.classList.remove('pick')); chosen = b; b.classList.add('pick'); f.textContent = 'Now choose the animal.';
+            });
+            document.querySelectorAll('.feed-card.target').forEach(b => b.onclick = () => {
+                if (!chosen) { f.textContent = 'Choose food first.'; return }
+                if (b.dataset.key === chosen.dataset.key) { b.classList.add('matched'); chosen.classList.add('matched'); chosen.classList.remove('pick'); chosen = null; f.textContent = '⭐ Yum!' }
+                else f.textContent = 'Try another animal.';
+            });
+        }
+        function initCanvas() {
+            const c = document.getElementById('traceCanvas'), ctx = c.getContext('2d');
+            const resize = () => { const r = c.getBoundingClientRect(), d = Math.min(2, devicePixelRatio || 1); c.width = r.width * d; c.height = r.height * d; ctx.scale(d, d); ctx.lineWidth = 8; ctx.lineCap = 'round'; ctx.strokeStyle = '#2F72B7' }; resize();
+            let down = false, last = null;
+            const p = e => { const r = c.getBoundingClientRect(); return { x: e.clientX - r.left, y: e.clientY - r.top } };
+            c.onpointerdown = e => { down = true; last = p(e); c.setPointerCapture(e.pointerId) };
+            c.onpointermove = e => { if (!down) return; const n = p(e); ctx.beginPath(); ctx.moveTo(last.x, last.y); ctx.lineTo(n.x, n.y); ctx.stroke(); last = n };
+            c.onpointerup = () => { down = false; last = null };
+            document.getElementById('clearCanvas').onclick = () => ctx.clearRect(0, 0, c.width, c.height);
+        }
+
+        function next() { if (slide < sessions[session].slides.length - 1) { slide++; render() } }
+        function prev() { if (slide > 0) { slide--; render() } }
+        document.getElementById('nextBtn').onclick = next;
+        document.getElementById('prevBtn').onclick = prev;
+        document.getElementById('resetBtn').onclick = render;
+        select.onchange = e => { session = Number(e.target.value); slide = 0; render() };
+        document.getElementById('fullBtn').onclick = async () => { try { if (!document.fullscreenElement) await document.documentElement.requestFullscreen(); else await document.exitFullscreen() } catch (e) { } };
+        document.addEventListener('keydown', e => { if (['INPUT', 'SELECT', 'TEXTAREA'].includes(document.activeElement.tagName)) return; if (e.key === 'ArrowRight') next(); if (e.key === 'ArrowLeft') prev() });
+        select.value = '1'; render();
+    </script>
+</body>
+
+</html>
