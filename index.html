@@ -1954,6 +1954,900 @@
                 font-size: .78rem
             }
         }
+
+        /* ===== SESSION 3 + 4 EXTENSIONS ===== */
+        .keyboard-big-card {
+            width: min(980px, 100%);
+            background: #fff;
+            border: 3px solid #dfe8f1;
+            border-radius: 28px;
+            padding: 18px;
+            text-align: center;
+            box-shadow: 0 12px 28px rgba(37, 70, 105, .08)
+        }
+
+        .keyboard-big-card img {
+            width: min(100%, 760px);
+            height: 330px;
+            object-fit: contain
+        }
+
+        .session-3.cover-slide,
+        .session-4.cover-slide {
+            background: #fff !important;
+            color: var(--ink) !important;
+            text-align: center
+        }
+
+        .session-3.cover-slide .cover-scene,
+        .session-4.cover-slide .cover-scene {
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin: auto
+        }
+
+        .session-3.cover-slide .hero-badge,
+        .session-4.cover-slide .hero-badge {
+            background: #eef7ff;
+            border: 2px solid #cfe4fb;
+            color: var(--blue)
+        }
+
+        .session-3.cover-slide .display-title,
+        .session-4.cover-slide .display-title {
+            color: #24344d
+        }
+
+        .session-3.cover-slide .display-title span,
+        .session-4.cover-slide .display-title span {
+            color: var(--blue)
+        }
+
+        .session-3.cover-slide .hero-subtitle,
+        .session-4.cover-slide .hero-subtitle {
+            color: var(--muted)
+        }
+
+        .session-3.cover-slide .cover-image,
+        .session-4.cover-slide .cover-image {
+            width: min(48vw, 530px);
+            max-height: 330px;
+            object-fit: contain;
+            filter: drop-shadow(0 14px 18px rgba(47, 128, 237, .10))
+        }
+
+        .s34-two {
+            width: min(1080px, 100%);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+            align-items: center
+        }
+
+        .s34-panel {
+            background: #fff;
+            border: 3px solid #dfe8f1;
+            border-radius: 28px;
+            padding: 18px;
+            box-shadow: 0 12px 28px rgba(37, 70, 105, .08);
+            text-align: center
+        }
+
+        .s34-panel img {
+            width: 100%;
+            height: 300px;
+            object-fit: contain
+        }
+
+        .s34-panel h3 {
+            margin: 8px 0;
+            color: #38516b
+        }
+
+        .s34-panel p {
+            margin: 0;
+            color: #6a7e92;
+            line-height: 1.45
+        }
+
+        .s3-steps {
+            display: grid;
+            gap: 12px
+        }
+
+        .s3-step {
+            background: #fff;
+            border: 3px solid #dfe8f1;
+            border-radius: 22px;
+            padding: 16px;
+            display: grid;
+            grid-template-columns: 46px 1fr;
+            gap: 12px;
+            align-items: center;
+            text-align: left
+        }
+
+        .s3-step i {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: var(--blue);
+            color: #fff;
+            display: grid;
+            place-items: center;
+            font-style: normal;
+            font-weight: 700
+        }
+
+        .s3-key-grid {
+            width: min(1050px, 100%);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px
+        }
+
+        .s3-key-card {
+            border: 3px solid #dfe8f1;
+            border-radius: 27px;
+            background: #fff;
+            padding: 16px;
+            min-height: 315px;
+            text-align: center;
+            cursor: pointer
+        }
+
+        .s3-key-card img {
+            width: 100%;
+            height: 205px;
+            object-fit: contain
+        }
+
+        .s3-key-card b {
+            display: block;
+            font-size: 1.3rem;
+            color: #334b68
+        }
+
+        .s3-key-card small {
+            color: #6b7f94
+        }
+
+        .s3-key-card.active {
+            border-color: var(--cyan);
+            background: #f3fcff
+        }
+
+        .s3-find {
+            width: min(950px, 100%)
+        }
+
+        .s3-find-q {
+            text-align: center;
+            font-size: clamp(1.7rem, 3vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 16px
+        }
+
+        .s3-find-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px
+        }
+
+        .s3-find-option {
+            background: #fff;
+            border: 3px solid #dfe8f1;
+            border-radius: 24px;
+            padding: 12px;
+            min-height: 250px;
+            cursor: pointer
+        }
+
+        .s3-find-option img {
+            width: 100%;
+            height: 175px;
+            object-fit: contain
+        }
+
+        .s3-find-option b {
+            display: block
+        }
+
+        .s3-find-option.correct {
+            border-color: var(--green);
+            background: #eefaf4
+        }
+
+        .s3-find-option.wrong {
+            border-color: var(--red);
+            background: #fff1ef
+        }
+
+        .vk {
+            width: min(1080px, 100%);
+            background: #eaf1f7;
+            border: 4px solid #cbd9e5;
+            border-radius: 26px;
+            padding: 15px;
+            display: grid;
+            gap: 7px
+        }
+
+        .vk-row {
+            display: flex;
+            gap: 6px;
+            justify-content: center
+        }
+
+        .vk-key {
+            min-width: 48px;
+            height: 52px;
+            padding: 0 9px;
+            border: 2px solid #c4d2df;
+            border-bottom-width: 5px;
+            border-radius: 11px;
+            background: #fff;
+            color: #334b68;
+            font-weight: 700;
+            display: grid;
+            place-items: center;
+            user-select: none
+        }
+
+        .vk-key.space {
+            min-width: 300px
+        }
+
+        .vk-key.wide {
+            min-width: 100px
+        }
+
+        .vk-key.active {
+            transform: translateY(3px);
+            border-bottom-width: 2px;
+            background: #dff8fb;
+            border-color: var(--cyan);
+            box-shadow: 0 0 0 4px rgba(22, 189, 232, .14)
+        }
+
+        .s3-letter-layout {
+            width: min(1100px, 100%);
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 20px;
+            align-items: center
+        }
+
+        .s3-letter-target {
+            min-height: 250px;
+            border-radius: 28px;
+            background: linear-gradient(145deg, #eef7ff, #f5f0ff);
+            border: 3px solid #d5e5f2;
+            display: grid;
+            place-items: center;
+            text-align: center
+        }
+
+        .s3-letter-target strong {
+            font-size: 8rem;
+            line-height: 1;
+            color: var(--blue)
+        }
+
+        .s3-live {
+            width: min(1100px, 100%);
+            display: grid;
+            gap: 14px
+        }
+
+        .s3-prompt {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 12px;
+            align-items: center;
+            background: #fff;
+            border: 3px solid #dfe8f1;
+            border-radius: 22px;
+            padding: 14px 18px
+        }
+
+        .s3-prompt b {
+            display: block;
+            color: #344d67;
+            font-size: 1.2rem
+        }
+
+        .s3-prompt span {
+            color: #718396
+        }
+
+        .s3-answer {
+            min-width: 260px;
+            min-height: 52px;
+            border: 3px solid #cddce8;
+            border-radius: 14px;
+            background: #fbfdff;
+            padding: 8px 14px;
+            display: flex;
+            align-items: center;
+            color: var(--blue);
+            font-weight: 700;
+            font-size: 1.35rem;
+            overflow-x: auto
+        }
+
+        .s3-fix-grid {
+            width: min(900px, 100%);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px
+        }
+
+        .s3-fix-card {
+            border: 3px solid #dfe8f1;
+            background: #fff;
+            border-radius: 26px;
+            padding: 20px;
+            min-height: 285px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer
+        }
+
+        .s3-fix-word {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: .08em;
+            background: #f3f7fb;
+            border-radius: 16px;
+            padding: 12px 20px;
+            margin: 12px
+        }
+
+        .s3-fix-card img {
+            width: 150px;
+            height: 90px;
+            object-fit: contain
+        }
+
+        .s3-form {
+            width: min(900px, 100%);
+            display: grid;
+            gap: 14px
+        }
+
+        .s3-field {
+            background: #fff;
+            border: 3px solid #dfe8f1;
+            border-radius: 22px;
+            padding: 16px;
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 14px;
+            align-items: center
+        }
+
+        .s3-field input {
+            border: 3px solid #cbdce8;
+            border-radius: 14px;
+            padding: 12px 14px;
+            font-size: 1.2rem;
+            color: var(--blue);
+            outline: 0
+        }
+
+        .s3-field input:focus {
+            border-color: var(--cyan)
+        }
+
+        .s3-game {
+            width: min(900px, 100%);
+            background: #fff;
+            border: 4px solid #dce8f1;
+            border-radius: 26px;
+            padding: 12px
+        }
+
+        .s3-game-hud {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 6px 10px;
+            font-weight: 700;
+            color: #526980
+        }
+
+        #letterRainCanvas {
+            width: 100%;
+            height: 340px;
+            display: block;
+            border-radius: 18px;
+            background: linear-gradient(180deg, #eaf7ff, #fbfdff)
+        }
+
+        .s4-simon {
+            width: min(1000px, 100%);
+            display: grid;
+            grid-template-columns: .85fr 1.15fr;
+            gap: 20px
+        }
+
+        .s4-command-box {
+            min-height: 320px;
+            border-radius: 28px;
+            background: linear-gradient(145deg, #eef7ff, #f6f2ff);
+            border: 3px solid #d8e6f2;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center
+        }
+
+        .s4-command-text {
+            font-size: clamp(2.2rem, 4vw, 3.8rem);
+            font-weight: 700;
+            color: #334d68
+        }
+
+        .s4-command-text .simon {
+            color: var(--purple)
+        }
+
+        .s4-rules {
+            display: grid;
+            gap: 12px
+        }
+
+        .s4-rule {
+            background: #fff;
+            border: 3px solid #dfe8f1;
+            border-radius: 20px;
+            padding: 16px
+        }
+
+        .s4-rule b {
+            display: block;
+            color: #38516b
+        }
+
+        .s4-rule span {
+            color: #6b7e91
+        }
+
+        .s4-story {
+            width: min(1080px, 100%);
+            display: grid;
+            grid-template-columns: 1.05fr .95fr;
+            gap: 22px;
+            align-items: center
+        }
+
+        .s4-story-img {
+            background: #fff;
+            border: 3px solid #dfe8f1;
+            border-radius: 28px;
+            padding: 15px;
+            display: grid;
+            place-items: center;
+            min-height: 350px
+        }
+
+        .s4-story-img img {
+            width: 100%;
+            height: 320px;
+            object-fit: contain
+        }
+
+        .s4-bubbles {
+            display: grid;
+            gap: 12px
+        }
+
+        .s4-bubble {
+            background: #fff;
+            border: 3px solid #dfe8f1;
+            border-radius: 22px;
+            padding: 18px;
+            font-size: 1.12rem;
+            line-height: 1.45
+        }
+
+        .s4-bubble strong {
+            color: var(--blue)
+        }
+
+        .s4-cmd-grid {
+            width: min(1060px, 100%);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px
+        }
+
+        .s4-cmd-card {
+            background: #fff;
+            border: 3px solid #dfe8f1;
+            border-radius: 24px;
+            padding: 12px;
+            min-height: 280px;
+            text-align: center;
+            cursor: pointer
+        }
+
+        .s4-cmd-card img {
+            width: 100%;
+            height: 190px;
+            object-fit: contain
+        }
+
+        .s4-cmd-card b {
+            display: block
+        }
+
+        .s4-cmd-card.active {
+            border-color: var(--cyan);
+            background: #f2fcff
+        }
+
+        .robo-maze {
+            --cell: min(10vw, 82px);
+            display: grid;
+            grid-template-columns: repeat(6, var(--cell));
+            grid-template-rows: repeat(5, var(--cell));
+            gap: 5px;
+            background: #dce8f1;
+            border: 5px solid #b9ccdb;
+            border-radius: 22px;
+            padding: 7px
+        }
+
+        .maze-cell {
+            width: var(--cell);
+            height: var(--cell);
+            background: #fff;
+            border-radius: 10px;
+            display: grid;
+            place-items: center;
+            font-size: 2.7rem;
+            position: relative;
+            cursor: pointer
+        }
+
+        .maze-cell.blocked {
+            background: #d7e0e7;
+            cursor: default
+        }
+
+        .maze-cell.blocked:after {
+            content: '🧱';
+            opacity: .75
+        }
+
+        .maze-cell.mark {
+            background: #e8f9fb;
+            box-shadow: inset 0 0 0 4px #74d0d9
+        }
+
+        .maze-cell.mark:before {
+            content: '•';
+            color: var(--cyan);
+            font-size: 3rem
+        }
+
+        .maze-cell img {
+            width: 80%;
+            height: 80%;
+            object-fit: contain;
+            position: relative;
+            z-index: 3
+        }
+
+        .s4-maze-layout {
+            width: min(930px, 100%);
+            display: grid;
+            grid-template-columns: 1fr 250px;
+            gap: 20px;
+            align-items: center
+        }
+
+        .s4-tip {
+            background: #fff;
+            border: 3px solid #dfe8f1;
+            border-radius: 22px;
+            padding: 16px
+        }
+
+        .s4-tip h3 {
+            margin: 0 0 6px;
+            color: #38516b
+        }
+
+        .s4-tip p {
+            margin: 0;
+            color: #687c91;
+            line-height: 1.45
+        }
+
+        .s4-count-grid {
+            width: min(1120px, 100%);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px
+        }
+
+        .s4-count {
+            background: #fff;
+            border: 3px solid #dfe8f1;
+            border-radius: 24px;
+            min-height: 260px;
+            text-align: center;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center
+        }
+
+        .s4-count .dir {
+            font-size: 4.5rem
+        }
+
+        .s4-count .counter {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-top: 12px
+        }
+
+        .s4-count button {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 2px solid #d7e3ed;
+            background: #fff;
+            font-size: 1.4rem;
+            cursor: pointer
+        }
+
+        .s4-count .val {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--blue)
+        }
+
+        .s4-seq {
+            width: min(1120px, 100%);
+            display: grid;
+            gap: 14px
+        }
+
+        .s4-palette {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px
+        }
+
+        .s4-add {
+            background: #fff;
+            border: 3px solid #dfe8f1;
+            border-radius: 20px;
+            padding: 9px;
+            min-height: 140px;
+            cursor: pointer
+        }
+
+        .s4-add img {
+            width: 100%;
+            height: 85px;
+            object-fit: contain
+        }
+
+        .s4-add b {
+            display: block
+        }
+
+        .s4-track {
+            min-height: 100px;
+            border: 4px dashed #b8cedd;
+            border-radius: 22px;
+            background: #f8fbfd;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            overflow-x: auto
+        }
+
+        .s4-chip {
+            flex: 0 0 auto;
+            width: 68px;
+            height: 66px;
+            border-radius: 14px;
+            background: #fff;
+            border: 2px solid #dce7ef;
+            display: grid;
+            place-items: center;
+            font-size: 2rem
+        }
+
+        .s4-seq-explain {
+            width: min(1000px, 100%);
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 20px;
+            align-items: center
+        }
+
+        .s4-sequence-word {
+            background: #fff;
+            border: 3px solid #dfe8f1;
+            border-radius: 26px;
+            padding: 22px;
+            text-align: center
+        }
+
+        .s4-sequence-word strong {
+            display: block;
+            color: var(--purple);
+            font-size: clamp(2.8rem, 5vw, 4.8rem)
+        }
+
+        .s4-sequence-word p {
+            color: #61768b;
+            font-size: 1.15rem
+        }
+
+        .s4-demo {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center
+        }
+
+        .s4-demo span {
+            background: #edf7ff;
+            border: 2px solid #cfe4f8;
+            border-radius: 13px;
+            padding: 8px 12px;
+            font-weight: 700
+        }
+
+        @media(max-width:1050px) {
+
+            .s34-two,
+            .s4-story,
+            .s4-maze-layout,
+            .s4-seq-explain {
+                grid-template-columns: 1fr
+            }
+
+            .s4-cmd-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+
+        @media(max-width:700px) {
+
+            .session-3.cover-slide .cover-image,
+            .session-4.cover-slide .cover-image {
+                width: min(78vw, 430px);
+                max-height: 260px
+            }
+
+            .s3-key-grid,
+            .s3-fix-grid,
+            .s4-simon,
+            .s4-count-grid {
+                grid-template-columns: 1fr
+            }
+
+            .s3-key-card {
+                min-height: 180px;
+                display: grid;
+                grid-template-columns: 140px 1fr;
+                text-align: left
+            }
+
+            .s3-key-card img {
+                height: 130px
+            }
+
+            .s3-find-options {
+                gap: 7px
+            }
+
+            .s3-find-option {
+                min-height: 160px;
+                padding: 7px
+            }
+
+            .s3-find-option img {
+                height: 100px
+            }
+
+            .s3-letter-layout {
+                grid-template-columns: 1fr
+            }
+
+            .s3-letter-target {
+                min-height: 135px
+            }
+
+            .s3-letter-target strong {
+                font-size: 5rem
+            }
+
+            .vk {
+                padding: 7px;
+                gap: 4px
+            }
+
+            .vk-row {
+                gap: 3px
+            }
+
+            .vk-key {
+                min-width: 25px;
+                height: 38px;
+                padding: 0 4px;
+                font-size: .7rem
+            }
+
+            .vk-key.space {
+                min-width: 150px
+            }
+
+            .vk-key.wide {
+                min-width: 62px
+            }
+
+            .s3-prompt,
+            .s3-field {
+                grid-template-columns: 1fr
+            }
+
+            .s3-answer {
+                min-width: 0
+            }
+
+            .s4-cmd-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 7px
+            }
+
+            .s4-cmd-card {
+                min-height: 165px;
+                padding: 7px
+            }
+
+            .s4-cmd-card img {
+                height: 105px
+            }
+
+            .robo-maze {
+                --cell: min(13vw, 58px)
+            }
+
+            .s4-palette {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .s4-add {
+                min-height: 100px
+            }
+
+            .s4-add img {
+                height: 58px
+            }
+        }
     </style>
 </head>
 
@@ -1968,6 +2862,8 @@
         <select id="sessionSelect" aria-label="Select session">
             <option value="1">Session 1 — Digital World</option>
             <option value="2">Session 2 — Mouse Adventure</option>
+            <option value="3">Session 3 — Keyboard Magic</option>
+            <option value="4">Session 4 — Be the Robot</option>
         </select>
     </div>
 
@@ -2501,6 +3397,539 @@
             <div class="feedback" id="feelFeedback2"></div>
         </section>
 
+        <!-- ================= SESSION 3 ================= -->
+        <section class="slide cover-slide session-3" data-session="3" data-title="Keyboard Magic">
+            <div class="cover-scene">
+                <div class="hero-badge">SESSION 3 • KEYBOARD MAGIC</div><img class="cover-image"
+                    src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/203faa0e-72d0-4032-aacd-376d49c41c6f.png"
+                    alt="">
+                <h1 class="display-title">Ready for <span>Keyboard Magic?</span></h1>
+                <p class="hero-subtitle">Today our fingers will find, press, type, and fix.</p>
+            </div>
+        </section>
+
+        <section class="slide session-3" data-session="3" data-title="Wake Up Your Fingers">
+            <div class="slide-head center compact"><span class="kicker">WARM-UP</span>
+                <h2>Wake Up Your Fingers!</h2>
+                <p>Show both hands. Wiggle every finger.</p>
+            </div>
+            <div class="s34-two">
+                <div class="s34-panel"><img
+                        src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/f9af28fa-8ab9-4781-ba0a-6099174d8182.png"
+                        alt=""></div>
+                <div class="s3-steps">
+                    <div class="s3-step"><i>1</i><b>Show 10 fingers.</b></div>
+                    <div class="s3-step"><i>2</i><b>Wiggle every finger.</b></div>
+                    <div class="s3-step"><i>3</i><b>Get ready to type.</b></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide session-3" data-session="3" data-title="Hands Ready">
+            <div class="slide-head center compact"><span class="kicker">READY POSITION</span>
+                <h2>Hands Ready!</h2>
+                <p>Look at the picture. Copy the three steps.</p>
+            </div>
+            <div class="s34-two">
+                <div class="s34-panel"><img
+                        src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/88faf2ba-ae0a-45bb-8048-7e22b10118a8.png"
+                        alt=""></div>
+                <div class="s3-steps">
+                    <div class="s3-step"><i>1</i><b>Hands up.</b></div>
+                    <div class="s3-step"><i>2</i><b>Hands above the keyboard.</b></div>
+                    <div class="s3-step"><i>3</i><b>Type, type, type!</b></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide session-3" data-session="3" data-title="Today We Will">
+            <div class="slide-head center"><span class="kicker">TODAY</span>
+                <h2>What Will We Do Today?</h2>
+                <p>We will use the keyboard to find letters and make words.</p>
+            </div>
+            <div class="agenda-grid">
+                <div class="agenda-card blue"><b>01</b><span>🔎</span>
+                    <h3>Find</h3>
+                    <p>Find letters and keys.</p>
+                </div>
+                <div class="agenda-card orange"><b>02</b><span>👆</span>
+                    <h3>Press</h3>
+                    <p>Press one key gently.</p>
+                </div>
+                <div class="agenda-card purple"><b>03</b><span>✍️</span>
+                    <h3>Type</h3>
+                    <p>Make names and words.</p>
+                </div>
+                <div class="agenda-card green"><b>04</b><span>🛠️</span>
+                    <h3>Fix</h3>
+                    <p>Fix little mistakes.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide session-3" data-session="3" data-title="Meet the Keyboard">
+            <div class="slide-head center compact"><span class="kicker">LOOK CLOSELY</span>
+                <h2>Meet the Keyboard</h2>
+                <p>Letters live here. We press keys to tell the computer what we want.</p>
+            </div>
+            <div class="keyboard-big-card"><img
+                    src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/203faa0e-72d0-4032-aacd-376d49c41c6f.png"
+                    alt=""></div>
+        </section>
+
+        <section class="slide session-3" data-session="3" data-title="Three Important Keys">
+            <div class="slide-head center compact"><span class="kicker">SPECIAL KEYS</span>
+                <h2>3 Important Keys</h2>
+                <p>Tap each key to hear what it does.</p>
+            </div>
+            <div class="s3-key-grid"><button class="s3-key-card s3-special"
+                    data-say="Backspace. Backspace erases one thing."><img
+                        src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/a2e733fa-0eab-444a-bf1d-de1d54f5c45f.png"
+                        alt=""><b>BACKSPACE</b><small>Oops? Erase one.</small></button><button
+                    class="s3-key-card s3-special" data-say="Spacebar. Spacebar makes a space between words."><img
+                        src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/c4420096-98f9-4f83-8f67-60fb35f3d205.png"
+                        alt=""><b>SPACEBAR</b><small>Make a space.</small></button><button
+                    class="s3-key-card s3-special" data-say="Enter. Enter says I am ready."><img
+                        src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/c4420096-98f9-4f83-8f67-60fb35f3d205.png"
+                        alt=""><b>ENTER</b><small>Ready? Go!</small></button></div>
+        </section>
+
+        <section class="slide session-3" data-session="3" data-title="Show Me the Key">
+            <div class="slide-head center compact"><span class="kicker">POINT & TAP</span>
+                <h2>Show Me the Key!</h2>
+                <p>Listen to the question. Tap the right key.</p>
+            </div>
+            <div class="s3-find">
+                <div class="s3-find-q" id="findKeyQuestion">Where is BACKSPACE?</div>
+                <div class="s3-find-options" id="findKeyOptions"></div>
+                <div class="feedback" id="findKeyFeedback"></div>
+            </div>
+        </section>
+
+        <section class="slide session-3" data-session="3" data-title="Letter Hunt">
+            <div class="slide-head center compact"><span class="kicker">LETTER HUNT</span>
+                <h2>Find the Letter!</h2>
+                <p>Tap the matching letter on the keyboard.</p>
+            </div>
+            <div class="s3-letter-layout">
+                <div class="s3-letter-target"><strong id="letterTarget">A</strong></div>
+                <div id="letterHuntKeyboard" class="vk"></div>
+            </div>
+            <div class="feedback" id="letterHuntFeedback">Find A.</div>
+        </section>
+
+        <section class="slide session-3" data-session="3" data-title="My Name Letters">
+            <div class="slide-head center compact"><span class="kicker">YOUR TURN</span>
+                <h2>Find the Letters in Your Name</h2>
+                <p>Type your name using the real keyboard. Watch each key light up.</p>
+            </div>
+            <div class="s3-live">
+                <div class="s3-prompt">
+                    <div><b>Type your name.</b><span>Press ENTER when you are done.</span></div>
+                    <div class="s3-answer" id="nameKeyboardAnswer">_</div>
+                </div>
+                <div id="nameKeyboard" class="vk"></div>
+            </div>
+            <div class="feedback" id="nameKeyboardFeedback">Start typing!</div>
+        </section>
+
+        <section class="slide session-3" data-session="3" data-title="Keyboard Lab">
+            <div class="slide-head center compact"><span class="kicker">LIVE KEYBOARD</span>
+                <h2>Keyboard Lab!</h2>
+                <p>Type the answer. Press ENTER for the next question.</p>
+            </div>
+            <div class="s3-live">
+                <div class="s3-prompt">
+                    <div><b id="labPrompt">Type your age.</b><span>Every key you press will light up.</span></div>
+                    <div class="s3-answer" id="labAnswer">_</div>
+                </div>
+                <div id="labKeyboard" class="vk"></div>
+            </div>
+            <div class="feedback" id="labFeedback">Type, then press ENTER.</div>
+        </section>
+
+        <section class="slide session-3" data-session="3" data-title="Fix It">
+            <div class="slide-head center compact"><span class="kicker">BACKSPACE PRACTICE</span>
+                <h2>Oops! Fix It!</h2>
+                <p>Tap a word, then press BACKSPACE once.</p>
+            </div>
+            <div class="s3-fix-grid">
+                <div class="s3-fix-card"><b>Make CATT become CAT</b>
+                    <div class="s3-fix-word fix-word" data-answer="CAT">CATT</div><img
+                        src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/a2e733fa-0eab-444a-bf1d-de1d54f5c45f.png"
+                        alt="">
+                </div>
+                <div class="s3-fix-card"><b>Make DOGG become DOG</b>
+                    <div class="s3-fix-word fix-word" data-answer="DOG">DOGG</div><img
+                        src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/a2e733fa-0eab-444a-bf1d-de1d54f5c45f.png"
+                        alt="">
+                </div>
+            </div>
+            <div class="feedback" id="fixKeyboardFeedback">Choose one word.</div>
+        </section>
+
+        <section class="slide session-3" data-session="3" data-title="Space Time">
+            <div class="slide-head center compact"><span class="kicker">SPACEBAR PRACTICE</span>
+                <h2>Space Time!</h2>
+                <p>Tap a pair. Then press SPACEBAR.</p>
+            </div>
+            <div class="s3-fix-grid"><button class="s3-fix-card space-word" data-answer="RED APPLE"><b>REDAPPLE</b>
+                    <div class="s3-fix-word">RED|APPLE</div><small>Put a space in the middle.</small>
+                </button><button class="s3-fix-card space-word" data-answer="BLUE CAR"><b>BLUECAR</b>
+                    <div class="s3-fix-word">BLUE|CAR</div><small>Put a space in the middle.</small>
+                </button></div>
+            <div class="feedback" id="spaceKeyboardFeedback">Choose one word pair.</div>
+        </section>
+
+        <section class="slide session-3" data-session="3" data-title="Type About Me">
+            <div class="slide-head center compact"><span class="kicker">TYPE & ENTER</span>
+                <h2>Type About Me</h2>
+                <p>Type your answer. Press ENTER when you are done.</p>
+            </div>
+            <div class="s3-form">
+                <div class="s3-field"><label for="s3NameInput">My name is...</label><input id="s3NameInput"
+                        autocomplete="off" placeholder="Type your name"></div>
+                <div class="s3-field"><label for="s3FavInput">My favorite thing is...</label><input id="s3FavInput"
+                        autocomplete="off" placeholder="Type one favorite thing"></div>
+            </div>
+            <div class="feedback" id="typingFormFeedback">Use letters, Spacebar, Backspace, and Enter.</div>
+        </section>
+
+        <section class="slide session-3" data-session="3" data-title="Letter Catch">
+            <div class="slide-head center compact"><span class="kicker">MAIN GAME</span>
+                <h2>Letter Catch!</h2>
+                <p>Press the falling letter before it reaches the bottom.</p>
+            </div>
+            <div class="s3-game">
+                <div class="s3-game-hud">
+                    <div>⭐ Score: <span id="letterRainScore">0</span></div><button class="primary-btn"
+                        id="startLetterRain">Start Game ▶</button>
+                    <div>❤️ Miss: <span id="letterRainMiss">0</span>/5</div>
+                </div><canvas id="letterRainCanvas"></canvas>
+            </div>
+            <div class="feedback" id="letterRainFeedback">Press START, then use your keyboard.</div>
+        </section>
+
+        <section class="slide session-3" data-session="3" data-title="Remember Keyboard">
+            <div class="slide-head center"><span class="kicker">REVIEW</span>
+                <h2>Remember?</h2>
+                <p>Tap each card to reveal the answer.</p>
+            </div>
+            <div class="review-grid"><button class="review-card s34-review">
+                    <div class="q">Make a space?</div>
+                    <div class="a">SPACEBAR</div>
+                </button><button class="review-card s34-review">
+                    <div class="q">Erase one?</div>
+                    <div class="a">BACKSPACE</div>
+                </button><button class="review-card s34-review">
+                    <div class="q">Ready? Go!</div>
+                    <div class="a">ENTER</div>
+                </button></div>
+        </section>
+
+        <section class="slide session-3" data-session="3" data-title="Keyboard Feelings">
+            <div class="slide-head center compact"><span class="kicker">CHECK-IN</span>
+                <h2>How Do You Feel?</h2>
+                <p>Tap your feeling today.</p>
+            </div>
+            <div class="feeling-grid"><button class="feeling-card s34-feel" data-feel="Excited"><img
+                        src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/604519df-bf8c-4dbe-a3d3-06e246e46987.png"
+                        alt=""><b>EXCITED</b></button><button class="feeling-card s34-feel" data-feel="Happy"><img
+                        src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/aa90e51f-091d-45cc-ae6f-3c3f1dbc1a7e.png"
+                        alt=""><b>HAPPY</b></button><button class="feeling-card s34-feel" data-feel="Okay"><img
+                        src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/045e11e9-5d50-45d1-93b6-a47d3d8976d1.png"
+                        alt=""><b>OKAY</b></button><button class="feeling-card s34-feel" data-feel="Tired"><img
+                        src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/71e00b1c-7030-4d60-8197-6b0146092cc2.png"
+                        alt=""><b>TIRED</b></button></div>
+            <div class="feedback" id="feelFeedback3"></div>
+        </section>
+
+        <!-- ================= SESSION 4 ================= -->
+        <section class="slide cover-slide session-4" data-session="4" data-title="Be the Robot">
+            <div class="cover-scene">
+                <div class="hero-badge">SESSION 4 • BE THE ROBOT</div><img class="cover-image"
+                    src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/4c274f75-3393-4c57-8d41-ae6a9bf5aa61.png"
+                    alt="">
+                <h1 class="display-title">Be the <span>Robot!</span></h1>
+                <p class="hero-subtitle">Today we will give instructions one step at a time.</p>
+            </div>
+        </section>
+
+        <section class="slide session-4" data-session="4" data-title="Simon Says">
+            <div class="slide-head center compact"><span class="kicker">STAND UP!</span>
+                <h2>Simon Says...</h2>
+                <p>Move only when you hear “Simon says”. One step only!</p>
+            </div>
+            <div class="s4-simon">
+                <div class="s4-command-box">
+                    <div class="s4-command-text" id="simonCommand">Ready?</div>
+                    <div class="feedback" id="simonFeedback">Press NEXT COMMAND.</div><button class="primary-btn"
+                        id="nextSimonCommand">Next Command ▶</button>
+                </div>
+                <div class="s4-rules">
+                    <div class="s4-rule"><b>✅ “Simon says move forward.”</b><span>Take ONE step forward.</span></div>
+                    <div class="s4-rule"><b>🛑 “Move left.”</b><span>No “Simon says”? FREEZE!</span></div>
+                    <div class="s4-rule"><b>👀 Listen carefully.</b><span>Forward • Back • Left • Right</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide session-4" data-session="4" data-title="Partner Mission">
+            <div class="slide-head center compact"><span class="kicker">PAIR GAME</span>
+                <h2>Help Your Friend Reach the Table</h2>
+                <p>One friend gives ONE command. One friend moves ONE step.</p>
+            </div>
+            <div class="s34-two">
+                <div class="s34-panel">
+                    <div style="font-size:7rem">🧒🗣️</div>
+                    <h3>COMMANDER</h3>
+                    <p>Say one clear instruction.</p>
+                </div>
+                <div class="s34-panel">
+                    <div style="font-size:6rem">🧒 ➡️ 🪑</div>
+                    <h3>ROBOT FRIEND</h3>
+                    <p>Move one step at a time until the table.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide session-4" data-session="4" data-title="Why Instructions Matter">
+            <div class="slide-head center compact"><span class="kicker">BIG IDEA</span>
+                <h2>Machines Cannot Guess</h2>
+                <p>A computer or robot needs a clear instruction.</p>
+            </div>
+            <div class="s34-two">
+                <div class="s34-panel" style="background:#fff5ef">
+                    <div style="font-size:6rem">🤷‍♀️</div>
+                    <h3>“Go over there.”</h3>
+                    <p>Where? How far? The robot does not know.</p>
+                </div>
+                <div class="s34-panel" style="background:#effaf5">
+                    <div style="font-size:6rem">🤖➡️</div>
+                    <h3>“Move RIGHT one step.”</h3>
+                    <p>Clear! The robot knows exactly what to do.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide session-4" data-session="4" data-title="Meet Robo">
+            <div class="slide-head center compact"><span class="kicker">NEW FRIEND</span>
+                <h2>Meet Robo!</h2>
+                <p>Robo moves only when we give a clear command.</p>
+            </div>
+            <div class="s4-story">
+                <div class="s4-story-img"><img
+                        src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/69e3ffd3-3d8b-4ddb-864d-76f3e8923b64.png"
+                        alt=""></div>
+                <div class="s4-bubbles">
+                    <div class="s4-bubble"><strong>Hi! I am Robo.</strong><br>I can move UP, DOWN, LEFT, and RIGHT.
+                    </div>
+                    <div class="s4-bubble">I cannot guess the way. <strong>You must tell me every step.</strong></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide session-4" data-session="4" data-title="Robo Is Broken">
+            <div class="slide-head center compact"><span class="kicker">OH NO!</span>
+                <h2>Robo Is Broken!</h2>
+                <p>Robo needs our help.</p>
+            </div>
+            <div class="s4-story">
+                <div class="s4-story-img"><img
+                        src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/ada90756-0ba8-486f-ab22-279361814538.png"
+                        alt=""></div>
+                <div class="s4-bubbles">
+                    <div class="s4-bubble">Robo cannot move by himself.</div>
+                    <div class="s4-bubble">Guide Robo to the <strong>repair gear</strong>.</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide session-4" data-session="4" data-title="Repair Gear">
+            <div class="slide-head center compact"><span class="kicker">YOUR MISSION</span>
+                <h2>Find the Repair Gear!</h2>
+                <p>If Robo reaches the gear, we can fix him.</p>
+            </div>
+            <div class="s34-two">
+                <div class="s34-panel"><img
+                        src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/ada90756-0ba8-486f-ab22-279361814538.png"
+                        alt=""></div>
+                <div class="s34-panel"><img
+                        src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/62e12688-e557-4165-95a6-26a4d667d948.png"
+                        alt=""></div>
+            </div>
+        </section>
+
+        <section class="slide session-4" data-session="4" data-title="Robot Commands">
+            <div class="slide-head center compact"><span class="kicker">ROBO'S LANGUAGE</span>
+                <h2>4 Commands</h2>
+                <p>Tap a card. Say the direction. Move one step.</p>
+            </div>
+            <div class="s4-cmd-grid"><button class="s4-cmd-card" data-label="UP"><img
+                        src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/ae101315-0ea7-415f-9461-faae33b82b7a.png"
+                        alt=""><b>UP ↑</b></button><button class="s4-cmd-card" data-label="DOWN"><img
+                        src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/5a4b72f0-887b-47ae-8636-60980f81a712.png"
+                        alt=""><b>DOWN ↓</b></button><button class="s4-cmd-card" data-label="LEFT"><img
+                        src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/0ac6302b-ae91-48a4-bcf2-892b9859f718.png"
+                        alt=""><b>LEFT ←</b></button><button class="s4-cmd-card" data-label="RIGHT"><img
+                        src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/9fa0a2a4-2ac4-4055-a2a2-8edae1006664.png"
+                        alt=""><b>RIGHT →</b></button></div>
+            <div class="feedback" id="s4CmdFeedback">Tap one command.</div>
+        </section>
+
+        <section class="slide session-4" data-session="4" data-title="Robo Maze">
+            <div class="slide-head center compact"><span class="kicker">LOOK FIRST</span>
+                <h2>Robo's Maze</h2>
+                <p>Robo starts at the bottom. The gear is at the top.</p>
+            </div>
+            <div id="staticRoboMaze" class="robo-maze"></div>
+            <div class="feedback">Look at the whole maze before moving.</div>
+        </section>
+
+        <section class="slide session-4" data-session="4" data-title="Draw the Route">
+            <div class="slide-head center compact"><span class="kicker">PLAN FIRST</span>
+                <h2>Draw the Path</h2>
+                <p>Tap safe boxes to mark Robo's path.</p>
+            </div>
+            <div class="s4-maze-layout">
+                <div id="drawRoboMaze" class="robo-maze"></div>
+                <div class="s4-tip">
+                    <h3>Think slowly.</h3>
+                    <p>Tap one safe box at a time. The next box must touch your path.</p>
+                    <div class="button-row"><button class="secondary-btn" id="clearMazePath">Clear Path ↻</button></div>
+                </div>
+            </div>
+            <div class="feedback" id="mazePathFeedback">Start next to Robo.</div>
+        </section>
+
+        <section class="slide session-4" data-session="4" data-title="Count the Steps">
+            <div class="slide-head center compact"><span class="kicker">COUNT THE BOXES</span>
+                <h2>How Many Steps?</h2>
+                <p>One box = one step.</p>
+            </div>
+            <div class="s4-count-grid">
+                <div class="s4-count" data-answer="3">
+                    <div class="dir">⬆️</div><b>UP</b><small>How many UP first?</small>
+                    <div class="counter"><button class="minus">−</button>
+                        <div class="val">0</div><button class="plus">+</button>
+                    </div>
+                </div>
+                <div class="s4-count" data-answer="2">
+                    <div class="dir">➡️</div><b>RIGHT</b><small>How many RIGHT next?</small>
+                    <div class="counter"><button class="minus">−</button>
+                        <div class="val">0</div><button class="plus">+</button>
+                    </div>
+                </div>
+                <div class="s4-count" data-answer="1">
+                    <div class="dir">⬆️</div><b>UP</b><small>How many UP next?</small>
+                    <div class="counter"><button class="minus">−</button>
+                        <div class="val">0</div><button class="plus">+</button>
+                    </div>
+                </div>
+                <div class="s4-count" data-answer="3">
+                    <div class="dir">➡️</div><b>RIGHT</b><small>How many RIGHT to the gear?</small>
+                    <div class="counter"><button class="minus">−</button>
+                        <div class="val">0</div><button class="plus">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="feedback" id="countStepsFeedback">Count the boxes on the path.</div>
+        </section>
+
+        <section class="slide session-4" data-session="4" data-title="Build the Sequence">
+            <div class="slide-head center compact"><span class="kicker">ARRANGE THE COMMANDS</span>
+                <h2>Build Robo's Instructions</h2>
+                <p>Tap command cards to put them in order.</p>
+            </div>
+            <div class="s4-seq">
+                <div class="s4-palette"><button class="s4-add" data-dir="U"><img
+                            src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/ae101315-0ea7-415f-9461-faae33b82b7a.png"
+                            alt=""><b>UP</b></button><button class="s4-add" data-dir="D"><img
+                            src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/0ac6302b-ae91-48a4-bcf2-892b9859f718.png"
+                            alt=""><b>DOWN</b></button><button class="s4-add" data-dir="L"><img
+                            src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/0ac6302b-ae91-48a4-bcf2-892b9859f718.png"
+                            alt=""><b>LEFT</b></button><button class="s4-add" data-dir="R"><img
+                            src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/62e12688-e557-4165-95a6-26a4d667d948.png"
+                            alt=""><b>RIGHT</b></button></div>
+                <div id="sequenceTrack" class="s4-track"></div>
+                <div class="button-row"><button class="secondary-btn" id="undoSequence">Undo</button><button
+                        class="secondary-btn" id="clearSequence">Clear</button><button class="primary-btn"
+                        id="runSequence">Run Robo ▶</button></div>
+            </div>
+            <div class="feedback" id="sequenceFeedback">Build the route one command at a time.</div>
+        </section>
+
+        <section class="slide session-4" data-session="4" data-title="What Is Sequence">
+            <div class="slide-head center compact"><span class="kicker">NEW WORD</span>
+                <h2>What Did We Just Do?</h2>
+                <p>We put instructions in the correct order.</p>
+            </div>
+            <div class="s4-seq-explain">
+                <div id="runRoboMaze" class="robo-maze"></div>
+                <div class="s4-sequence-word"><strong>SEQUENCE</strong>
+                    <p>A sequence is instructions in the correct order.</p>
+                    <div class="s4-demo"><span>1️⃣ UP</span><span>2️⃣ UP</span><span>3️⃣ RIGHT</span></div>
+                </div>
+            </div>
+            <div class="button-row"><button class="primary-btn" id="playCorrectSequence">Play Robo's Sequence ▶</button>
+            </div>
+            <div class="feedback" id="runSequenceFeedback">Watch the instructions run in order.</div>
+        </section>
+
+        <section class="slide session-4" data-session="4" data-title="Friend Route">
+            <div class="slide-head center compact"><span class="kicker">YOUR TURN</span>
+                <h2>Make a Route for a Friend</h2>
+                <p>Now you are the programmer. Your friend is the robot.</p>
+            </div>
+            <div class="s34-two">
+                <div class="s34-panel">
+                    <div style="font-size:7rem">🧒🗣️</div>
+                    <h3>PROGRAMMER</h3>
+                    <p>Give clear commands: Forward • Left • Right • Stop.</p>
+                </div>
+                <div class="s34-panel">
+                    <div style="font-size:7rem">🤖🧒</div>
+                    <h3>ROBOT FRIEND</h3>
+                    <p>Follow only the commands. One step at a time.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide session-4" data-session="4" data-title="Remember Sequence">
+            <div class="slide-head center"><span class="kicker">REVIEW</span>
+                <h2>Remember?</h2>
+                <p>Tap each card to reveal the answer.</p>
+            </div>
+            <div class="review-grid"><button class="review-card s34-review">
+                    <div class="q">How far is one command?</div>
+                    <div class="a">ONE STEP</div>
+                </button><button class="review-card s34-review">
+                    <div class="q">Can Robo guess?</div>
+                    <div class="a">NO. BE CLEAR!</div>
+                </button><button class="review-card s34-review">
+                    <div class="q">Instructions in the correct order?</div>
+                    <div class="a">SEQUENCE</div>
+                </button></div>
+        </section>
+
+        <section class="slide session-4" data-session="4" data-title="Robot Feelings">
+            <div class="slide-head center compact"><span class="kicker">CHECK-IN</span>
+                <h2>How Do You Feel?</h2>
+                <p>Tap your feeling today.</p>
+            </div>
+            <div class="feeling-grid"><button class="feeling-card s34-feel" data-feel="Excited"><img
+                        src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/604519df-bf8c-4dbe-a3d3-06e246e46987.png"
+                        alt=""><b>EXCITED</b></button><button class="feeling-card s34-feel" data-feel="Happy"><img
+                        src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/aa90e51f-091d-45cc-ae6f-3c3f1dbc1a7e.png"
+                        alt=""><b>HAPPY</b></button><button class="feeling-card s34-feel" data-feel="Okay"><img
+                        src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/045e11e9-5d50-45d1-93b6-a47d3d8976d1.png"
+                        alt=""><b>OKAY</b></button><button class="feeling-card s34-feel" data-feel="Tired"><img
+                        src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/71e00b1c-7030-4d60-8197-6b0146092cc2.png"
+                        alt=""><b>TIRED</b></button></div>
+            <div class="feedback" id="feelFeedback4"></div>
+        </section>
+
+
         <footer class="navigation">
             <div class="nav-title" id="navTitle"></div>
             <div class="nav-controls">
@@ -2622,6 +4051,78 @@
         sessionSelect.onchange = () => {
             currentSession = Number(sessionSelect.value);
             currentIndex = 0;
+            /* ===== SESSION 3 + 4 INTERACTIONS ===== */
+            const s3Rows = [['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'], ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'], ['Z', 'X', 'C', 'V', 'B', 'N', 'M'], ['BACKSPACE', 'SPACE', 'ENTER']];
+            function vkClass(k) { return k === 'SPACE' ? 'vk-key space' : (k === 'BACKSPACE' || k === 'ENTER' ? 'vk-key wide' : 'vk-key') }
+            function vkLabel(k) { return k === 'SPACE' ? 'SPACEBAR' : k === 'BACKSPACE' ? '⌫ BACKSPACE' : k === 'ENTER' ? '↵ ENTER' : k }
+            function buildVK(id, clickable = false, handler = null) { const box = document.getElementById(id); if (!box) return; box.innerHTML = s3Rows.map(row => `<div class="vk-row">${row.map(k => `<button type="button" class="${vkClass(k)}" data-key="${k}" ${clickable ? '' : 'tabindex="-1"'}>${vkLabel(k)}</button>`).join('')}</div>`).join(''); if (clickable && handler) box.querySelectorAll('.vk-key').forEach(k => k.onclick = () => handler(k.dataset.key, k)); }
+            function flashVK(id, key) { const box = document.getElementById(id); if (!box) return; const k = key === ' ' ? 'SPACE' : key === 'Backspace' ? 'BACKSPACE' : key === 'Enter' ? 'ENTER' : key.toUpperCase(); const el = box.querySelector(`[data-key="${k}"]`); if (!el) return; el.classList.add('active'); setTimeout(() => el.classList.remove('active'), 180) }
+            function activeTitle(t) { const a = document.querySelector('.slide.active'); return !!a && a.dataset.title === t }
+
+            document.querySelectorAll('.s3-special').forEach(b => b.onclick = () => { document.querySelectorAll('.s3-special').forEach(x => x.classList.remove('active')); b.classList.add('active'); say(b.dataset.say) });
+
+            const specialKeys = [
+                { key: 'BACKSPACE', q: 'Where is BACKSPACE?', image: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/a2e733fa-0eab-444a-bf1d-de1d54f5c45f.png' },
+                { key: 'SPACEBAR', q: 'Where is SPACEBAR?', image: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/c4420096-98f9-4f83-8f67-60fb35f3d205.png' },
+                { key: 'ENTER', q: 'Where is ENTER?', image: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/c4420096-98f9-4f83-8f67-60fb35f3d205.png' }
+            ];
+            let findKeyIndex = 0;
+            function resetFindKey() { findKeyIndex = 0; renderFindKey() }
+            function renderFindKey() { const q = document.getElementById('findKeyQuestion'), o = document.getElementById('findKeyOptions'), f = document.getElementById('findKeyFeedback'); if (!q || !o || !f) return; if (findKeyIndex >= specialKeys.length) { q.textContent = 'Great job!'; o.innerHTML = ''; f.textContent = '⭐ You found all 3 special keys!'; f.className = 'feedback success'; return } const cur = specialKeys[findKeyIndex]; q.textContent = cur.q; f.textContent = 'Point first. Then tap.'; f.className = 'feedback'; o.innerHTML = shuffled(specialKeys).map(x => `<button class="s3-find-option" data-key="${x.key}"><img src="${x.image}" alt=""><b>${x.key}</b></button>`).join(''); o.querySelectorAll('button').forEach(b => b.onclick = () => { if (b.dataset.key === cur.key) { b.classList.add('correct'); f.textContent = '⭐ Yes!'; f.className = 'feedback success'; say('Yes!'); o.querySelectorAll('button').forEach(x => x.disabled = true); setTimeout(() => { findKeyIndex++; renderFindKey() }, 600) } else { b.classList.add('wrong'); f.textContent = 'Look again.'; f.className = 'feedback error'; setTimeout(() => b.classList.remove('wrong'), 350) } }) }
+
+            const huntLetters = ['A', 'M', 'S', 'B', 'T', 'R', 'K', 'P']; let huntIndex = 0;
+            function resetLetterHunt() { huntIndex = 0; buildVK('letterHuntKeyboard', true, (k, el) => { if (k.length !== 1) return; const target = huntLetters[huntIndex], f = document.getElementById('letterHuntFeedback'); if (k === target) { el.classList.add('active'); f.textContent = `⭐ ${target}!`; f.className = 'feedback success'; say(target); setTimeout(() => { huntIndex = (huntIndex + 1) % huntLetters.length; document.getElementById('letterTarget').textContent = huntLetters[huntIndex]; f.textContent = `Find ${huntLetters[huntIndex]}.`; f.className = 'feedback' }, 450) } else { f.textContent = `Find ${target}.`; f.className = 'feedback error' } }); document.getElementById('letterTarget').textContent = huntLetters[0]; document.getElementById('letterHuntFeedback').textContent = 'Find A.' }
+            buildVK('nameKeyboard'); buildVK('labKeyboard'); resetLetterHunt();
+
+            let nameTyped = '', labTyped = '', labIndex = 0; const labPrompts = ['Type your age.', 'Type your favorite color.', 'Type your pet. If you do not have one, type DOG or CAT.'];
+            function resetName() { nameTyped = ''; const a = document.getElementById('nameKeyboardAnswer'), f = document.getElementById('nameKeyboardFeedback'); if (a) a.textContent = '_'; if (f) { f.textContent = 'Start typing!'; f.className = 'feedback' } }
+            function resetLab() { labTyped = ''; labIndex = 0; document.getElementById('labPrompt').textContent = labPrompts[0]; document.getElementById('labAnswer').textContent = '_'; const f = document.getElementById('labFeedback'); f.textContent = 'Type, then press ENTER.'; f.className = 'feedback' }
+
+            document.addEventListener('keydown', e => {
+                const a = document.querySelector('.slide.active'); if (!a) return; if (a.dataset.session === '3' && ['Backspace', 'Enter', ' '].includes(e.key)) e.preventDefault();
+                if (activeTitle('My Name Letters')) { flashVK('nameKeyboard', e.key); if (/^[a-zA-Z]$/.test(e.key)) nameTyped += e.key.toUpperCase(); else if (e.key === 'Backspace') nameTyped = nameTyped.slice(0, -1); else if (e.key === ' ') nameTyped += ' '; else if (e.key === 'Enter' && nameTyped.trim()) { const f = document.getElementById('nameKeyboardFeedback'); f.textContent = `⭐ Hello, ${nameTyped.trim()}!`; f.className = 'feedback success'; say(`Hello ${nameTyped.trim()}`) } document.getElementById('nameKeyboardAnswer').textContent = nameTyped || '_' }
+                if (activeTitle('Keyboard Lab')) { flashVK('labKeyboard', e.key); if (/^[a-zA-Z0-9]$/.test(e.key)) labTyped += e.key.toUpperCase(); else if (e.key === ' ') labTyped += ' '; else if (e.key === 'Backspace') labTyped = labTyped.slice(0, -1); else if (e.key === 'Enter' && labTyped.trim()) { const f = document.getElementById('labFeedback'); f.textContent = `⭐ ${labTyped.trim()} — nice!`; f.className = 'feedback success'; say('Nice!'); labIndex++; labTyped = ''; if (labIndex >= labPrompts.length) { document.getElementById('labPrompt').textContent = 'All done!'; document.getElementById('labAnswer').textContent = '⭐'; f.textContent = 'You used letters, numbers, Backspace, Spacebar, and Enter!'; return } setTimeout(() => { document.getElementById('labPrompt').textContent = labPrompts[labIndex]; document.getElementById('labAnswer').textContent = '_'; f.textContent = 'Type, then press ENTER.'; f.className = 'feedback' }, 550); return } document.getElementById('labAnswer').textContent = labTyped || '_' }
+            });
+
+            let fixSelected = null; document.querySelectorAll('.fix-word').forEach(w => w.onclick = () => { document.querySelectorAll('.fix-word').forEach(x => x.style.outline = ''); fixSelected = w; w.style.outline = '4px solid #ffd53d'; document.getElementById('fixKeyboardFeedback').textContent = 'Now press Backspace once.' });
+            document.addEventListener('keydown', e => { if (!activeTitle('Fix It') || e.key !== 'Backspace' || !fixSelected) return; e.preventDefault(); fixSelected.textContent = fixSelected.textContent.slice(0, -1); const f = document.getElementById('fixKeyboardFeedback'); if (fixSelected.textContent === fixSelected.dataset.answer) { f.textContent = '⭐ Fixed!'; f.className = 'feedback success'; fixSelected.style.outline = '4px solid #28b875'; say('Fixed!'); fixSelected = null } });
+
+            let spaceSelected = null; document.querySelectorAll('.space-word').forEach(c => c.onclick = () => { document.querySelectorAll('.space-word').forEach(x => x.style.outline = ''); spaceSelected = c; c.style.outline = '4px solid #ffd53d'; document.getElementById('spaceKeyboardFeedback').textContent = 'Now press Spacebar.' });
+            document.addEventListener('keydown', e => { if (!activeTitle('Space Time') || e.key !== ' ' || !spaceSelected) return; e.preventDefault(); spaceSelected.querySelector('.s3-fix-word').textContent = spaceSelected.dataset.answer; spaceSelected.style.outline = '4px solid #28b875'; const f = document.getElementById('spaceKeyboardFeedback'); f.textContent = '⭐ Perfect space!'; f.className = 'feedback success'; say('Perfect space!'); spaceSelected = null });
+
+            ['s3NameInput', 's3FavInput'].forEach(id => { const inp = document.getElementById(id); if (!inp) return; inp.addEventListener('keydown', e => { if (e.key === 'Enter' && inp.value.trim()) { e.preventDefault(); const f = document.getElementById('typingFormFeedback'); f.textContent = `⭐ ${inp.value.trim()} — nice typing!`; f.className = 'feedback success'; say('Nice typing!'); if (id === 's3NameInput') document.getElementById('s3FavInput').focus(); else inp.blur() } }) });
+
+            const rainCanvas = document.getElementById('letterRainCanvas'), rainCtx = rainCanvas.getContext('2d'); let rainRunning = false, rainItems = [], rainScore = 0, rainMiss = 0, rainFrame = null, rainTick = 0;
+            function prepRain() { const r = rainCanvas.getBoundingClientRect(); if (!r.width || !r.height) return; const d = Math.min(2, devicePixelRatio || 1); rainCanvas.width = r.width * d; rainCanvas.height = r.height * d; rainCtx.setTransform(d, 0, 0, d, 0, 0); rainCtx.clearRect(0, 0, r.width, r.height); rainCtx.fillStyle = '#536b82'; rainCtx.font = '700 24px Fredoka'; rainCtx.textAlign = 'center'; rainCtx.fillText('Press START and get ready!', r.width / 2, r.height / 2) }
+            function spawnRain() { const r = rainCanvas.getBoundingClientRect(), letters = 'ABCDEFGHJKLMNPQRSTUVXYZ'; rainItems.push({ letter: letters[Math.floor(Math.random() * letters.length)], x: 60 + Math.random() * (r.width - 120), y: -20, speed: 1.2 + Math.random() * .8 }) }
+            function rainLoop() { if (!rainRunning) return; const r = rainCanvas.getBoundingClientRect(); rainCtx.clearRect(0, 0, r.width, r.height); rainTick++; if (rainTick % 80 === 0 && rainItems.length < 3) spawnRain(); rainItems.forEach(x => { x.y += x.speed; rainCtx.beginPath(); rainCtx.fillStyle = '#fff'; rainCtx.strokeStyle = '#9fc6e8'; rainCtx.lineWidth = 3; rainCtx.arc(x.x, x.y, 34, 0, Math.PI * 2); rainCtx.fill(); rainCtx.stroke(); rainCtx.fillStyle = '#2f80ed'; rainCtx.font = '700 34px Fredoka'; rainCtx.textAlign = 'center'; rainCtx.textBaseline = 'middle'; rainCtx.fillText(x.letter, x.x, x.y) }); const missed = rainItems.filter(x => x.y > r.height + 35).length; if (missed) { rainMiss += missed; document.getElementById('letterRainMiss').textContent = rainMiss } rainItems = rainItems.filter(x => x.y <= r.height + 35); if (rainMiss >= 5) { rainRunning = false; document.getElementById('letterRainFeedback').textContent = `Game over. Score: ${rainScore}. Try again!`; prepRain(); return } rainFrame = requestAnimationFrame(rainLoop) }
+            function startRain() { cancelAnimationFrame(rainFrame); rainItems = []; rainScore = 0; rainMiss = 0; rainTick = 0; rainRunning = true; document.getElementById('letterRainScore').textContent = '0'; document.getElementById('letterRainMiss').textContent = '0'; document.getElementById('letterRainFeedback').textContent = 'Press the matching letter!'; spawnRain(); rainFrame = requestAnimationFrame(rainLoop) }
+            document.getElementById('startLetterRain').onclick = startRain; document.addEventListener('keydown', e => { if (!activeTitle('Letter Catch') || !rainRunning || !/^[a-zA-Z]$/.test(e.key)) return; const k = e.key.toUpperCase(), i = rainItems.findIndex(x => x.letter === k); if (i >= 0) { rainItems.splice(i, 1); rainScore++; document.getElementById('letterRainScore').textContent = rainScore; document.getElementById('letterRainFeedback').textContent = `⭐ ${k}!` } });
+
+            /* SESSION 4 */
+            const simonList = [['Simon says MOVE FORWARD!', 1], ['MOVE LEFT!', 0], ['Simon says MOVE RIGHT!', 1], ['MOVE BACK!', 0], ['Simon says MOVE BACK!', 1], ['Simon says MOVE LEFT!', 1], ['MOVE FORWARD!', 0]]; let simonIdx = -1;
+            function resetSimon() { simonIdx = -1; document.getElementById('simonCommand').textContent = 'Ready?'; const f = document.getElementById('simonFeedback'); f.textContent = 'Press NEXT COMMAND.'; f.className = 'feedback' }
+            document.getElementById('nextSimonCommand').onclick = () => { simonIdx = (simonIdx + 1) % simonList.length; const [txt, move] = simonList[simonIdx], c = document.getElementById('simonCommand'), f = document.getElementById('simonFeedback'); c.innerHTML = txt.startsWith('Simon says') ? `<span class="simon">Simon says</span>${txt.replace('Simon says', '')}` : txt; f.textContent = move ? 'MOVE ONE STEP!' : 'FREEZE!'; f.className = 'feedback ' + (move ? 'success' : 'error'); say(txt) };
+            document.querySelectorAll('.s4-cmd-card').forEach(b => b.onclick = () => { document.querySelectorAll('.s4-cmd-card').forEach(x => x.classList.remove('active')); b.classList.add('active'); document.getElementById('s4CmdFeedback').textContent = `${b.dataset.label} — one step!`; say(`${b.dataset.label}. One step.`) });
+
+            const rows = 5, cols = 6, start = [4, 0], goal = [0, 5], blocks = new Set(['3,1', '2,1', '1,3', '2,4', '3,4']); const seqCorrect = ['U', 'U', 'U', 'R', 'R', 'U', 'R', 'R', 'R']; const dirs = { U: { dr: -1, dc: 0, s: '⬆️' }, D: { dr: 1, dc: 0, s: '⬇️' }, L: { dr: 0, dc: -1, s: '⬅️' }, R: { dr: 0, dc: 1, s: '➡️' } };
+            function buildMaze(id, pos = start, path = new Set()) { const box = document.getElementById(id); if (!box) return; box.innerHTML = ''; for (let r = 0; r < rows; r++)for (let c = 0; c < cols; c++) { const k = `${r},${c}`, cell = document.createElement('div'); cell.className = 'maze-cell'; cell.dataset.r = r; cell.dataset.c = c; if (blocks.has(k)) cell.classList.add('blocked'); else { if (path.has(k)) cell.classList.add('mark'); if (r === pos[0] && c === pos[1]) cell.innerHTML = '<img src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/69e3ffd3-3d8b-4ddb-864d-76f3e8923b64.png" alt="">'; else if (r === goal[0] && c === goal[1]) cell.innerHTML = '<img src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/62e12688-e557-4165-95a6-26a4d667d948.png" alt="">' } box.appendChild(cell) } }
+            buildMaze('staticRoboMaze'); buildMaze('drawRoboMaze'); buildMaze('runRoboMaze');
+            let pathCells = [start]; function resetMazePath() { pathCells = [start]; buildMaze('drawRoboMaze'); wireMaze(); const f = document.getElementById('mazePathFeedback'); f.textContent = 'Start next to Robo.'; f.className = 'feedback' }
+            function wireMaze() { const box = document.getElementById('drawRoboMaze'); if (!box) return; box.querySelectorAll('.maze-cell:not(.blocked)').forEach(cell => cell.onclick = () => { const r = +cell.dataset.r, c = +cell.dataset.c, last = pathCells[pathCells.length - 1], dist = Math.abs(r - last[0]) + Math.abs(c - last[1]), f = document.getElementById('mazePathFeedback'); if (dist !== 1) { f.textContent = 'Choose the next box beside your path.'; f.className = 'feedback error'; return } if (pathCells.some(x => x[0] === r && x[1] === c)) return; pathCells.push([r, c]); buildMaze('drawRoboMaze', start, new Set(pathCells.map(x => `${x[0]},${x[1]}`))); wireMaze(); if (r === goal[0] && c === goal[1]) { f.textContent = '⭐ Path found!'; f.className = 'feedback success'; say('Path found!') } else { f.textContent = 'Good. Choose the next box.'; f.className = 'feedback' } }) } wireMaze(); document.getElementById('clearMazePath').onclick = resetMazePath;
+
+            document.querySelectorAll('.s4-count').forEach(card => { const val = card.querySelector('.val'); card.querySelector('.minus').onclick = () => { val.textContent = Math.max(0, +val.textContent - 1); checkCounts() }; card.querySelector('.plus').onclick = () => { val.textContent = Math.min(9, +val.textContent + 1); checkCounts() } }); function checkCounts() { const cards = [...document.querySelectorAll('.s4-count')], ok = cards.every(c => +c.querySelector('.val').textContent === +c.dataset.answer), f = document.getElementById('countStepsFeedback'); f.textContent = ok ? '⭐ Great counting!' : 'Count the boxes on the path.'; f.className = 'feedback ' + (ok ? 'success' : ''); if (ok) say('Great counting!') }
+
+            let userSeq = []; function renderTrack() { const t = document.getElementById('sequenceTrack'); if (!t) return; t.innerHTML = userSeq.length ? userSeq.map(d => `<div class="s4-chip">${dirs[d].s}</div>`).join('') : '<span style="color:#718396;font-weight:700">Your commands will appear here...</span>' } renderTrack(); document.querySelectorAll('.s4-add').forEach(b => b.onclick = () => { if (userSeq.length < 15) { userSeq.push(b.dataset.dir); renderTrack(); document.getElementById('sequenceFeedback').textContent = `${userSeq.length} command${userSeq.length === 1 ? '' : 's'}.` } }); document.getElementById('undoSequence').onclick = () => { userSeq.pop(); renderTrack() }; document.getElementById('clearSequence').onclick = () => { userSeq = []; renderTrack(); document.getElementById('sequenceFeedback').textContent = 'Build the route one command at a time.' };
+            function simulate(sequence, id, feedbackId, speed = 430) { const f = document.getElementById(feedbackId); let pos = [...start], i = 0; buildMaze(id, pos); f.textContent = 'Robo is following the commands...'; f.className = 'feedback'; function tick() { if (i >= sequence.length) { if (pos[0] === goal[0] && pos[1] === goal[1]) { f.textContent = '🎉 Robo reached the repair gear!'; f.className = 'feedback success'; say('Robo reached the gear!') } else { f.textContent = 'Robo stopped before the gear. Try another sequence.'; f.className = 'feedback error' } return } const d = dirs[sequence[i]], nr = pos[0] + d.dr, nc = pos[1] + d.dc, bad = nr < 0 || nr >= rows || nc < 0 || nc >= cols || blocks.has(`${nr},${nc}`); if (bad) { f.textContent = 'Oops! Robo hit a wall. Change the sequence.'; f.className = 'feedback error'; say('Oops! Wall!'); return } pos = [nr, nc]; buildMaze(id, pos); i++; setTimeout(tick, speed) } setTimeout(tick, 300) }
+            document.getElementById('runSequence').onclick = () => { if (!userSeq.length) { document.getElementById('sequenceFeedback').textContent = 'Add some commands first.'; return } simulate(userSeq, 'drawRoboMaze', 'sequenceFeedback') }; document.getElementById('playCorrectSequence').onclick = () => simulate(seqCorrect, 'runRoboMaze', 'runSequenceFeedback');
+
+            document.querySelectorAll('.s34-review').forEach(b => b.onclick = () => b.classList.toggle('open')); document.querySelectorAll('.s34-feel').forEach(b => b.onclick = () => { const slide = b.closest('.slide'); slide.querySelectorAll('.s34-feel').forEach(x => x.classList.remove('selected')); b.classList.add('selected'); const id = slide.dataset.session === '3' ? 'feelFeedback3' : 'feelFeedback4'; document.getElementById(id).textContent = `You feel ${b.dataset.feel.toLowerCase()}.` });
+
+            const baseShowSlide = showSlide; showSlide = function (i) { baseShowSlide(i); const a = sessionSlides[i]; if (!a) return; const t = a.dataset.title; if (t === 'Show Me the Key') resetFindKey(); if (t === 'Letter Hunt') resetLetterHunt(); if (t === 'My Name Letters') resetName(); if (t === 'Keyboard Lab') resetLab(); if (t === 'Letter Catch') setTimeout(prepRain, 40); if (t === 'Simon Says') resetSimon(); if (t === 'Robo Maze') buildMaze('staticRoboMaze'); if (t === 'Draw the Route') resetMazePath(); if (t === 'Build the Sequence') { userSeq = []; renderTrack(); buildMaze('drawRoboMaze') } if (t === 'What Is Sequence') buildMaze('runRoboMaze') };
+            window.addEventListener('resize', () => prepRain());
+
+
             refreshSessionSlides();
         };
         prevBtn.onclick = () => showSlide(currentIndex - 1);
