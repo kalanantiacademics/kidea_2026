@@ -3,469 +3,566 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <meta name="theme-color" content="#2F72B7">
-    <title>Little Digital Explorers — Sessions 1–2</title>
-    <link rel="icon"
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#2f80ed">
+    <title>Little Digital Explorers — Session 1 & 2</title>
+    <link rel="icon" type="image/png"
         href="https://cdn-web-2.ruangguru.com/landing-pages/assets/e7d93748-818d-462d-be57-7db1e479cd62.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --blue: #2F72B7;
-            --blue2: #4C91C9;
-            --teal: #30AEB9;
-            --cyan: #DDF5F6;
-            --sky: #EAF5FC;
-            --ink: #21435E;
-            --muted: #6A8092;
-            --white: #fff;
-            --good: #27AE79;
-            --bad: #F06A71;
-            --shadow: 0 16px 42px rgba(24, 71, 108, .16);
+            --blue: #2f80ed;
+            --cyan: #16bde8;
+            --purple: #845ef7;
+            --orange: #ff8a34;
+            --yellow: #ffd53d;
+            --green: #28b875;
+            --red: #ef5350;
+            --ink: #20324a;
+            --muted: #66788d;
+            --panel: #fff;
+            --shadow: 0 22px 55px rgba(22, 44, 76, .18);
         }
 
         * {
             box-sizing: border-box
         }
 
-        html,
-        body {
-            margin: 0;
-            height: 100%;
-            font-family: 'Fredoka', system-ui, sans-serif;
-            color: var(--ink)
-        }
 
-        body {
-            min-height: 100dvh;
-            overflow: hidden;
-            background:
-                linear-gradient(rgba(42, 102, 164, .38), rgba(37, 160, 171, .22)),
-                url('https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/6ac31f0c-b2f6-4b34-95b6-3ba45e9df665.png') center/cover fixed;
+        *,
+        *::before,
+        *::after {
+            font-family: 'Fredoka', sans-serif !important;
         }
 
         button,
         select,
-        input {
-            font: inherit
+        input,
+        textarea,
+        option {
+            font-family: 'Fredoka', sans-serif !important;
         }
 
-        button {
-            touch-action: manipulation;
-            -webkit-tap-highlight-color: transparent
+        html,
+        body {
+            margin: 0;
+            height: 100%;
+            overflow: hidden
         }
 
-        .shell {
-            height: 100dvh;
-            display: grid;
-            grid-template-rows: 74px minmax(0, 1fr);
-        }
-
-        .brand-row {
+        body {
+            font-family: 'Fredoka', sans-serif;
+            color: var(--ink);
+            background: #f8fffe;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            padding: 10px clamp(12px, 2.5vw, 28px);
-            gap: 14px;
+            justify-content: center
+        }
+
+        body:before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -2;
+            background-image: url("https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/52bfa282-42e7-4314-a63e-651d32889e94.png");
+            background-size: cover;
+            background-repeat: no-repeat
+        }
+
+        body:after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -1;
+            background:
+                radial-gradient(ellipse at 0% 100%, rgba(0, 188, 212, .07), transparent 55%),
+                radial-gradient(ellipse at 100% 0%, rgba(0, 188, 212, .06), transparent 50%)
         }
 
         .brand-logo {
-            width: clamp(150px, 17vw, 220px);
-            height: 52px;
-            object-fit: contain;
-            background: rgba(255, 255, 255, .98);
-            border-radius: 10px;
-            padding: 6px 10px;
-            box-shadow: 0 7px 22px rgba(26, 67, 100, .22);
-        }
-
-        .top-controls {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(255, 255, 255, .93);
-            padding: 6px 8px;
-            border-radius: 14px;
-            box-shadow: 0 7px 22px rgba(26, 67, 100, .18);
-        }
-
-        select,
-        .top-btn {
-            border: 2px solid #C8E5EA;
+            position: fixed;
+            left: 22px;
+            top: 16px;
+            z-index: 2000;
             background: #fff;
-            color: var(--blue);
-            border-radius: 10px;
-            min-height: 40px;
-            padding: 7px 11px;
-            font-weight: 700;
+            border: 2.5px solid rgba(0, 188, 212, .22);
+            border-radius: 18px;
+            padding: 9px 18px;
+            box-shadow: 0 8px 32px rgba(0, 188, 212, .18), 0 2px 8px rgba(0, 0, 0, .07)
         }
 
-        .top-btn {
-            min-width: 40px;
+        .brand-logo img {
+            display: block;
+            height: 68px;
+            max-width: 230px;
+            object-fit: contain
+        }
+
+        .session-control {
+            position: fixed;
+            right: 22px;
+            top: 20px;
+            z-index: 2000;
+            background: #fff;
+            border: 2.5px solid rgba(0, 188, 212, .18);
+            border-radius: 16px;
+            padding: 8px 10px;
+            box-shadow: 0 8px 28px rgba(0, 188, 212, .14)
+        }
+
+        .session-control select {
+            min-height: 42px;
+            border: 0;
+            outline: 0;
+            color: #43566f;
+            font: 700 1rem 'Fredoka';
+            background: #fff;
+            padding: 0 10px;
             cursor: pointer
         }
 
-        .deck {
-            width: min(1450px, calc(100% - 24px));
-            height: calc(100% - 12px);
-            margin: 0 auto 12px;
-            background: rgba(255, 255, 255, .98);
-            border: 5px solid rgba(255, 255, 255, .86);
-            border-radius: 28px;
-            box-shadow: 0 22px 58px rgba(0, 0, 0, .25);
-            overflow: hidden;
-            display: grid;
-            grid-template-rows: 56px minmax(0, 1fr) 58px;
-        }
-
-        .deck-head {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-            padding: 7px 18px;
-            background: linear-gradient(90deg, #EEF9FB, #EEF5FC);
-            border-bottom: 2px solid #D8EBF0;
-        }
-
-        .session-name {
-            font-weight: 700;
-            color: var(--blue);
-            font-size: clamp(16px, 2vw, 24px);
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .session-pill {
-            border-radius: 999px;
+        .presentation-container {
+            width: 86vw;
+            height: 80vh;
+            max-width: 1500px;
             background: #fff;
-            border: 2px solid #D0E8EE;
-            padding: 6px 12px;
-            color: var(--teal);
-            font-weight: 700;
-            font-size: clamp(12px, 1.4vw, 15px);
+            border-radius: 30px;
+            box-shadow: 0 30px 80px rgba(30, 56, 93, .25);
+            overflow: hidden;
+            position: relative;
+            border: 4px solid rgba(255, 255, 255, .85)
         }
 
-        .stage {
-            overflow: auto;
-            background: linear-gradient(180deg, #fff, #F8FCFF);
-            padding: clamp(12px, 2vw, 24px);
+        .presentation-container:before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            border-radius: 26px;
+            box-shadow: inset 0 0 0 1px rgba(91, 124, 164, .10);
+            z-index: 30
         }
 
         .slide {
-            min-height: 100%;
+            position: absolute;
+            inset: 0;
+            padding: 42px 58px 74px;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            animation: fadeUp .26s ease-out;
-        }
-
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(8px)
-            }
-
-            to {
-                opacity: 1;
-                transform: none
-            }
-        }
-
-        .slide-head {
-            text-align: center;
-            margin: 0 auto clamp(10px, 1.6vw, 18px);
-            max-width: 1100px
-        }
-
-        .eyebrow {
-            font-size: clamp(11px, 1.2vw, 14px);
-            font-weight: 700;
-            letter-spacing: .08em;
-            color: var(--teal)
-        }
-
-        .title {
-            margin: 2px 0 0;
-            font-size: clamp(30px, 4.8vw, 60px);
-            line-height: .98;
-            color: var(--blue);
-            font-weight: 700;
-            text-wrap: balance
-        }
-
-        .sub {
-            margin: 8px 0 0;
-            font-size: clamp(16px, 2vw, 25px);
-            color: var(--muted);
-            line-height: 1.2;
-            text-wrap: balance
-        }
-
-        .deck-foot {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
             align-items: center;
-            padding: 8px 14px;
-            border-top: 2px solid #E1EDF1;
-            background: #fff;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(42px) scale(.985);
+            transition: .46s ease;
+            background: linear-gradient(145deg, rgba(255, 255, 255, .98), rgba(249, 252, 255, .98));
+            overflow-y: auto;
+            overflow-x: hidden
         }
 
-        .nav {
-            border: 0;
-            border-radius: 12px;
-            padding: 9px 16px;
-            min-height: 40px;
-            cursor: pointer;
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: none;
+            z-index: 10
+        }
+
+        .navigation {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 64px;
+            background: rgba(255, 255, 255, .96);
+            border-top: 1px solid #e7edf5;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 28px;
+            z-index: 100;
+            backdrop-filter: blur(12px)
+        }
+
+        .nav-title {
+            font-size: 1rem;
             font-weight: 700;
+            color: #6b7d92;
+            max-width: 56%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis
         }
 
-        .nav.prev {
-            justify-self: start;
-            background: #EAF1F6;
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 14px
+        }
+
+        .nav-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 2px solid #d9e3ef;
+            background: #fff;
+            color: #4c6077;
+            font-size: 1.3rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: .2s
+        }
+
+        .nav-btn:hover:not(:disabled) {
+            transform: scale(1.08);
+            border-color: var(--blue);
             color: var(--blue)
         }
 
-        .nav.next {
-            justify-self: end;
-            background: linear-gradient(135deg, var(--blue), var(--teal));
-            color: #fff
+        .nav-btn.next {
+            background: linear-gradient(135deg, var(--orange), #ffac37);
+            color: #fff;
+            border: 0;
+            box-shadow: 0 7px 16px rgba(255, 138, 52, .3)
         }
 
-        .nav:disabled {
-            opacity: .35
+        .nav-btn:disabled {
+            opacity: .35;
+            cursor: not-allowed
         }
 
         .counter {
+            font-size: 1.05rem;
             font-weight: 700;
+            color: #53677f;
+            min-width: 76px;
+            text-align: center
+        }
+
+        .slide-head {
+            width: 100%;
+            max-width: 1180px;
+            margin-bottom: 22px
+        }
+
+        .slide-head.center {
+            text-align: center
+        }
+
+        .slide-head.compact {
+            margin-bottom: 12px
+        }
+
+        .slide-head h2 {
+            font-size: clamp(2.2rem, 4vw, 4rem);
+            line-height: 1.06;
+            margin: 6px 0 12px;
+            color: #24344d
+        }
+
+        .slide-head p,
+        .lead {
+            font-size: clamp(1.08rem, 1.55vw, 1.45rem);
             color: var(--muted);
-            font-size: 14px
+            margin: 0;
+            line-height: 1.45
         }
 
-        /* HERO */
-        .hero-layout {
-            width: min(1160px, 100%);
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: minmax(280px, .9fr) minmax(320px, 1.1fr);
+        .kicker {
+            display: inline-block;
+            font-size: .88rem;
+            letter-spacing: .14em;
+            font-weight: 700;
+            color: var(--purple);
+            background: #f0eaff;
+            border-radius: 999px;
+            padding: 7px 13px
+        }
+
+
+        /* Session 1 opening slide: clean white centered cover */
+        .session-1.cover-slide[data-title="Hello, Digital Explorers"] {
+            background: #ffffff !important;
+            color: var(--ink) !important;
+            text-align: center;
+            justify-content: center;
             align-items: center;
-            gap: clamp(18px, 4vw, 56px);
         }
 
-        .hero-copy {
-            text-align: left
-        }
-
-        .hero-copy .title,
-        .hero-copy .sub {
-            text-align: left
-        }
-
-        .hero-media {
-            min-height: min(48vh, 430px);
+        .session-1.cover-slide[data-title="Hello, Digital Explorers"] .cover-scene {
+            min-height: 100%;
+            max-width: 1050px;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            text-align: center;
+            margin: 0 auto;
         }
 
-        .hero-media img {
-            width: min(100%, 560px);
-            max-height: min(48vh, 430px);
+        .session-1.cover-slide[data-title="Hello, Digital Explorers"] .hero-badge {
+            background: #eef7ff;
+            border: 2px solid #cfe4fb;
+            color: var(--blue);
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .session-1.cover-slide[data-title="Hello, Digital Explorers"] .cover-image {
+            display: block;
+            margin: 6px auto 12px;
+            align-self: center;
+            width: min(44vw, 500px);
+            max-height: 350px;
             object-fit: contain;
+            filter: drop-shadow(0 14px 18px rgba(47, 128, 237, .12));
         }
 
-        .float {
-            animation: float 3.4s ease-in-out infinite
+        .session-1.cover-slide[data-title="Hello, Digital Explorers"] .display-title {
+            color: #24344d;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .session-1.cover-slide[data-title="Hello, Digital Explorers"] .display-title span {
+            color: var(--blue);
+        }
+
+        .session-1.cover-slide[data-title="Hello, Digital Explorers"] .hero-subtitle {
+            color: var(--muted);
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cover-slide {
+            background: linear-gradient(135deg, #17305d, #2e5c91 52%, #2ba6b0);
+            color: #fff
+        }
+
+        .cover-scene {
+            text-align: center;
+            position: relative;
+            width: 100%;
+            max-width: 1100px
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, .14);
+            border: 1px solid rgba(255, 255, 255, .3);
+            padding: 9px 16px;
+            border-radius: 999px;
+            font-weight: 700;
+            margin-bottom: 16px
+        }
+
+        .cover-image {
+            width: min(44vw, 500px);
+            max-height: 350px;
+            object-fit: contain;
+            animation: float 3s ease-in-out infinite;
+            filter: drop-shadow(0 16px 18px rgba(0, 0, 0, .16))
+        }
+
+        .cover-image.mouse-hero {
+            width: min(30vw, 360px)
+        }
+
+        .display-title {
+            font-size: clamp(3rem, 6vw, 5.8rem);
+            line-height: .96;
+            margin: 4px 0 14px
+        }
+
+        .display-title span {
+            color: #ffd65a
+        }
+
+        .hero-subtitle {
+            font-size: 1.35rem;
+            max-width: 760px;
+            margin: 0 auto;
+            color: #edf7ff
         }
 
         @keyframes float {
             50% {
-                transform: translateY(-10px)
+                transform: translateY(-12px) rotate(2deg)
             }
         }
 
-        /* SONG */
         .song-stage {
-            width: min(1180px, 100%);
-            margin: 0 auto;
+            width: min(1100px, 100%);
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 16px;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 18px
         }
 
-        .song-visuals {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: clamp(10px, 2vw, 22px);
-        }
-
-        .song-visual {
-            height: clamp(150px, 23vw, 250px);
-            background: linear-gradient(145deg, #F8FEFF, #EDF7FD);
-            border: 3px solid #D9EDF1;
-            border-radius: 24px;
+        .song-card {
+            background: #fff;
+            border: 3px solid #dce8f1;
+            border-radius: 28px;
+            min-height: 300px;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 10px 26px rgba(30, 96, 140, .09);
-            overflow: hidden;
+            padding: 18px;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            transition: .2s
         }
 
-        .song-visual img {
-            width: 88%;
-            height: 88%;
+        .song-card:hover,
+        .song-card.active {
+            transform: translateY(-4px);
+            border-color: var(--cyan);
+            background: #f4fdff
+        }
+
+        .song-card img {
+            width: min(95%, 260px);
+            height: 220px;
             object-fit: contain
         }
 
-        .song-words {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
+        .song-card b {
+            margin-top: 6px;
+            font-size: 1.35rem;
+            color: #415873
         }
 
-        .lyric {
-            border: 2px solid #C6E8EA;
-            background: #fff;
-            border-radius: 999px;
-            padding: 10px 18px;
-            font-weight: 700;
-            color: var(--blue);
-            font-size: clamp(15px, 1.7vw, 21px);
-            cursor: pointer;
-        }
-
-        .lyric.active {
-            background: #E9FAFA;
-            border-color: var(--teal);
-            transform: translateY(-2px)
-        }
-
-        /* GOALS */
-        .goal-showcase {
-            width: min(1150px, 100%);
-            margin: 0 auto;
+        .agenda-grid {
             display: grid;
-            grid-template-columns: minmax(360px, 1.2fr) minmax(280px, .8fr);
-            gap: 22px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1000px
         }
 
-        .tool-strip {
-            background: linear-gradient(135deg, #F2FAFE, #F4FFFD);
-            border: 3px solid #D9EDF1;
+        .agenda-card {
+            position: relative;
+            padding: 24px;
             border-radius: 26px;
-            padding: 18px;
+            border: 2px solid;
+            min-height: 160px;
+            overflow: hidden
+        }
+
+        .agenda-card>b {
+            position: absolute;
+            right: 18px;
+            top: 10px;
+            font-size: 3rem;
+            opacity: .12
+        }
+
+        .agenda-card>span {
+            font-size: 3.2rem
+        }
+
+        .agenda-card h3 {
+            font-size: 1.55rem;
+            margin: 8px 0 3px
+        }
+
+        .agenda-card p {
+            margin: 0;
+            color: #52667c
+        }
+
+        .agenda-card.blue {
+            background: #eef7ff;
+            border-color: #b9dcff
+        }
+
+        .agenda-card.orange {
+            background: #fff4e8;
+            border-color: #ffd3a7
+        }
+
+        .agenda-card.purple {
+            background: #f5efff;
+            border-color: #d9c6ff
+        }
+
+        .agenda-card.green {
+            background: #ebfbf4;
+            border-color: #b7ebd2
+        }
+
+        .tools-showcase {
+            width: 100%;
+            max-width: 1160px;
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 10px;
-            align-items: center;
-        }
-
-        .tool-chip {
-            text-align: center
-        }
-
-        .tool-chip img {
-            width: 100%;
-            max-width: 112px;
-            aspect-ratio: 1;
-            object-fit: contain
-        }
-
-        .tool-chip span {
-            display: block;
-            font-weight: 700;
-            color: var(--blue);
-            font-size: 13px
-        }
-
-        .goal-list {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px
-        }
-
-        .goal-card {
-            border-radius: 22px;
-            padding: 18px 14px;
-            background: #fff;
-            border: 3px solid #DBEDF2;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            font-weight: 700;
-            font-size: clamp(16px, 2vw, 23px);
-            box-shadow: 0 8px 18px rgba(34, 95, 139, .07)
-        }
-
-        /* TOOL GALLERY */
-        .tool-gallery {
-            width: min(1180px, 100%);
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(5, minmax(0, 1fr));
-            gap: 12px;
+            gap: 14px
         }
 
         .tool-card {
-            border: 0;
-            border-radius: 24px;
+            border: 3px solid #dfe8f1;
             background: #fff;
-            box-shadow: var(--shadow);
-            padding: 14px 10px;
+            border-radius: 25px;
+            padding: 16px 12px;
+            min-height: 260px;
+            box-shadow: 0 12px 26px rgba(37, 70, 105, .09);
             cursor: pointer;
-            min-height: 230px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 6px;
+            transition: .2s
+        }
+
+        .tool-card:hover,
+        .tool-card.selected {
+            transform: translateY(-4px);
+            border-color: var(--cyan);
+            background: #f5fdff
         }
 
         .tool-card img {
-            width: min(90%, 145px);
-            height: 145px;
+            width: 100%;
+            height: 170px;
             object-fit: contain
         }
 
-        .tool-card strong {
-            font-size: clamp(16px, 1.8vw, 22px);
-            color: var(--blue)
+        .tool-card b {
+            display: block;
+            font-size: 1.3rem;
+            margin-top: 8px;
+            color: #334b68
         }
 
         .tool-card small {
-            font-size: 14px;
-            color: var(--muted)
+            display: block;
+            color: #6b7f94;
+            margin-top: 4px
         }
 
-        .tool-card.selected {
-            outline: 4px solid #8FD7DE;
-            background: #EFFCFC
-        }
-
-        /* QUIZ */
         .quiz-shell {
-            width: min(1000px, 100%);
-            margin: auto;
+            width: 100%;
+            max-width: 980px;
+            background: #fff;
+            border: 3px solid #e1e8f2;
+            border-radius: 30px;
+            padding: 26px;
+            box-shadow: var(--shadow)
+        }
+
+        .quiz-sense {
             text-align: center;
+            font-size: 4.6rem;
+            line-height: 1;
+            margin-bottom: 8px
         }
 
-        .quiz-hint {
-            height: 82px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 68px
-        }
-
-        .quiz-prompt {
-            font-size: clamp(22px, 3vw, 35px);
+        .quiz-question {
+            text-align: center;
+            font-size: clamp(1.55rem, 2.7vw, 2.35rem);
             font-weight: 700;
-            margin: 2px 0 14px
+            margin-bottom: 18px
         }
 
         .quiz-options {
@@ -475,701 +572,1081 @@
         }
 
         .quiz-option {
-            border: 3px solid #E0EBF1;
-            background: #fff;
-            border-radius: 24px;
+            border: 3px solid #dfe7f0;
+            background: #fdfefe;
+            border-radius: 22px;
             padding: 14px;
-            min-height: 230px;
             cursor: pointer;
-            box-shadow: 0 10px 25px rgba(33, 89, 128, .08)
+            transition: .2s;
+            min-height: 235px
         }
 
         .quiz-option img {
-            width: min(90%, 150px);
-            height: 145px;
+            width: 100%;
+            height: 160px;
             object-fit: contain
         }
 
-        .quiz-option .name {
-            font-weight: 700;
-            font-size: clamp(17px, 2vw, 24px);
-            color: var(--blue)
+        .quiz-option b {
+            display: block;
+            font-size: 1.2rem;
+            margin-top: 6px
         }
 
-        .quiz-option.good {
-            border-color: var(--good);
-            background: #ECFBF5
+        .quiz-option.correct {
+            border-color: var(--green);
+            background: #eafaf3
         }
 
-        .quiz-option.bad {
-            border-color: var(--bad);
-            background: #FFF0F1
+        .quiz-option.wrong {
+            border-color: var(--red);
+            background: #fff0ef
         }
 
-        .feedback {
-            text-align: center;
-            min-height: 30px;
-            margin-top: 10px;
-            font-weight: 700;
-            color: var(--teal);
-            font-size: 18px
-        }
-
-        /* MATCH */
         .match-layout {
-            width: min(1100px, 100%);
-            margin: auto;
+            width: 100%;
+            max-width: 1100px;
             display: grid;
-            gap: 18px
+            gap: 14px
         }
 
         .match-row {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 12px
+            gap: 14px
         }
 
         .match-card {
-            min-height: 150px;
-            border: 3px solid #D8EAF0;
-            border-radius: 22px;
+            border: 3px solid #dfe8f1;
             background: #fff;
+            border-radius: 22px;
+            min-height: 150px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 5px;
-            cursor: pointer;
+            gap: 6px;
             padding: 12px;
-            box-shadow: 0 8px 18px rgba(35, 83, 119, .07)
+            cursor: pointer;
+            transition: .2s
         }
 
-        .match-card .big-emoji {
-            font-size: 58px;
-            line-height: 1
+        .match-card .big {
+            font-size: 3.6rem
         }
 
         .match-card img {
-            width: 100px;
-            height: 100px;
+            width: 108px;
+            height: 98px;
             object-fit: contain
         }
 
-        .match-card strong {
-            font-size: clamp(15px, 1.7vw, 20px);
-            color: var(--blue)
+        .match-card b {
+            font-size: 1.05rem
         }
 
-        .match-card.pick {
-            outline: 4px solid #F6C85B
+        .match-card.selected {
+            border-color: var(--yellow);
+            background: #fffbe8
         }
 
-        .match-card.matched {
-            opacity: .4;
+        .match-card.done {
+            opacity: .35;
             pointer-events: none
         }
 
         .match-arrow {
             text-align: center;
-            font-size: 34px
+            font-size: 2rem;
+            color: #6d8198
         }
 
-        /* THREE CHOICE */
-        .choice-3 {
-            width: min(1050px, 100%);
-            margin: auto;
+        .choice-grid-3 {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 16px
+            gap: 20px;
+            width: 100%;
+            max-width: 1050px
         }
 
         .choice-card {
-            border: 3px solid #DCEBF0;
             background: #fff;
+            border: 3px solid #dfe8f1;
             border-radius: 26px;
-            padding: 14px;
+            min-height: 330px;
+            padding: 18px;
+            text-align: center;
             cursor: pointer;
-            min-height: 290px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            box-shadow: 0 10px 25px rgba(33, 89, 128, .08)
+            transition: .2s
         }
 
         .choice-card img {
-            width: 90%;
-            max-width: 230px;
-            height: 190px;
+            width: 100%;
+            height: 225px;
             object-fit: contain
         }
 
-        .choice-card strong {
-            font-size: clamp(15px, 1.7vw, 20px);
-            color: var(--blue)
+        .choice-card b {
+            display: block;
+            font-size: 1.22rem;
+            margin-top: 10px
         }
 
-        .choice-card.good {
-            border-color: var(--good);
-            background: #ECFBF5
+        .choice-card.correct {
+            border-color: var(--green);
+            background: #edf9f4
         }
 
-        .choice-card.bad {
-            border-color: var(--bad);
-            background: #FFF0F1
+        .choice-card.wrong {
+            border-color: var(--red);
+            background: #fff1f0
         }
 
-        /* SORT */
-        .sort-layout {
-            width: min(1150px, 100%);
-            margin: auto;
+        .sort-area {
+            width: 100%;
+            max-width: 1120px;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 18px
         }
 
         .sort-bin {
-            background: #F6FCFE;
-            border: 3px dashed #8ECED7;
-            border-radius: 24px;
-            padding: 12px;
-            min-height: 225px;
+            min-height: 235px;
+            border: 3px dashed #9dccdc;
+            background: #f6fcff;
+            border-radius: 26px;
+            padding: 14px;
             display: grid;
-            grid-template-rows: auto 1fr;
+            grid-template-rows: auto minmax(0, 1fr)
         }
 
-        .bin-head {
+        .sort-bin h3 {
+            margin: 0;
             text-align: center;
-            font-size: clamp(19px, 2.2vw, 26px);
-            font-weight: 700;
-            color: var(--blue)
+            font-size: 1.45rem
         }
 
-        .bin-drop {
-            margin-top: 8px;
-            border-radius: 16px;
+        .bin-content {
+            margin-top: 10px;
             background: #fff;
-            min-height: 150px;
-            overflow: auto;
-            max-height: 180px;
+            border-radius: 18px;
             padding: 8px;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 7px;
+            gap: 8px;
+            max-height: 150px;
+            overflow-y: auto;
             align-content: start
         }
 
-        .mini-drop {
-            border: 2px solid #D8EAF0;
+        .dropped {
+            border: 2px solid #dfe8f1;
             border-radius: 12px;
             padding: 5px;
-            background: #fff;
             text-align: center;
+            background: #fff
         }
 
-        .mini-drop img {
+        .dropped img {
             width: 42px;
             height: 42px;
             object-fit: contain
         }
 
-        .mini-drop span {
+        .dropped span {
             display: block;
-            font-size: 11px;
+            font-size: .72rem;
             font-weight: 700;
-            color: var(--blue)
+            color: #4d6178
         }
 
         .sort-pool {
             grid-column: 1/-1;
             display: grid;
             grid-template-columns: repeat(6, 1fr);
-            gap: 9px;
+            gap: 10px
         }
 
         .sort-item {
-            border: 2px solid #DCEBF0;
+            border: 3px solid #dfe8f1;
             background: #fff;
             border-radius: 18px;
             padding: 8px;
+            min-height: 125px;
             cursor: pointer;
-            min-height: 118px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 4px
+            transition: .2s
         }
 
         .sort-item img {
-            width: 74px;
-            height: 68px;
+            width: 100%;
+            height: 78px;
             object-fit: contain
         }
 
-        .sort-item strong {
-            font-size: 13px;
-            color: var(--blue)
+        .sort-item b {
+            font-size: .9rem
         }
 
         .sort-item.selected {
-            outline: 4px solid #F7CE65
+            border-color: var(--yellow);
+            background: #fffbe8
         }
 
         .sort-item.done {
-            opacity: .28;
+            opacity: .25;
             pointer-events: none
         }
 
-        /* MOVEMENT */
-        .move-grid {
-            width: min(1100px, 100%);
-            margin: auto;
+        .movement-grid {
+            width: 100%;
+            max-width: 1100px;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 14px
+            gap: 16px
         }
 
-        .move-card {
-            border: 3px solid #D9EAF0;
+        .movement-card {
+            border: 3px solid #dfe8f1;
             background: #fff;
-            border-radius: 24px;
+            border-radius: 25px;
+            min-height: 245px;
+            padding: 14px;
             cursor: pointer;
-            min-height: 220px;
-            padding: 12px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            box-shadow: 0 9px 20px rgba(30, 86, 126, .08)
+            transition: .2s
         }
 
-        .move-card img {
-            width: min(92%, 180px);
-            height: 155px;
+        .movement-card img {
+            width: 100%;
+            height: 180px;
             object-fit: contain
         }
 
-        .move-card strong {
-            font-size: clamp(16px, 1.9vw, 22px);
-            color: var(--blue)
+        .movement-card b {
+            display: block;
+            text-align: center;
+            font-size: 1.15rem
         }
 
-        .move-card.active {
-            outline: 5px solid #8FD7DE;
-            background: #F1FEFE
+        .movement-card.active {
+            border-color: var(--cyan);
+            background: #f2fcff;
+            transform: translateY(-3px)
         }
 
-        /* REVIEW */
         .review-grid {
-            width: min(1000px, 100%);
-            margin: auto;
+            width: 100%;
+            max-width: 1000px;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 14px
+            gap: 18px
         }
 
         .review-card {
-            border: 3px solid #D8EAF0;
-            border-radius: 24px;
+            border: 3px solid #dfe8f1;
             background: #fff;
-            min-height: 210px;
-            cursor: pointer;
+            border-radius: 25px;
+            min-height: 230px;
             padding: 18px;
-            text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 10px
+            text-align: center;
+            cursor: pointer
         }
 
         .review-card .q {
             font-weight: 700;
-            font-size: clamp(17px, 2vw, 24px)
+            font-size: 1.3rem
         }
 
         .review-card .a {
             display: none;
-            font-size: clamp(21px, 2.4vw, 29px);
+            margin-top: 14px;
+            color: var(--green);
             font-weight: 700;
-            color: var(--teal)
+            font-size: 1.7rem
         }
 
         .review-card.open .q {
-            font-size: 14px;
-            color: var(--muted)
+            font-size: 1rem;
+            color: #708195
         }
 
         .review-card.open .a {
             display: block
         }
 
-        /* FEELINGS */
-        .feel-grid {
-            width: min(950px, 100%);
-            margin: auto;
+        .feeling-grid {
+            width: 100%;
+            max-width: 1000px;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 14px
+            gap: 18px
         }
 
-        .feel-card {
-            border: 3px solid #D9EAF0;
+        .feeling-card {
+            border: 3px solid #dfe8f1;
             background: #fff;
-            border-radius: 24px;
+            border-radius: 26px;
+            min-height: 300px;
+            padding: 16px;
+            text-align: center;
             cursor: pointer;
-            padding: 14px;
+            transition: .2s
+        }
+
+        .feeling-card img {
+            width: 100%;
+            height: 215px;
+            object-fit: contain
+        }
+
+        .feeling-card b {
+            display: block;
+            font-size: 1.18rem;
+            margin-top: 8px
+        }
+
+        .feeling-card.selected {
+            border-color: var(--purple);
+            background: #f7f2ff;
+            transform: translateY(-4px)
+        }
+
+        .feedback {
+            min-height: 30px;
+            margin-top: 12px;
+            text-align: center;
+            font-size: 1.08rem;
+            font-weight: 700;
+            color: #566b81
+        }
+
+        .feedback.success {
+            color: #12834e
+        }
+
+        .feedback.error {
+            color: #ce3f3c
+        }
+
+        .warmup-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            width: 100%;
+            max-width: 1050px
+        }
+
+        .warmup-card {
+            background: #fff;
+            border: 3px solid #dfe8f1;
+            border-radius: 26px;
             min-height: 250px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 8px
-        }
-
-        .feel-card img {
-            width: min(95%, 170px);
-            height: 170px;
-            object-fit: contain
-        }
-
-        .feel-card strong {
-            color: var(--blue);
-            font-size: clamp(16px, 1.8vw, 22px)
-        }
-
-        .feel-card.active {
-            outline: 5px solid #8FD7DE;
-            background: #F1FEFE
-        }
-
-        /* SESSION 2 UNIQUE */
-        .warm-grid {
-            width: min(1000px, 100%);
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 14px
-        }
-
-        .warm-card {
-            border: 3px solid #D8EAF0;
-            background: #fff;
-            border-radius: 24px;
-            padding: 18px;
-            min-height: 190px;
-            text-align: center;
             cursor: pointer;
+            transition: .2s
+        }
+
+        .warmup-card .emoji {
+            font-size: 6rem
+        }
+
+        .warmup-card b {
+            font-size: 1.25rem;
+            margin-top: 10px
+        }
+
+        .warmup-card.active {
+            border-color: var(--cyan);
+            background: #f1fcff
+        }
+
+        .mouse-showcase {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            width: 100%;
+            max-width: 1000px
+        }
+
+        .mouse-card {
+            background: #fff;
+            border: 3px solid #dfe8f1;
+            border-radius: 27px;
+            min-height: 300px;
+            text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 8px
+            padding: 18px
         }
 
-        .warm-card .gesture {
-            font-size: 72px
-        }
-
-        .warm-card strong {
-            color: var(--blue);
-            font-size: 21px
-        }
-
-        .mouse-concepts {
-            width: min(1000px, 100%);
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 18px
-        }
-
-        .concept {
-            background: #fff;
-            border: 3px solid #D8EAF0;
-            border-radius: 26px;
-            padding: 18px;
-            text-align: center;
-            min-height: 260px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center
-        }
-
-        .concept img {
-            width: 150px;
-            height: 135px;
+        .mouse-card img {
+            width: 100%;
+            max-width: 230px;
+            height: 185px;
             object-fit: contain
         }
 
-        .concept .pointer {
-            font-size: 82px
+        .mouse-card .emoji {
+            font-size: 7rem
         }
 
-        .concept .finger {
-            font-size: 82px
+        .mouse-card b {
+            font-size: 1.35rem;
+            margin-top: 10px
         }
 
-        .concept strong {
-            font-size: 24px;
-            color: var(--blue);
-            margin-top: 8px
-        }
-
-        .bubble-field {
-            width: min(1000px, 100%);
-            margin: auto;
+        .bubbles {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 16px
+            gap: 20px;
+            width: min(950px, 100%)
         }
 
         .bubble {
-            width: clamp(82px, 10vw, 120px);
+            width: clamp(84px, 9vw, 120px);
             aspect-ratio: 1;
-            border-radius: 50%;
             border: 0;
-            cursor: pointer;
-            background: radial-gradient(circle at 30% 25%, #fff, #A9ECF0 42%, #67BDD7);
-            box-shadow: inset 0 0 20px #fff, 0 10px 20px rgba(46, 123, 170, .18);
-            font-size: clamp(28px, 4vw, 48px);
-            color: var(--blue);
-            font-weight: 700
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 25%, #fff, #8edcff 45%, #64a8ff);
+            box-shadow: inset 0 0 16px #fff, 0 8px 18px rgba(45, 103, 211, .18);
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 700;
+            color: #2e4c70;
+            cursor: pointer
         }
 
-        .bubble.pop {
-            animation: pop .22s forwards
+        .bubble.popped {
+            animation: pop .25s forwards
         }
 
         @keyframes pop {
             to {
-                opacity: 0;
-                transform: scale(1.4)
+                transform: scale(1.45);
+                opacity: 0
             }
         }
 
         .target-grid {
-            width: min(900px, 100%);
-            margin: auto;
+            width: 100%;
+            max-width: 920px;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 15px
+            gap: 18px
         }
 
         .target-card {
-            border: 3px solid #DCEAF0;
             background: #fff;
-            border-radius: 24px;
-            min-height: 220px;
-            cursor: pointer;
-            font-size: 90px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center
+            border: 3px solid #dfe8f1;
+            border-radius: 26px;
+            min-height: 260px;
+            font-size: 7rem;
+            cursor: pointer
         }
 
-        .target-card small {
-            font-size: 17px;
-            color: var(--muted);
-            font-weight: 700
+        .target-card b {
+            display: block;
+            font: 700 1rem 'Fredoka';
+            margin-top: 8px
         }
 
-        .target-card.good {
-            border-color: var(--good);
-            background: #ECFBF5
+        .target-card.correct {
+            border-color: var(--green);
+            background: #eefaf4
         }
 
-        .target-card.bad {
-            border-color: var(--bad);
-            background: #FFF0F1
+        .target-card.wrong {
+            border-color: var(--red);
+            background: #fff1ef
         }
 
         .feed-layout {
-            width: min(980px, 100%);
-            margin: auto;
             display: grid;
             grid-template-columns: 1fr auto 1fr;
-            gap: 16px;
-            align-items: center
+            gap: 20px;
+            align-items: center;
+            width: 100%;
+            max-width: 1000px
         }
 
-        .feed-col {
+        .feed-column {
             display: grid;
-            gap: 12px
+            gap: 14px
         }
 
         .feed-card {
-            border: 3px solid #D9EAF0;
             background: #fff;
+            border: 3px solid #dfe8f1;
             border-radius: 22px;
-            min-height: 135px;
-            cursor: pointer;
+            min-height: 145px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            font-size: 58px
+            gap: 12px;
+            cursor: pointer;
+            font-size: 4.4rem
         }
 
-        .feed-card strong {
-            font-size: 18px;
-            color: var(--blue)
+        .feed-card b {
+            font-size: 1rem
         }
 
-        .feed-card.pick {
-            outline: 4px solid #F7CE65
+        .feed-card.selected {
+            border-color: var(--yellow);
+            background: #fffbe8
         }
 
-        .feed-card.matched {
+        .feed-card.done {
             opacity: .35;
             pointer-events: none
         }
 
         .canvas-wrap {
-            width: min(980px, 100%);
-            margin: auto;
+            width: min(900px, 100%);
             background: #fff;
-            border: 4px dashed #A6D5DC;
-            border-radius: 24px;
-            padding: 10px;
+            border: 4px dashed #aac8df;
+            border-radius: 26px;
+            padding: 12px;
             position: relative
         }
 
         canvas {
             width: 100%;
-            height: 320px;
-            border-radius: 16px;
-            background: linear-gradient(90deg, #FBFEFF, #F4FBFD);
+            height: 310px;
+            border-radius: 18px;
+            background: linear-gradient(90deg, #fbfdff, #f5fbff);
             touch-action: none;
             display: block
         }
 
-        .canvas-mark {
+        .canvas-markers {
             position: absolute;
-            inset: 20px 32px;
+            inset: 22px 28px;
+            pointer-events: none;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            pointer-events: none;
-            font-size: 64px
+            font-size: 4rem
         }
 
-        .clear-btn {
+        .primary-btn,
+        .secondary-btn {
             border: 0;
-            border-radius: 12px;
-            padding: 9px 14px;
-            background: #EAF2F6;
-            color: var(--blue);
-            font-weight: 700;
+            border-radius: 16px;
+            padding: 13px 22px;
+            font: 700 1rem 'Fredoka';
             cursor: pointer;
-            margin: 10px auto 0;
-            display: block
+            transition: .2s
         }
 
-        .mission {
-            width: min(1000px, 100%);
-            margin: auto;
+        .primary-btn {
+            background: linear-gradient(135deg, var(--blue), var(--purple));
+            color: #fff
+        }
+
+        .secondary-btn {
+            background: #eef2f7;
+            color: #465c74;
+            border: 2px solid #d9e1ea
+        }
+
+        .button-row {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 14px;
+            flex-wrap: wrap
+        }
+
+        .mission-grid {
+            width: 100%;
+            max-width: 980px;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 14px
+            gap: 20px
         }
 
-        .mission-step {
-            border-radius: 26px;
-            border: 3px solid #D9EAF0;
+        .mission-card {
             background: #fff;
-            min-height: 230px;
+            border: 3px solid #dfe8f1;
+            border-radius: 27px;
+            min-height: 280px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 8px;
             text-align: center
         }
 
-        .mission-step .num {
-            width: 44px;
-            height: 44px;
+        .mission-card .num {
+            width: 46px;
+            height: 46px;
             border-radius: 50%;
-            background: var(--blue);
-            color: #fff;
             display: grid;
             place-items: center;
+            background: var(--blue);
+            color: #fff;
             font-weight: 700;
-            font-size: 22px
+            font-size: 1.3rem
         }
 
-        .mission-step .icon {
-            font-size: 74px
+        .mission-card .emoji {
+            font-size: 6rem;
+            margin: 12px 0
         }
 
-        .mission-step strong {
-            font-size: 24px;
-            color: var(--blue)
+        .mission-card b {
+            font-size: 1.4rem
         }
 
-        .mouse-moves {
-            width: min(900px, 100%);
-            margin: auto;
+        .mouse-move-grid {
+            width: 100%;
+            max-width: 900px;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 18px
+            gap: 20px
         }
 
         .mouse-move {
-            min-height: 260px;
-            border-radius: 26px;
-            border: 3px solid #D9EAF0;
             background: #fff;
-            cursor: pointer;
+            border: 3px solid #dfe8f1;
+            border-radius: 27px;
+            min-height: 300px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 10px
+            cursor: pointer
         }
 
-        .mouse-move .gesture {
-            font-size: 92px
+        .mouse-move .emoji {
+            font-size: 7rem
         }
 
-        .mouse-move strong {
-            font-size: 25px;
-            color: var(--blue)
+        .mouse-move b {
+            font-size: 1.4rem;
+            margin-top: 10px
         }
 
         .mouse-move.active {
-            outline: 5px solid #8FD7DE;
-            background: #F1FEFE
+            border-color: var(--cyan);
+            background: #f2fcff
         }
 
-        @media(max-width:900px) {
 
-            .hero-layout,
-            .goal-showcase {
-                grid-template-columns: 1fr
+        /* ===== SESSION 2: NEW MOUSE SKILLS ===== */
+        .obstacle-canvas-wrap {
+            width: min(940px, 100%);
+            height: 340px;
+            position: relative;
+            background: linear-gradient(180deg, #fbfeff, #f1f9ff);
+            border: 4px solid #d9e7f1;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 12px 30px rgba(37, 70, 105, .10);
+        }
+
+        #obstacleCanvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+            touch-action: none;
+        }
+
+        .obstacle-start,
+        .obstacle-goal {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 70px;
+            height: 70px;
+            display: grid;
+            place-items: center;
+            font-size: 3.4rem;
+            background: rgba(255, 255, 255, .94);
+            border-radius: 50%;
+            border: 3px solid #dce8f1;
+            pointer-events: none;
+            z-index: 4;
+        }
+
+        .obstacle-start {
+            left: 18px;
+        }
+
+        .obstacle-goal {
+            right: 18px;
+        }
+
+        .scroll-practice-grid {
+            width: min(1120px, 100%);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .scroll-game {
+            background: #fff;
+            border: 3px solid #dfe8f1;
+            border-radius: 26px;
+            padding: 14px;
+            min-height: 360px;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            cursor: ns-resize;
+            user-select: none;
+            touch-action: none;
+            box-shadow: 0 10px 24px rgba(37, 70, 105, .08);
+        }
+
+        .scroll-game.done {
+            border-color: var(--green);
+            background: #effbf5;
+        }
+
+        .scroll-label {
+            text-align: center;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #36516d;
+            margin-bottom: 8px;
+        }
+
+        .scroll-track {
+            position: relative;
+            min-height: 250px;
+            border-radius: 20px;
+            background: linear-gradient(180deg, #f6fbff, #eef8ff);
+            overflow: hidden;
+            border: 2px dashed #b8d6e8;
+        }
+
+        .scroll-goal,
+        .scroll-moving {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 4.8rem;
+            line-height: 1;
+            transition: top .08s linear;
+        }
+
+        .scroll-goal.rabbit {
+            top: 8px;
+        }
+
+        .scroll-moving.carrot {
+            top: 172px;
+        }
+
+        .scroll-moving.apple {
+            top: 8px;
+        }
+
+        .scroll-goal.basket {
+            bottom: 8px;
+        }
+
+        .scroll-status {
+            text-align: center;
+            min-height: 28px;
+            margin-top: 8px;
+            color: #63768b;
+            font-weight: 700;
+        }
+
+        .window-pane {
+            position: relative;
+            min-height: 250px;
+            border-radius: 20px;
+            border: 6px solid #83aed0;
+            overflow: hidden;
+            background: linear-gradient(135deg, #b9dced, #eaf8ff);
+        }
+
+        .window-pane:before,
+        .window-pane:after {
+            content: "";
+            position: absolute;
+            background: #83aed0;
+            z-index: 2;
+        }
+
+        .window-pane:before {
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 5px;
+            transform: translateX(-50%);
+        }
+
+        .window-pane:after {
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 5px;
+            transform: translateY(-50%);
+        }
+
+        .window-dirt {
+            position: absolute;
+            inset: 24px;
+            color: rgba(110, 105, 92, .40);
+            font-size: 2.2rem;
+            line-height: 1.8;
+            text-align: center;
+            z-index: 1;
+            transition: opacity .3s;
+        }
+
+        .window-wiper {
+            position: absolute;
+            left: 50%;
+            top: 175px;
+            transform: translateX(-50%);
+            font-size: 4.2rem;
+            z-index: 4;
+            transition: top .07s linear;
+        }
+
+        .window-shine {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #168a64;
+            opacity: 0;
+            z-index: 3;
+            transition: .25s;
+        }
+
+        .scroll-game.done .window-dirt {
+            opacity: 0;
+        }
+
+        .scroll-game.done .window-shine {
+            opacity: 1;
+        }
+
+        .drag-game {
+            width: min(1040px, 100%);
+            min-height: 390px;
+            position: relative;
+            border: 4px solid #dce8f1;
+            border-radius: 28px;
+            background: linear-gradient(180deg, #fbfeff, #f4faff);
+            box-shadow: 0 12px 30px rgba(37, 70, 105, .08);
+            overflow: hidden;
+        }
+
+        .drag-item {
+            position: absolute;
+            top: 50px;
+            width: 92px;
+            height: 92px;
+            border-radius: 24px;
+            background: #fff;
+            border: 3px solid #dfe8f1;
+            display: grid;
+            place-items: center;
+            font-size: 4rem;
+            cursor: grab;
+            touch-action: none;
+            user-select: none;
+            box-shadow: 0 10px 20px rgba(31, 72, 105, .10);
+            z-index: 8;
+        }
+
+        .drag-item:active {
+            cursor: grabbing;
+        }
+
+        .drag-item[data-key="apple"] {
+            left: 12%;
+        }
+
+        .drag-item[data-key="star"] {
+            left: 44%;
+        }
+
+        .drag-item[data-key="car"] {
+            left: 76%;
+        }
+
+        .drag-item.done {
+            opacity: .25;
+            pointer-events: none;
+        }
+
+        .drop-target {
+            position: absolute;
+            bottom: 34px;
+            width: 170px;
+            height: 135px;
+            border-radius: 24px;
+            border: 4px dashed #a8cbe0;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #526a82;
+        }
+
+        .drop-target span {
+            font-size: 3rem;
+            opacity: .35;
+        }
+
+        .drop-target b {
+            margin-top: 4px;
+        }
+
+        .drop-target[data-key="apple"] {
+            left: 8%;
+        }
+
+        .drop-target[data-key="star"] {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .drop-target[data-key="car"] {
+            right: 8%;
+        }
+
+        .drop-target.hit {
+            border-color: var(--green);
+            background: #ecfaf4;
+        }
+
+        .slash-game-wrap {
+            width: min(1000px, 100%);
+            background: #fff;
+            border: 4px solid #dce8f1;
+            border-radius: 28px;
+            padding: 12px;
+            box-shadow: 0 12px 30px rgba(37, 70, 105, .10);
+        }
+
+        .slash-hud {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 12px;
+            padding: 0 6px 10px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #4f657c;
+        }
+
+        .slash-hud>div:last-child {
+            text-align: right;
+        }
+
+        #slashCanvas {
+            width: 100%;
+            height: 360px;
+            display: block;
+            border-radius: 20px;
+            background: linear-gradient(180deg, #dff4ff, #f8fdff 72%, #eaf7df);
+            touch-action: none;
+            cursor: crosshair;
+        }
+
+        @media(max-width:700px) {
+            .scroll-practice-grid {
+                grid-template-columns: 1fr;
             }
 
-            .hero-copy {
-                text-align: center
+            .scroll-game {
+                min-height: 260px;
             }
 
-            .hero-copy .title,
-            .hero-copy .sub {
-                text-align: center
+            .scroll-track,
+            .window-pane {
+                min-height: 170px;
             }
 
-            .hero-media {
-                min-height: 260px
+            .scroll-moving.carrot {
+                top: 105px;
             }
 
-            .tool-gallery {
+            .window-wiper {
+                top: 105px;
+            }
+
+            .drag-game {
+                min-height: 430px;
+            }
+
+            .drag-item {
+                top: 28px;
+                width: 74px;
+                height: 74px;
+                font-size: 3rem;
+            }
+
+            .drag-item[data-key="apple"] {
+                left: 8%;
+            }
+
+            .drag-item[data-key="star"] {
+                left: 39%;
+            }
+
+            .drag-item[data-key="car"] {
+                left: 70%;
+            }
+
+            .drop-target {
+                width: 105px;
+                height: 110px;
+            }
+
+            .drop-target[data-key="apple"] {
+                left: 4%;
+            }
+
+            .drop-target[data-key="car"] {
+                right: 4%;
+            }
+
+            #slashCanvas {
+                height: 300px;
+            }
+
+            .slash-hud {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .slash-hud .primary-btn {
+                grid-column: 1/-1;
+                grid-row: 2;
+            }
+        }
+
+        @media(max-width:1050px) {
+            .presentation-container {
+                width: 95vw;
+                height: 84vh
+            }
+
+            .slide {
+                padding: 34px 30px 72px
+            }
+
+            .tools-showcase {
                 grid-template-columns: repeat(3, 1fr)
             }
 
@@ -1177,215 +1654,252 @@
                 grid-template-columns: repeat(3, 1fr)
             }
 
-            .move-grid {
+            .movement-grid {
                 grid-template-columns: repeat(2, 1fr)
             }
 
-            .review-grid {
-                grid-template-columns: 1fr
-            }
-
-            .feel-grid {
-                grid-template-columns: repeat(2, 1fr)
-            }
-
-            .warm-grid {
+            .feeling-grid {
                 grid-template-columns: repeat(2, 1fr)
             }
         }
 
-        @media(max-width:620px) {
-            body {
-                background-attachment: scroll
+        @media(max-width:700px) {
+
+            .session-1.cover-slide[data-title="Hello, Digital Explorers"] .cover-scene {
+                width: 100%;
+                min-height: 100%;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
             }
 
-            .shell {
-                grid-template-rows: 58px minmax(0, 1fr)
-            }
-
-            .brand-row {
-                padding: 6px 8px
+            .session-1.cover-slide[data-title="Hello, Digital Explorers"] .cover-image {
+                width: min(76vw, 410px);
+                margin-left: auto;
+                margin-right: auto;
             }
 
             .brand-logo {
-                width: 128px;
-                height: 43px;
-                padding: 4px 7px;
-                border-radius: 8px
+                left: 8px;
+                top: 6px;
+                padding: 6px 10px;
+                border-radius: 10px
             }
 
-            .top-controls {
-                padding: 4px
+            .brand-logo img {
+                height: 34px
             }
 
-            select {
-                max-width: 44vw;
-                min-height: 34px;
-                font-size: 12px
+            .session-control {
+                right: 8px;
+                top: 6px;
+                padding: 3px 5px;
+                border-radius: 10px
             }
 
-            .top-btn {
-                min-height: 34px;
-                min-width: 34px;
-                padding: 4px
+            .session-control select {
+                min-height: 32px;
+                font-size: .8rem;
+                max-width: 46vw
             }
 
-            .deck {
-                width: 100%;
-                height: 100%;
-                margin: 0;
-                border: 0;
-                border-radius: 0
+            .presentation-container {
+                width: 100vw;
+                height: 100vh;
+                border-radius: 0;
+                border: 0
             }
 
-            .deck-head {
-                min-height: 48px;
-                padding: 6px 9px
+            .slide {
+                padding: 68px 18px 74px
             }
 
-            .session-pill {
-                display: none
+            .slide-head h2 {
+                font-size: 2rem
             }
 
-            .stage {
-                padding: 10px
+            .slide-head p {
+                font-size: 1rem
             }
 
-            .deck-foot {
-                min-height: 50px;
-                padding: 6px 9px
+            .display-title {
+                font-size: 3rem
             }
 
-            .nav {
-                padding: 7px 10px
+            .cover-image {
+                width: min(78vw, 430px);
+                max-height: 270px
             }
 
-            .title {
-                font-size: clamp(27px, 9vw, 42px)
+            .cover-image.mouse-hero {
+                width: min(55vw, 300px)
             }
 
-            .sub {
-                font-size: 15px
-            }
-
-            .song-visuals {
+            .song-stage {
                 gap: 7px
             }
 
-            .song-visual {
-                height: 128px
+            .song-card {
+                min-height: 180px;
+                padding: 8px
             }
 
-            .song-visual img {
-                width: 94%;
-                height: 94%
+            .song-card img {
+                height: 120px
             }
 
-            .tool-strip {
-                grid-template-columns: repeat(5, 1fr);
-                padding: 10px;
-                gap: 3px
+            .song-card b {
+                font-size: .9rem
             }
 
-            .tool-chip span {
-                display: none
+            .agenda-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px
             }
 
-            .goal-list {
-                grid-template-columns: 1fr 1fr
+            .agenda-card {
+                padding: 14px;
+                min-height: 130px
             }
 
-            .goal-card {
-                padding: 12px 8px;
-                font-size: 15px
+            .agenda-card>span {
+                font-size: 2.3rem
             }
 
-            .tool-gallery {
-                grid-template-columns: repeat(2, 1fr)
+            .agenda-card h3 {
+                font-size: 1.1rem
+            }
+
+            .agenda-card p {
+                font-size: .85rem
+            }
+
+            .tools-showcase {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px
             }
 
             .tool-card {
-                min-height: 170px
+                min-height: 170px;
+                padding: 8px
             }
 
             .tool-card img {
-                height: 105px
+                height: 110px
+            }
+
+            .quiz-shell {
+                padding: 14px
             }
 
             .quiz-options {
-                grid-template-columns: 1fr 1fr 1fr;
                 gap: 7px
             }
 
             .quiz-option {
                 min-height: 160px;
-                padding: 8px
+                padding: 7px
             }
 
             .quiz-option img {
-                height: 95px
+                height: 100px
             }
 
             .match-row {
-                grid-template-columns: repeat(2, 1fr)
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px
             }
 
-            .choice-3 {
-                grid-template-columns: 1fr
+            .choice-grid-3 {
+                grid-template-columns: 1fr;
+                gap: 10px
             }
 
             .choice-card {
-                min-height: 190px;
+                min-height: 170px;
                 display: grid;
                 grid-template-columns: 130px 1fr;
-                text-align: left
+                text-align: left;
+                padding: 10px
             }
 
             .choice-card img {
                 height: 130px
             }
 
-            .sort-layout {
+            .sort-area {
                 grid-template-columns: 1fr
             }
 
             .sort-pool {
                 grid-column: 1;
-                grid-template-columns: repeat(3, 1fr)
+                grid-template-columns: repeat(3, 1fr);
+                gap: 7px
             }
 
-            .bin-drop {
-                grid-template-columns: repeat(2, 1fr);
-                max-height: 125px
+            .sort-item {
+                min-height: 105px;
+                padding: 5px
             }
 
-            .move-grid {
+            .sort-item img {
+                height: 62px
+            }
+
+            .bin-content {
+                max-height: 110px
+            }
+
+            .movement-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 8px
             }
 
-            .move-card {
-                min-height: 170px
+            .movement-card {
+                min-height: 170px;
+                padding: 8px
             }
 
-            .move-card img {
-                height: 105px
-            }
-
-            .feel-card {
-                min-height: 180px
-            }
-
-            .feel-card img {
+            .movement-card img {
                 height: 115px
             }
 
-            .mouse-concepts {
+            .review-grid {
                 grid-template-columns: 1fr
             }
 
-            .concept {
-                min-height: 190px
+            .review-card {
+                min-height: 135px
+            }
+
+            .feeling-card {
+                min-height: 190px;
+                padding: 8px
+            }
+
+            .feeling-card img {
+                height: 130px
+            }
+
+            .warmup-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px
+            }
+
+            .warmup-card {
+                min-height: 170px
+            }
+
+            .warmup-card .emoji {
+                font-size: 4rem
+            }
+
+            .mouse-showcase {
+                grid-template-columns: 1fr
+            }
+
+            .mouse-card {
+                min-height: 180px
             }
 
             .target-grid {
@@ -1393,8 +1907,8 @@
             }
 
             .target-card {
-                min-height: 155px;
-                font-size: 70px
+                min-height: 170px;
+                font-size: 5rem
             }
 
             .feed-layout {
@@ -1409,405 +1923,1539 @@
                 height: 260px
             }
 
-            .mission {
+            .mission-grid {
                 grid-template-columns: 1fr
             }
 
-            .mission-step {
+            .mission-card {
                 min-height: 140px;
                 display: grid;
-                grid-template-columns: 50px 70px 1fr
+                grid-template-columns: 55px 85px 1fr
             }
 
-            .mission-step .icon {
-                font-size: 54px
+            .mission-card .emoji {
+                font-size: 4.5rem
             }
 
-            .mouse-moves {
-                grid-template-columns: 1fr 1fr 1fr;
+            .mouse-move-grid {
                 gap: 8px
             }
 
             .mouse-move {
-                min-height: 150px
+                min-height: 170px
             }
 
-            .mouse-move .gesture {
-                font-size: 58px
+            .mouse-move .emoji {
+                font-size: 4rem
             }
 
-            .mouse-move strong {
-                font-size: 18px
+            .nav-title {
+                max-width: 42%;
+                font-size: .78rem
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="shell">
-        <div class="brand-row">
-            <img class="brand-logo"
-                src="https://cdn-web-2.ruangguru.com/landing-pages/assets/e7d93748-818d-462d-be57-7db1e479cd62.png"
-                alt="Ruangguru Coding">
-            <div class="top-controls">
-                <select id="sessionSelect" aria-label="Select session"></select>
-                <button class="top-btn" id="resetBtn" title="Reset">↻</button>
-                <button class="top-btn" id="fullBtn" title="Fullscreen">⛶</button>
-            </div>
-        </div>
 
-        <div class="deck">
-            <div class="deck-head">
-                <div class="session-name" id="sessionName">Little Digital Explorers</div>
-                <div class="session-pill">PLAY • MOVE • CREATE</div>
-            </div>
-
-            <main class="stage" id="stage"></main>
-
-            <div class="deck-foot">
-                <button class="nav prev" id="prevBtn">⬅ Back</button>
-                <div class="counter" id="counter">1 / 12</div>
-                <button class="nav next" id="nextBtn">Next ➡</button>
-            </div>
-        </div>
+    <div class="brand-logo">
+        <img alt="Ruangguru Coding"
+            src="https://cdn-web-2.ruangguru.com/landing-pages/assets/e7d93748-818d-462d-be57-7db1e479cd62.png">
     </div>
 
+    <div class="session-control">
+        <select id="sessionSelect" aria-label="Select session">
+            <option value="1">Session 1 — Digital World</option>
+            <option value="2">Session 2 — Mouse Adventure</option>
+        </select>
+    </div>
+
+    <main class="presentation-container" id="presentation">
+
+        <!-- ================= SESSION 1 ================= -->
+        <section class="slide cover-slide session-1" data-session="1" data-title="Hello, Digital Explorers">
+            <div class="cover-scene">
+                <div class="hero-badge">SESSION 1 • DIGITAL WORLD</div>
+                <img class="cover-image"
+                    src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/8c566db8-d72b-4583-bf64-7b8e80183ade.png"
+                    alt="">
+                <h1 class="display-title">Hello, <span>Digital Explorers!</span></h1>
+                <p class="hero-subtitle">Wave, smile, and get ready to explore our computer tools.</p>
+            </div>
+        </section>
+
+        <section class="slide session-1" data-session="1" data-title="Hello Song">
+            <div class="slide-head center compact">
+                <span class="kicker">WARM-UP</span>
+                <h2>Hello Song!</h2>
+                <p>Tap a picture. Sing and move together.</p>
+            </div>
+            <div class="song-stage">
+                <button class="song-card" data-say="Hello, hello!">
+                    <img src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/daff64ee-5ce7-42f6-b7b5-4a8ebb20301c.png"
+                        alt="">
+                    <b>Hello, hello! 👋</b>
+                </button>
+                <button class="song-card" data-say="Clap, clap, clap!">
+                    <img src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/cefa57f6-8b0c-4ea2-afb4-09e083ac2aa9.png"
+                        alt="">
+                    <b>Clap, clap, clap!</b>
+                </button>
+                <button class="song-card" data-say="Stomp, stomp, stomp!">
+                    <img src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/cfd6855d-8eb2-4c20-86ae-7aa3873d2719.png"
+                        alt="">
+                    <b>Stomp, stomp, stomp!</b>
+                </button>
+            </div>
+        </section>
+
+        <section class="slide session-1" data-session="1" data-title="Today We Will">
+            <div class="slide-head center">
+                <span class="kicker">TODAY</span>
+                <h2>What Will We Do Today?</h2>
+                <p>We will meet our computer friends and learn how to use them safely.</p>
+            </div>
+            <div class="agenda-grid">
+                <div class="agenda-card blue"><b>01</b><span>👀</span>
+                    <h3>Look & Find</h3>
+                    <p>Find the computer tools.</p>
+                </div>
+                <div class="agenda-card orange"><b>02</b><span>👆</span>
+                    <h3>Show & Point</h3>
+                    <p>Point to the right tool.</p>
+                </div>
+                <div class="agenda-card purple"><b>03</b><span>🧩</span>
+                    <h3>Match the Jobs</h3>
+                    <p>Match each job with a tool.</p>
+                </div>
+                <div class="agenda-card green"><b>04</b><span>🤲</span>
+                    <h3>Gentle Hands</h3>
+                    <p>Use devices carefully.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide session-1" data-session="1" data-title="Show the Tools">
+            <div class="slide-head center compact">
+                <span class="kicker">COMPUTER TOOLS</span>
+                <h2>Show the Tools!</h2>
+                <p>Tap a picture and say its name.</p>
+            </div>
+            <div class="tools-showcase">
+                <button class="tool-card" data-say="Screen"><img
+                        src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/416ee7b3-f8ef-41e9-b581-ee496101ae8f.png"
+                        alt=""><b>SCREEN</b><small>Look!</small></button>
+                <button class="tool-card" data-say="Keyboard"><img
+                        src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/203faa0e-72d0-4032-aacd-376d49c41c6f.png"
+                        alt=""><b>KEYBOARD</b><small>Type!</small></button>
+                <button class="tool-card" data-say="Mouse"><img
+                        src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/92282114-d1dd-48a4-b406-abdb59f19cc0.png"
+                        alt=""><b>MOUSE</b><small>Click!</small></button>
+                <button class="tool-card" data-say="Speaker"><img
+                        src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/6edd8ae5-a38b-4df1-a4ae-1780b871225b.png"
+                        alt=""><b>SPEAKER</b><small>Listen!</small></button>
+                <button class="tool-card" data-say="Microphone"><img
+                        src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/22774f81-2ae6-4e00-abd7-d04ad4ea4b3b.png"
+                        alt=""><b>MIC</b><small>Talk!</small></button>
+            </div>
+        </section>
+
+        <section class="slide session-1" data-session="1" data-title="Which Tool">
+            <div class="slide-head center compact">
+                <span class="kicker">QUICK GAME</span>
+                <h2>Which Tool?</h2>
+                <p>Look at the clue and tap the right picture.</p>
+            </div>
+            <div class="quiz-shell">
+                <div class="quiz-sense" id="quizSense"></div>
+                <div class="quiz-question" id="quizQuestion"></div>
+                <div class="quiz-options" id="quizOptions"></div>
+                <div class="feedback" id="quizFeedback"></div>
+            </div>
+        </section>
+
+        <section class="slide session-1" data-session="1" data-title="Match the Job">
+            <div class="slide-head center compact">
+                <span class="kicker">MATCHING GAME</span>
+                <h2>Match the Job!</h2>
+                <p>Tap a job. Then tap the tool that matches.</p>
+            </div>
+            <div class="match-layout">
+                <div class="match-row">
+                    <button class="match-card source" data-key="see">
+                        <div class="big">👀</div><b>SEE</b>
+                    </button>
+                    <button class="match-card source" data-key="type">
+                        <div class="big">🔤</div><b>TYPE</b>
+                    </button>
+                    <button class="match-card source" data-key="click">
+                        <div class="big">👆</div><b>CLICK</b>
+                    </button>
+                    <button class="match-card source" data-key="hear">
+                        <div class="big">👂</div><b>HEAR</b>
+                    </button>
+                </div>
+                <div class="match-arrow">↕</div>
+                <div class="match-row" id="matchTargets"></div>
+                <div class="feedback" id="matchFeedback"></div>
+            </div>
+        </section>
+
+        <section class="slide session-1" data-session="1" data-title="Gentle Hands">
+            <div class="slide-head center compact">
+                <span class="kicker">SAFE CHOICE</span>
+                <h2>Gentle Hands?</h2>
+                <p>Which choice is safe for our computer?</p>
+            </div>
+            <div class="choice-grid-3">
+                <button class="choice-card" data-correct="1"><img
+                        src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/ee7918f9-245a-4f48-b3c9-9ecdfd015f38.png"
+                        alt=""><b>Gentle Hands</b></button>
+                <button class="choice-card" data-correct="0"><img
+                        src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/0c474603-fb59-49f1-b2a6-aa9b6624a462.png"
+                        alt=""><b>Drink Near Laptop</b></button>
+                <button class="choice-card" data-correct="0"><img
+                        src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/b3ce71d0-4015-48f8-9e5e-2fc08cc4b0c9.png"
+                        alt=""><b>Hit the Keys</b></button>
+            </div>
+            <div class="feedback" id="choiceFeedback"></div>
+        </section>
+
+        <section class="slide session-1" data-session="1" data-title="Screen or Play">
+            <div class="slide-head center compact">
+                <span class="kicker">BALANCE GAME</span>
+                <h2>Screen or Play?</h2>
+                <p>Tap a picture. Then tap the right basket.</p>
+            </div>
+            <div class="sort-area">
+                <div class="sort-bin" data-bin="screen">
+                    <h3>💻 SCREEN</h3>
+                    <div class="bin-content"></div>
+                </div>
+                <div class="sort-bin" data-bin="play">
+                    <h3>🏃 PLAY</h3>
+                    <div class="bin-content"></div>
+                </div>
+                <div class="sort-pool" id="sortPool"></div>
+            </div>
+            <div class="feedback" id="sortFeedback">Choose one picture.</div>
+        </section>
+
+        <section class="slide session-1" data-session="1" data-title="Tech Moves">
+            <div class="slide-head center compact">
+                <span class="kicker">MOVE BREAK</span>
+                <h2>Tech Moves!</h2>
+                <p>Tap a card. Everybody copies the move.</p>
+            </div>
+            <div class="movement-grid">
+                <button class="movement-card" data-label="Gentle Hands"><img
+                        src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/73d6fecd-c58a-435a-b4f4-841846ba3349.png"
+                        alt=""><b>Gentle Hands</b></button>
+                <button class="movement-card" data-label="Typing"><img
+                        src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/fc56160b-d5a6-4ea7-81e4-0d39f81f91ba.png"
+                        alt=""><b>Typing</b></button>
+                <button class="movement-card" data-label="Click Click"><img
+                        src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/51b2af21-59c7-4be2-8466-65cf2808530f.png"
+                        alt=""><b>Click Click</b></button>
+                <button class="movement-card" data-label="Listen"><img
+                        src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/a2290e4a-1491-43a0-84fe-c24e2716bedc.png"
+                        alt=""><b>Listen</b></button>
+                <button class="movement-card" data-label="Stretch"><img
+                        src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/084c91b3-70d5-40b2-bba1-6429476e670f.png"
+                        alt=""><b>Stretch</b></button>
+                <button class="movement-card" data-label="Freeze"><img
+                        src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/61335722-bd61-4959-909b-e9ddf30f3fb3.png"
+                        alt=""><b>Freeze</b></button>
+            </div>
+            <div class="feedback" id="moveFeedback"></div>
+        </section>
+
+        <section class="slide session-1" data-session="1" data-title="Remember">
+            <div class="slide-head center">
+                <span class="kicker">REVIEW</span>
+                <h2>Remember?</h2>
+                <p>Tap each card to reveal the answer.</p>
+            </div>
+            <div class="review-grid">
+                <button class="review-card">
+                    <div class="q">What helps us TYPE?</div>
+                    <div class="a">⌨️ Keyboard</div>
+                </button>
+                <button class="review-card">
+                    <div class="q">What helps us CLICK?</div>
+                    <div class="a">🖱️ Mouse</div>
+                </button>
+                <button class="review-card">
+                    <div class="q">How do we touch devices?</div>
+                    <div class="a">🤲 Gently</div>
+                </button>
+            </div>
+        </section>
+
+        <section class="slide session-1" data-session="1" data-title="How Do You Feel">
+            <div class="slide-head center compact">
+                <span class="kicker">CHECK-IN</span>
+                <h2>How Do You Feel?</h2>
+                <p>Tap your feeling today.</p>
+            </div>
+            <div class="feeling-grid">
+                <button class="feeling-card" data-feel="Excited"><img
+                        src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/604519df-bf8c-4dbe-a3d3-06e246e46987.png"
+                        alt=""><b>EXCITED</b></button>
+                <button class="feeling-card" data-feel="Happy"><img
+                        src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/aa90e51f-091d-45cc-ae6f-3c3f1dbc1a7e.png"
+                        alt=""><b>HAPPY</b></button>
+                <button class="feeling-card" data-feel="Okay"><img
+                        src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/045e11e9-5d50-45d1-93b6-a47d3d8976d1.png"
+                        alt=""><b>OKAY</b></button>
+                <button class="feeling-card" data-feel="Tired"><img
+                        src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/71e00b1c-7030-4d60-8197-6b0146092cc2.png"
+                        alt=""><b>TIRED</b></button>
+            </div>
+            <div class="feedback" id="feelFeedback"></div>
+        </section>
+
+        <section class="slide cover-slide session-1" data-session="1" data-title="Great Job">
+            <div class="cover-scene">
+                <div class="hero-badge">SESSION 1 COMPLETE</div>
+                <div style="font-size:8rem">🌟💻🎉</div>
+                <h1 class="display-title">Great Job, <span>Digital Explorers!</span></h1>
+                <p class="hero-subtitle">You met our computer tools and learned gentle hands.</p>
+            </div>
+        </section>
+
+        <!-- ================= SESSION 2 ================= -->
+        <section class="slide cover-slide session-1" data-session="2" data-title="Hello, Digital Explorers">
+            <div class="cover-scene">
+                <div class="hero-badge">SESSION 2 • MOUSE ADVENTURE</div>
+                <img class="cover-image"
+                    src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/92282114-d1dd-48a4-b406-abdb59f19cc0.png"
+                    alt="">
+                <h1 class="display-title">Click, <span>Mouse Adventure!</span></h1>
+                <p class="hero-subtitle">Today our hands will point, click, drag, and control.</p>
+            </div>
+        </section>
+
+        <section class="slide session-2" data-session="2" data-title="Finger Wake-Up">
+            <div class="slide-head center compact">
+                <span class="kicker">WARM-UP</span>
+                <h2>Finger Wake-Up!</h2>
+                <p>Tap a card and copy the movement.</p>
+            </div>
+            <div class="warmup-grid">
+                <button class="warmup-card" data-label="Wiggle">
+                    <div class="emoji">✨</div><b>WIGGLE</b>
+                </button>
+                <button class="warmup-card" data-label="Tap Tap">
+                    <div class="emoji">👆</div><b>TAP TAP</b>
+                </button>
+                <button class="warmup-card" data-label="Squeeze">
+                    <div class="emoji">🤏</div><b>SQUEEZE</b>
+                </button>
+                <button class="warmup-card" data-label="Relax">
+                    <div class="emoji">🖐️</div><b>RELAX</b>
+                </button>
+            </div>
+        </section>
+
+        <section class="slide session-2" data-session="2" data-title="Today We Will">
+            <div class="slide-head center">
+                <span class="kicker">TODAY</span>
+                <h2>What Will We Do Today?</h2>
+                <p>We will control the mouse with careful hands.</p>
+            </div>
+            <div class="agenda-grid">
+                <div class="agenda-card blue"><b>01</b><span>➡️</span>
+                    <h3>Point</h3>
+                    <p>Move the pointer.</p>
+                </div>
+                <div class="agenda-card orange"><b>02</b><span>👆</span>
+                    <h3>Click</h3>
+                    <p>Press once gently.</p>
+                </div>
+                <div class="agenda-card purple"><b>03</b><span>✋</span>
+                    <h3>Drag</h3>
+                    <p>Hold and move.</p>
+                </div>
+                <div class="agenda-card green"><b>04</b><span>🎯</span>
+                    <h3>Control</h3>
+                    <p>Move with care.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide session-2" data-session="2" data-title="Meet the Mouse">
+            <div class="slide-head center compact">
+                <span class="kicker">MOUSE BASICS</span>
+                <h2>Meet the Mouse</h2>
+                <p>Move. Watch. Click.</p>
+            </div>
+            <div class="mouse-showcase">
+                <div class="mouse-card"><img
+                        src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/92282114-d1dd-48a4-b406-abdb59f19cc0.png"
+                        alt=""><b>MOVE</b></div>
+                <div class="mouse-card">
+                    <div class="emoji">➤</div><b>POINTER</b>
+                </div>
+                <div class="mouse-card">
+                    <div class="emoji">👆</div><b>CLICK</b>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide session-2" data-session="2" data-title="Pop the Bubbles">
+            <div class="slide-head center compact">
+                <span class="kicker">CLICK GAME</span>
+                <h2>Pop the Bubbles!</h2>
+                <p>Click or tap every bubble.</p>
+            </div>
+            <div class="bubbles" id="bubbleField">
+                <button class="bubble">A</button><button class="bubble">B</button><button class="bubble">⭐</button>
+                <button class="bubble">🐱</button><button class="bubble">3</button><button class="bubble">🌈</button>
+                <button class="bubble">M</button><button class="bubble">🚀</button><button class="bubble">7</button>
+            </div>
+            <div class="feedback" id="bubbleFeedback">Pop them all!</div>
+        </section>
+
+        <section class="slide session-2" data-session="2" data-title="Click the Target">
+            <div class="slide-head center compact">
+                <span class="kicker">TARGET GAME</span>
+                <h2>Click the Target!</h2>
+                <p>Find the star.</p>
+            </div>
+            <div class="target-grid">
+                <button class="target-card" data-correct="0">❤️<b>Heart</b></button>
+                <button class="target-card" data-correct="1">⭐<b>Star</b></button>
+                <button class="target-card" data-correct="0">🌙<b>Moon</b></button>
+                <button class="target-card" data-correct="0">☀️<b>Sun</b></button>
+            </div>
+            <div class="feedback" id="targetFeedback"></div>
+        </section>
+
+        <section class="slide session-2" data-session="2" data-title="Feed the Friends">
+            <div class="slide-head center compact">
+                <span class="kicker">CLICK + MATCH</span>
+                <h2>Feed the Friends!</h2>
+                <p>Tap food. Then tap the animal.</p>
+            </div>
+            <div class="feed-layout">
+                <div class="feed-column">
+                    <button class="feed-card source" data-key="rabbit">🥕<b>CARROT</b></button>
+                    <button class="feed-card source" data-key="cat">🐟<b>FISH</b></button>
+                    <button class="feed-card source" data-key="monkey">🍌<b>BANANA</b></button>
+                </div>
+                <div style="font-size:3rem">➡️</div>
+                <div class="feed-column" id="feedTargets"></div>
+            </div>
+            <div class="feedback" id="feedFeedback"></div>
+        </section>
+
+        <section class="slide session-2" data-session="2" data-title="Follow the Path">
+            <div class="slide-head center compact">
+                <span class="kicker">DRAG PRACTICE</span>
+                <h2>Follow the Path!</h2>
+                <p>Draw from the bee to the flower.</p>
+            </div>
+            <div class="canvas-wrap">
+                <canvas id="traceCanvas"></canvas>
+                <div class="canvas-markers"><span>🐝</span><span>🌼</span></div>
+            </div>
+            <div class="button-row"><button class="secondary-btn" id="clearCanvas">Clear ↻</button></div>
+        </section>
+
+
+        <section class="slide session-2" data-session="2" data-title="Obstacle Path">
+            <div class="slide-head center compact">
+                <span class="kicker">CONTROL CHALLENGE</span>
+                <h2>Don't Touch the Obstacles!</h2>
+                <p>Draw slowly from the mouse to the cheese. Stay in the safe path.</p>
+            </div>
+            <div class="obstacle-canvas-wrap">
+                <canvas id="obstacleCanvas"></canvas>
+                <div class="obstacle-start">🐭</div>
+                <div class="obstacle-goal">🧀</div>
+            </div>
+            <div class="button-row">
+                <button class="secondary-btn" id="resetObstacle">Try Again ↻</button>
+            </div>
+            <div class="feedback" id="obstacleFeedback">Go slowly. Do not touch the obstacles.</div>
+        </section>
+
+        <section class="slide session-2" data-session="2" data-title="Scroll Practice">
+            <div class="slide-head center compact">
+                <span class="kicker">SCROLL PRACTICE</span>
+                <h2>Scroll Up & Down!</h2>
+                <p>Use your mouse wheel. On a tablet, swipe inside each card.</p>
+            </div>
+            <div class="scroll-practice-grid">
+                <div class="scroll-game" id="scrollRabbit" data-mode="up">
+                    <div class="scroll-label">SCROLL UP ⬆️</div>
+                    <div class="scroll-track">
+                        <div class="scroll-goal rabbit">🐰</div>
+                        <div class="scroll-moving carrot">🥕</div>
+                    </div>
+                    <div class="scroll-status">Feed the rabbit!</div>
+                </div>
+
+                <div class="scroll-game" id="scrollBasket" data-mode="down">
+                    <div class="scroll-label">SCROLL DOWN ⬇️</div>
+                    <div class="scroll-track">
+                        <div class="scroll-moving apple">🍎</div>
+                        <div class="scroll-goal basket">🧺</div>
+                    </div>
+                    <div class="scroll-status">Put the apple in the basket!</div>
+                </div>
+
+                <div class="scroll-game" id="scrollWindow" data-mode="wipe">
+                    <div class="scroll-label">UP & DOWN ↕️</div>
+                    <div class="window-pane">
+                        <div class="window-dirt">● ● ●<br>● ● ●<br>● ● ●</div>
+                        <div class="window-wiper">🧽</div>
+                        <div class="window-shine">✨ CLEAN! ✨</div>
+                    </div>
+                    <div class="scroll-status">Wipe the window!</div>
+                </div>
+            </div>
+            <div class="feedback" id="scrollFeedback">Try all three scroll movements.</div>
+        </section>
+
+        <section class="slide session-2" data-session="2" data-title="Drag and Drop">
+            <div class="slide-head center compact">
+                <span class="kicker">DRAG PRACTICE</span>
+                <h2>Drag It Home!</h2>
+                <p>Hold, drag, and drop each picture on its matching home.</p>
+            </div>
+            <div class="drag-game" id="dragGame">
+                <div class="drag-item" data-key="apple">🍎</div>
+                <div class="drag-item" data-key="star">⭐</div>
+                <div class="drag-item" data-key="car">🚗</div>
+
+                <div class="drop-target" data-key="apple"><span>🍎</span><b>APPLE</b></div>
+                <div class="drop-target" data-key="star"><span>⭐</span><b>STAR</b></div>
+                <div class="drop-target" data-key="car"><span>🚗</span><b>CAR</b></div>
+            </div>
+            <div class="feedback" id="dragFeedback">Drag each picture to the same picture.</div>
+        </section>
+
+        <section class="slide session-2" data-session="2" data-title="Fruit Slash">
+            <div class="slide-head center compact">
+                <span class="kicker">MAIN GAME</span>
+                <h2>Fruit Slash!</h2>
+                <p>Hold the mouse and swipe through the fruits. Slice as many as you can!</p>
+            </div>
+            <div class="slash-game-wrap">
+                <div class="slash-hud">
+                    <div>⭐ Score: <span id="slashScore">0</span></div>
+                    <button class="primary-btn" id="startSlashGame">Start Game ▶</button>
+                    <div>🍉 Best: <span id="slashBest">0</span></div>
+                </div>
+                <canvas id="slashCanvas"></canvas>
+            </div>
+            <div class="feedback" id="slashFeedback">Press START, then hold and swipe!</div>
+        </section>
+
+
+        <section class="slide session-2" data-session="2" data-title="Remember">
+            <div class="slide-head center">
+                <span class="kicker">REVIEW</span>
+                <h2>Remember?</h2>
+                <p>Tap each card to reveal the answer.</p>
+            </div>
+            <div class="review-grid">
+                <button class="review-card">
+                    <div class="q">Move the arrow?</div>
+                    <div class="a">🖱️ MOVE</div>
+                </button>
+                <button class="review-card">
+                    <div class="q">Press once?</div>
+                    <div class="a">👆 CLICK</div>
+                </button>
+                <button class="review-card">
+                    <div class="q">Hold and move?</div>
+                    <div class="a">✋ DRAG</div>
+                </button>
+            </div>
+        </section>
+
+        <section class="slide session-2" data-session="2" data-title="How Do You Feel">
+            <div class="slide-head center compact">
+                <span class="kicker">CHECK-IN</span>
+                <h2>How Do You Feel?</h2>
+                <p>Tap your feeling today.</p>
+            </div>
+            <div class="feeling-grid">
+                <button class="feeling-card" data-feel="Excited"><img
+                        src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/604519df-bf8c-4dbe-a3d3-06e246e46987.png"
+                        alt=""><b>EXCITED</b></button>
+                <button class="feeling-card" data-feel="Happy"><img
+                        src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/aa90e51f-091d-45cc-ae6f-3c3f1dbc1a7e.png"
+                        alt=""><b>HAPPY</b></button>
+                <button class="feeling-card" data-feel="Okay"><img
+                        src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/045e11e9-5d50-45d1-93b6-a47d3d8976d1.png"
+                        alt=""><b>OKAY</b></button>
+                <button class="feeling-card" data-feel="Tired"><img
+                        src="https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/71e00b1c-7030-4d60-8197-6b0146092cc2.png"
+                        alt=""><b>TIRED</b></button>
+            </div>
+            <div class="feedback" id="feelFeedback2"></div>
+        </section>
+
+        <footer class="navigation">
+            <div class="nav-title" id="navTitle"></div>
+            <div class="nav-controls">
+                <button aria-label="Previous" class="nav-btn" id="prevBtn">‹</button>
+                <div class="counter"><span id="currentSlide">1</span> / <span id="totalSlides">12</span></div>
+                <button aria-label="Next" class="nav-btn next" id="nextBtn">›</button>
+            </div>
+        </footer>
+
+    </main>
+
     <script>
-        const A = {
-            logo: 'https://cdn-web-2.ruangguru.com/landing-pages/assets/e7d93748-818d-462d-be57-7db1e479cd62.png',
-            bg: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/6ac31f0c-b2f6-4b34-95b6-3ba45e9df665.png',
-            hello: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/8c566db8-d72b-4583-bf64-7b8e80183ade.png',
-            music: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/daff64ee-5ce7-42f6-b7b5-4a8ebb20301c.png',
-            clap: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/cefa57f6-8b0c-4ea2-afb4-09e083ac2aa9.png',
-            stomp: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/cfd6855d-8eb2-4c20-86ae-7aa3873d2719.png',
-            mic: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/22774f81-2ae6-4e00-abd7-d04ad4ea4b3b.png',
-            keyboard: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/203faa0e-72d0-4032-aacd-376d49c41c6f.png',
-            mouse: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/92282114-d1dd-48a4-b406-abdb59f19cc0.png',
-            monitor: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/416ee7b3-f8ef-41e9-b581-ee496101ae8f.png',
-            speaker: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/6edd8ae5-a38b-4df1-a4ae-1780b871225b.png',
-            excited: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/604519df-bf8c-4dbe-a3d3-06e246e46987.png',
-            happy: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/aa90e51f-091d-45cc-ae6f-3c3f1dbc1a7e.png',
-            okay: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/045e11e9-5d50-45d1-93b6-a47d3d8976d1.png',
-            tired: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/71e00b1c-7030-4d60-8197-6b0146092cc2.png',
-            draw: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/15ba39b3-6fbd-4f77-af73-71606fec6121.png',
-            ball: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/b8df73d5-9a3e-4890-bf82-fa8f4c8bb843.png',
-            video: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/982a6ad6-15b9-46d1-8737-45a2948e9deb.png',
-            lego: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/51f09380-99f7-4f5c-b24e-a1ce05768f01.png',
-            game: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/def25ed6-dfa5-4d9c-81f2-126ea2d094d2.png',
-            bike: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/afe988e1-ce4d-4dde-a649-e1f44651ae60.png',
-            gentle: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/ee7918f9-245a-4f48-b3c9-9ecdfd015f38.png',
-            drink: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/0c474603-fb59-49f1-b2a6-aa9b6624a462.png',
-            punch: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/b3ce71d0-4015-48f8-9e5e-2fc08cc4b0c9.png',
-            moveGentle: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/73d6fecd-c58a-435a-b4f4-841846ba3349.png',
-            moveTyping: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/fc56160b-d5a6-4ea7-81e4-0d39f81f91ba.png',
-            moveClick: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/51b2af21-59c7-4be2-8466-65cf2808530f.png',
-            moveListen: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/a2290e4a-1491-43a0-84fe-c24e2716bedc.png',
-            moveStretch: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/084c91b3-70d5-40b2-bba1-6429476e670f.png',
-            moveFreeze: 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/61335722-bd61-4959-909b-e9ddf30f3fb3.png'
-        };
+        const sessionSelect = document.getElementById('sessionSelect');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const navTitle = document.getElementById('navTitle');
+        const currentSlideEl = document.getElementById('currentSlide');
+        const totalSlidesEl = document.getElementById('totalSlides');
 
-        const feelings = [
-            { label: 'EXCITED', image: A.excited },
-            { label: 'HAPPY', image: A.happy },
-            { label: 'OKAY', image: A.okay },
-            { label: 'TIRED', image: A.tired }
-        ];
+        let currentSession = 1;
+        let currentIndex = 0;
+        let sessionSlides = [];
 
-        const sessions = {
-            1: {
-                name: 'Session 1 — Welcome to Our Digital World',
-                slides: [
-                    { layout: 'hero', title: 'HELLO, DIGITAL EXPLORERS!', sub: 'Wave, smile, and get ready to learn!', image: A.hello, float: true },
-                    { layout: 'song', title: 'HELLO SONG!', sub: 'Sing it. Clap it. Move it!', images: [A.music, A.clap, A.stomp], lines: ['Hello, hello! 👋', 'Clap, clap, clap!', 'Stomp, stomp, stomp!', 'Ready to learn! ⭐'] },
-                    {
-                        layout: 'goals', title: 'TODAY WE WILL...', sub: 'Meet our computer friends.', tools: [
-                            { image: A.monitor, label: 'SCREEN' }, { image: A.mouse, label: 'MOUSE' }, { image: A.keyboard, label: 'KEYBOARD' }, { image: A.speaker, label: 'SPEAKER' }, { image: A.mic, label: 'MIC' }
-                        ], goals: ['LOOK & FIND 👀', 'SHOW & POINT 👆', 'MATCH JOBS 🧩', 'GENTLE HANDS 🤲']
-                    },
-                    {
-                        layout: 'tools', title: 'SHOW THE TOOLS!', sub: 'Tap a picture. Say the name.', items: [
-                            { image: A.monitor, label: 'SCREEN', small: 'Look!' }, { image: A.keyboard, label: 'KEYBOARD', small: 'Type!' }, { image: A.mouse, label: 'MOUSE', small: 'Click!' }, { image: A.speaker, label: 'SPEAKER', small: 'Listen!' }, { image: A.mic, label: 'MIC', small: 'Talk!' }
-                        ]
-                    },
-                    {
-                        layout: 'quiz', title: 'WHICH TOOL?', sub: 'Tap the right tool.', questions: [
-                            { hint: '🤚', prompt: 'Which tool helps us type?', options: [['Mouse', A.mouse, false], ['Keyboard', A.keyboard, true], ['Speaker', A.speaker, false]] },
-                            { hint: '👂', prompt: 'Which tool helps us listen?', options: [['Speaker', A.speaker, true], ['Screen', A.monitor, false], ['Mouse', A.mouse, false]] },
-                            { hint: '👀', prompt: 'Which tool helps us see?', options: [['Mic', A.mic, false], ['Keyboard', A.keyboard, false], ['Screen', A.monitor, true]] },
-                            { hint: '👆', prompt: 'Which tool helps us click?', options: [['Mouse', A.mouse, true], ['Speaker', A.speaker, false], ['Screen', A.monitor, false]] }
-                        ]
-                    },
-                    {
-                        layout: 'match', title: 'MATCH THE JOB!', sub: 'Tap a job. Tap its tool.', sources: [
-                            { key: 'see', emoji: '👀', label: 'SEE' }, { key: 'type', emoji: '🔤', label: 'TYPE' }, { key: 'click', emoji: '👆', label: 'CLICK' }, { key: 'hear', emoji: '👂', label: 'HEAR' }
-                        ], targets: [
-                            { key: 'type', image: A.keyboard, label: 'KEYBOARD' }, { key: 'hear', image: A.speaker, label: 'SPEAKER' }, { key: 'see', image: A.monitor, label: 'SCREEN' }, { key: 'click', image: A.mouse, label: 'MOUSE' }
-                        ]
-                    },
-                    {
-                        layout: 'choice3', title: 'GENTLE HANDS?', sub: 'Which choice is safe?', items: [
-                            { image: A.gentle, label: 'Gentle Hands', correct: true },
-                            { image: A.drink, label: 'Drink Near Laptop', correct: false },
-                            { image: A.punch, label: 'Hit the Keys', correct: false }
-                        ]
-                    },
-                    {
-                        layout: 'sort', title: 'SCREEN OR PLAY?', sub: 'Tap a picture. Then tap a basket.', bins: [
-                            { key: 'screen', label: '💻 SCREEN' }, { key: 'play', label: '🏃 PLAY' }
-                        ], items: [
-                            { key: 'screen', label: 'Draw', image: A.draw }, { key: 'play', label: 'Ball', image: A.ball }, { key: 'screen', label: 'Video', image: A.video },
-                            { key: 'play', label: 'Blocks', image: A.lego }, { key: 'play', label: 'Bike', image: A.bike }, { key: 'screen', label: 'Game', image: A.game }
-                        ]
-                    },
-                    {
-                        layout: 'movement', title: 'TECH MOVES!', sub: 'Tap a card. Do the move!', items: [
-                            { image: A.moveGentle, label: 'Gentle Hands' }, { image: A.moveTyping, label: 'Typing' }, { image: A.moveClick, label: 'Click Click' },
-                            { image: A.moveListen, label: 'Listen' }, { image: A.moveStretch, label: 'Stretch' }, { image: A.moveFreeze, label: 'Freeze' }
-                        ]
-                    },
-                    {
-                        layout: 'review', title: 'REMEMBER?', sub: 'Tap a card to reveal.', items: [
-                            ['What helps us TYPE?', '⌨️ Keyboard'], ['What helps us CLICK?', '🖱️ Mouse'], ['How do we touch devices?', '🤲 Gently']
-                        ]
-                    },
-                    { layout: 'feelings', title: 'HOW DO YOU FEEL?', sub: 'Tap your feeling.', items: feelings },
-                    { layout: 'hero', title: 'GREAT JOB!', sub: 'You are a Digital Explorer!', visual: '🌟💻🎉' }
-                ]
-            },
-            2: {
-                name: 'Session 2 — Mouse Adventure',
-                slides: [
-                    { layout: 'hero', title: 'HELLO, MOUSE EXPLORERS!', sub: 'Wave your mouse hand!', image: A.mouse, float: true },
-                    {
-                        layout: 'warmup', title: 'FINGER WAKE-UP!', sub: 'Move your fingers with the cards.', items: [
-                            ['✨', 'WIGGLE'], ['👆', 'TAP TAP'], ['🤏', 'SQUEEZE'], ['🖐️', 'RELAX']
-                        ]
-                    },
-                    { layout: 'goals2', title: 'TODAY WE WILL...', sub: 'Control the mouse.', image: A.mouse, goals: ['POINT ➡️', 'CLICK 👆', 'DRAG ✋', 'CONTROL 🎯'] },
-                    {
-                        layout: 'mouseconcepts', title: 'MEET THE MOUSE', sub: 'Move. Watch. Click.', items: [
-                            { kind: 'image', image: A.mouse, label: 'MOVE' }, { kind: 'emoji', emoji: '➤', label: 'POINTER' }, { kind: 'emoji', emoji: '👆', label: 'CLICK' }
-                        ]
-                    },
-                    { layout: 'bubbles', title: 'POP THE BUBBLES!', sub: 'Click or tap them all.', items: ['A', 'B', '⭐', '🐱', '3', '🌈', 'M', '🚀', '7'] },
-                    {
-                        layout: 'target', title: 'CLICK THE TARGET!', sub: 'Find the star.', items: [
-                            ['❤️', 'Heart', false], ['⭐', 'Star', true], ['🌙', 'Moon', false], ['☀️', 'Sun', false]
-                        ]
-                    },
-                    {
-                        layout: 'feed', title: 'FEED THE FRIENDS!', sub: 'Tap food. Tap the animal.', sources: [
-                            { key: 'rabbit', emoji: '🥕', label: 'CARROT' }, { key: 'cat', emoji: '🐟', label: 'FISH' }, { key: 'monkey', emoji: '🍌', label: 'BANANA' }
-                        ], targets: [
-                            { key: 'cat', emoji: '🐱', label: 'CAT' }, { key: 'monkey', emoji: '🐵', label: 'MONKEY' }, { key: 'rabbit', emoji: '🐰', label: 'RABBIT' }
-                        ]
-                    },
-                    { layout: 'trace', title: 'FOLLOW THE PATH!', sub: 'Draw from the bee to the flower.' },
-                    {
-                        layout: 'mission', title: 'MOUSE MISSION!', sub: 'Try all three.', items: [
-                            ['1', '🎯', 'POINT'], ['2', '👆', 'CLICK'], ['3', '✋', 'DRAG']
-                        ]
-                    },
-                    {
-                        layout: 'mousemoves', title: 'SHOW ME!', sub: 'Use your hand, not the mouse.', items: [
-                            ['👆', 'CLICK'], ['✋➡️', 'DRAG'], ['🖱️↔️', 'MOVE']
-                        ]
-                    },
-                    {
-                        layout: 'review', title: 'REMEMBER?', sub: 'Tap a card to reveal.', items: [
-                            ['Move the arrow?', '🖱️ MOVE'], ['Press once?', '👆 CLICK'], ['Hold and move?', '✋ DRAG']
-                        ]
-                    },
-                    { layout: 'feelings', title: 'HOW DO YOU FEEL?', sub: 'Tap your feeling.', items: feelings }
-                ]
+        let preferredFemaleVoice = null;
+
+        function pickFemaleVoice() {
+            const voices = speechSynthesis.getVoices();
+            if (!voices || !voices.length) return null;
+
+            const femaleHints = [
+                'female', 'woman', 'girl',
+                'samantha', 'victoria', 'karen', 'moira', 'tessa',
+                'zira', 'aria', 'jenny', 'susan', 'hazel',
+                'ava', 'allison', 'siri female', 'google uk english female',
+                'microsoft aria', 'microsoft jenny', 'microsoft zira'
+            ];
+
+            const englishVoices = voices.filter(v =>
+                /^en[-_]/i.test(v.lang || '') || /english/i.test(v.name || '')
+            );
+
+            const femaleEnglish = englishVoices.find(v => {
+                const haystack = `${v.name} ${v.voiceURI}`.toLowerCase();
+                return femaleHints.some(hint => haystack.includes(hint));
+            });
+
+            if (femaleEnglish) return femaleEnglish;
+
+            const anyFemale = voices.find(v => {
+                const haystack = `${v.name} ${v.voiceURI}`.toLowerCase();
+                return femaleHints.some(hint => haystack.includes(hint));
+            });
+
+            if (anyFemale) return anyFemale;
+
+            return englishVoices[0] || voices[0] || null;
+        }
+
+        function refreshPreferredVoice() {
+            preferredFemaleVoice = pickFemaleVoice();
+        }
+
+        if ('speechSynthesis' in window) {
+            refreshPreferredVoice();
+            speechSynthesis.onvoiceschanged = refreshPreferredVoice;
+        }
+
+        function say(text) {
+            if (!('speechSynthesis' in window)) return;
+            speechSynthesis.cancel();
+
+            if (!preferredFemaleVoice) {
+                preferredFemaleVoice = pickFemaleVoice();
             }
+
+            const u = new SpeechSynthesisUtterance(text);
+            u.lang = preferredFemaleVoice?.lang || 'en-US';
+            if (preferredFemaleVoice) u.voice = preferredFemaleVoice;
+            u.rate = 0.90;
+            u.pitch = 1.55;
+            u.volume = 1;
+            speechSynthesis.speak(u);
+        }
+        function shuffled(arr) {
+            const a = [...arr];
+            for (let i = a.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+            return a;
+        }
+        function refreshSessionSlides() {
+            sessionSlides = [...document.querySelectorAll(`.slide[data-session="${currentSession}"]`)];
+            [...document.querySelectorAll('.slide')].forEach(s => s.classList.remove('active'));
+            currentIndex = Math.min(currentIndex, sessionSlides.length - 1);
+            showSlide(currentIndex);
+        }
+        function showSlide(i) {
+            if ('speechSynthesis' in window) speechSynthesis.cancel();
+            if (i < 0 || i >= sessionSlides.length) return;
+            sessionSlides.forEach((s, idx) => s.classList.toggle('active', idx === i));
+            currentIndex = i;
+            currentSlideEl.textContent = i + 1;
+            totalSlidesEl.textContent = sessionSlides.length;
+            prevBtn.disabled = i === 0;
+            nextBtn.disabled = i === sessionSlides.length - 1;
+            navTitle.textContent = `Session ${currentSession} • ${sessionSlides[i].dataset.title}`;
+            sessionSlides[i].scrollTop = 0;
+            if (sessionSlides[i].dataset.title === 'Which Tool') resetQuiz();
+            if (sessionSlides[i].dataset.title === 'Match the Job') setupMatchTargets();
+            if (sessionSlides[i].dataset.title === 'Screen or Play') resetSort();
+            if (sessionSlides[i].dataset.title === 'Feed the Friends') setupFeedTargets();
+            if (sessionSlides[i].dataset.title === 'Follow the Path') setTimeout(sizeCanvas, 40);
+            if (sessionSlides[i].dataset.title === 'Obstacle Path') setTimeout(initObstaclePath, 40);
+            if (sessionSlides[i].dataset.title === 'Scroll Practice') setTimeout(resetScrollPractice, 40);
+            if (sessionSlides[i].dataset.title === 'Drag and Drop') setTimeout(resetDragGame, 40);
+            if (sessionSlides[i].dataset.title === 'Fruit Slash') setTimeout(prepareSlashCanvas, 40);
+        }
+        sessionSelect.onchange = () => {
+            currentSession = Number(sessionSelect.value);
+            currentIndex = 0;
+            refreshSessionSlides();
         };
-
-        let session = 1, slide = 0, state = {};
-        const stage = document.getElementById('stage');
-        const counter = document.getElementById('counter');
-        const sessionName = document.getElementById('sessionName');
-        const select = document.getElementById('sessionSelect');
-
-        Object.entries(sessions).forEach(([k, s]) => {
-            const o = document.createElement('option'); o.value = k; o.textContent = s.name; select.appendChild(o);
+        prevBtn.onclick = () => showSlide(currentIndex - 1);
+        nextBtn.onclick = () => showSlide(currentIndex + 1);
+        document.addEventListener('keydown', e => {
+            if (['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement?.tagName)) return;
+            if (e.key === 'ArrowRight') showSlide(currentIndex + 1);
+            if (e.key === 'ArrowLeft') showSlide(currentIndex - 1);
         });
 
-        function head(s) {
-            return `<div class="slide-head"><div class="eyebrow">SESSION ${session}</div><h1 class="title">${s.title}</h1>${s.sub ? `<p class="sub">${s.sub}</p>` : ''}</div>`;
-        }
-        function shuffle(arr) { const a = [...arr]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1));[a[i], a[j]] = [a[j], a[i]] } return a }
-        function speak(t) { if (!('speechSynthesis' in window)) return; speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(t); u.rate = .88; u.pitch = 1.1; u.lang = 'en-US'; speechSynthesis.speak(u) }
-
-        function render() {
-            state = {};
-            const s = sessions[session].slides[slide];
-            sessionName.textContent = sessions[session].name;
-            counter.textContent = `${slide + 1} / ${sessions[session].slides.length}`;
-            document.getElementById('prevBtn').disabled = slide === 0;
-            document.getElementById('nextBtn').textContent = slide === sessions[session].slides.length - 1 ? 'Done ⭐' : 'Next ➡';
-            stage.innerHTML = `<section class="slide">${head(s)}${body(s)}</section>`;
-            init(s);
-            stage.scrollTop = 0;
-        }
-
-        function body(s) {
-            switch (s.layout) {
-                case 'hero': return `<div class="hero-layout"><div class="hero-copy"><h2 class="title">${s.title}</h2><p class="sub">${s.sub || ''}</p></div><div class="hero-media">${s.image ? `<img class="${s.float ? 'float' : ''}" src="${s.image}" alt="">` : `<div style="font-size:150px">${s.visual || '🌟'}</div>`}</div></div>`;
-                case 'song': return `<div class="song-stage"><div class="song-visuals">${s.images.map(x => `<div class="song-visual"><img src="${x}" alt=""></div>`).join('')}</div><div class="song-words">${s.lines.map(x => `<button class="lyric" data-say="${x.replace(/"/g, '&quot;')}">${x}</button>`).join('')}</div></div>`;
-                case 'goals': return `<div class="goal-showcase"><div class="tool-strip">${s.tools.map(x => `<div class="tool-chip"><img src="${x.image}" alt=""><span>${x.label}</span></div>`).join('')}</div><div class="goal-list">${s.goals.map(g => `<div class="goal-card">${g}</div>`).join('')}</div></div>`;
-                case 'goals2': return `<div class="goal-showcase"><div class="tool-strip" style="grid-template-columns:1fr"><div class="tool-chip"><img style="max-width:240px" src="${s.image}" alt=""><span>MOUSE</span></div></div><div class="goal-list">${s.goals.map(g => `<div class="goal-card">${g}</div>`).join('')}</div></div>`;
-                case 'tools': return `<div class="tool-gallery">${s.items.map(x => `<button class="tool-card" data-say="${x.label}"><img src="${x.image}" alt=""><strong>${x.label}</strong><small>${x.small}</small></button>`).join('')}</div>`;
-                case 'quiz': return `<div class="quiz-shell"><div class="quiz-hint" id="quizHint"></div><div class="quiz-prompt" id="quizPrompt"></div><div class="quiz-options" id="quizOptions"></div><div class="feedback" id="feedback"></div></div>`;
-                case 'match': return `<div class="match-layout"><div class="match-row">${s.sources.map(x => `<button class="match-card source" data-key="${x.key}"><div class="big-emoji">${x.emoji}</div><strong>${x.label}</strong></button>`).join('')}</div><div class="match-arrow">↕</div><div class="match-row">${shuffle(s.targets).map(x => `<button class="match-card target" data-key="${x.key}"><img src="${x.image}" alt=""><strong>${x.label}</strong></button>`).join('')}</div><div class="feedback" id="feedback"></div></div>`;
-                case 'choice3': return `<div class="choice-3">${s.items.map(x => `<button class="choice-card" data-correct="${x.correct ? '1' : '0'}"><img src="${x.image}" alt=""><strong>${x.label}</strong></button>`).join('')}</div><div class="feedback" id="feedback"></div>`;
-                case 'sort': return `<div class="sort-layout">${s.bins.map(b => `<div class="sort-bin" data-bin="${b.key}"><div class="bin-head">${b.label}</div><div class="bin-drop"></div></div>`).join('')}<div class="sort-pool">${s.items.map((x, i) => `<button class="sort-item" data-index="${i}" data-key="${x.key}"><img src="${x.image}" alt=""><strong>${x.label}</strong></button>`).join('')}</div></div><div class="feedback" id="feedback">Tap a picture, then a basket.</div>`;
-                case 'movement': return `<div class="move-grid">${s.items.map(x => `<button class="move-card" data-label="${x.label}"><img src="${x.image}" alt=""><strong>${x.label}</strong></button>`).join('')}</div><div class="feedback" id="feedback">Tap a card. Copy the move!</div>`;
-                case 'review': return `<div class="review-grid">${s.items.map(x => `<button class="review-card"><div class="q">${x[0]}</div><div class="a">${x[1]}</div></button>`).join('')}</div>`;
-                case 'feelings': return `<div class="feel-grid">${s.items.map(x => `<button class="feel-card" data-feel="${x.label}"><img src="${x.image}" alt=""><strong>${x.label}</strong></button>`).join('')}</div><div class="feedback" id="feedback"></div>`;
-                case 'warmup': return `<div class="warm-grid">${s.items.map(x => `<button class="warm-card" data-label="${x[1]}"><div class="gesture">${x[0]}</div><strong>${x[1]}</strong></button>`).join('')}</div>`;
-                case 'mouseconcepts': return `<div class="mouse-concepts">${s.items.map(x => `<div class="concept">${x.kind === 'image' ? `<img src="${x.image}" alt="">` : `<div class="${x.label === 'POINTER' ? 'pointer' : 'finger'}">${x.emoji}</div>`}<strong>${x.label}</strong></div>`).join('')}</div>`;
-                case 'bubbles': return `<div class="bubble-field">${s.items.map(x => `<button class="bubble">${x}</button>`).join('')}</div><div class="feedback" id="feedback">Pop them all!</div>`;
-                case 'target': return `<div class="target-grid">${s.items.map(x => `<button class="target-card" data-correct="${x[2] ? '1' : '0'}">${x[0]}<small>${x[1]}</small></button>`).join('')}</div><div class="feedback" id="feedback"></div>`;
-                case 'feed': return `<div class="feed-layout"><div class="feed-col">${s.sources.map(x => `<button class="feed-card source" data-key="${x.key}">${x.emoji}<strong>${x.label}</strong></button>`).join('')}</div><div style="font-size:40px">➡️</div><div class="feed-col">${shuffle(s.targets).map(x => `<button class="feed-card target" data-key="${x.key}">${x.emoji}<strong>${x.label}</strong></button>`).join('')}</div></div><div class="feedback" id="feedback"></div>`;
-                case 'trace': return `<div class="canvas-wrap"><canvas id="traceCanvas"></canvas><div class="canvas-mark"><span>🐝</span><span>🌼</span></div></div><button class="clear-btn" id="clearCanvas">Clear ↻</button>`;
-                case 'mission': return `<div class="mission">${s.items.map(x => `<div class="mission-step"><div class="num">${x[0]}</div><div class="icon">${x[1]}</div><strong>${x[2]}</strong></div>`).join('')}</div>`;
-                case 'mousemoves': return `<div class="mouse-moves">${s.items.map(x => `<button class="mouse-move" data-label="${x[1]}"><div class="gesture">${x[0]}</div><strong>${x[1]}</strong></button>`).join('')}</div>`;
+        document.querySelectorAll('[data-say]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.song-card').forEach(x => x.classList.remove('active'));
+                btn.classList.add('active');
+                say(btn.dataset.say);
+            });
+        });
+        document.querySelectorAll('.tool-card').forEach(btn => {
+            btn.onclick = () => {
+                btn.classList.toggle('selected');
+                say(btn.dataset.say);
             }
-            return '';
+        });
+        document.querySelectorAll('.choice-card').forEach(btn => {
+            btn.onclick = () => {
+                const f = document.getElementById('choiceFeedback');
+                const ok = btn.dataset.correct === '1';
+                btn.classList.add(ok ? 'correct' : 'wrong');
+                f.textContent = ok ? '⭐ Good choice!' : 'Try another one.';
+                f.className = 'feedback ' + (ok ? 'success' : 'error');
+            }
+        });
+        document.querySelectorAll('.movement-card').forEach(btn => {
+            btn.onclick = () => {
+                document.querySelectorAll('.movement-card').forEach(x => x.classList.remove('active'));
+                btn.classList.add('active');
+                document.getElementById('moveFeedback').textContent = `Everybody: ${btn.dataset.label}!`;
+                say(btn.dataset.label);
+            }
+        });
+        document.querySelectorAll('.review-card').forEach(btn => btn.onclick = () => btn.classList.toggle('open'));
+        document.querySelectorAll('.feeling-card').forEach(btn => {
+            btn.onclick = () => {
+                const group = btn.closest('.slide');
+                group.querySelectorAll('.feeling-card').forEach(x => x.classList.remove('selected'));
+                btn.classList.add('selected');
+                const id = currentSession === 1 ? 'feelFeedback' : 'feelFeedback2';
+                const f = document.getElementById(id);
+                if (f) f.textContent = `You feel ${btn.dataset.feel.toLowerCase()}.`;
+            }
+        });
+        document.querySelectorAll('.warmup-card').forEach(btn => {
+            btn.onclick = () => {
+                document.querySelectorAll('.warmup-card').forEach(x => x.classList.remove('active'));
+                btn.classList.add('active');
+                say(btn.dataset.label);
+            }
+        });
+        document.querySelectorAll('.mouse-move').forEach(btn => {
+            btn.onclick = () => {
+                document.querySelectorAll('.mouse-move').forEach(x => x.classList.remove('active'));
+                btn.classList.add('active');
+                say(btn.dataset.label);
+            }
+        });
+
+        /* SESSION 1 QUIZ */
+        const quizData = [
+            {
+                sense: '🤚', q: 'Which tool helps us type?', o: [
+                    ['Mouse', 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/92282114-d1dd-48a4-b406-abdb59f19cc0.png', 0],
+                    ['Keyboard', 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/203faa0e-72d0-4032-aacd-376d49c41c6f.png', 1],
+                    ['Speaker', 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/6edd8ae5-a38b-4df1-a4ae-1780b871225b.png', 0]
+                ]
+            },
+            {
+                sense: '👂', q: 'Which tool helps us listen?', o: [
+                    ['Speaker', 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/6edd8ae5-a38b-4df1-a4ae-1780b871225b.png', 1],
+                    ['Screen', 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/416ee7b3-f8ef-41e9-b581-ee496101ae8f.png', 0],
+                    ['Mouse', 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/92282114-d1dd-48a4-b406-abdb59f19cc0.png', 0]
+                ]
+            },
+            {
+                sense: '👀', q: 'Which tool helps us see?', o: [
+                    ['Mic', 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/22774f81-2ae6-4e00-abd7-d04ad4ea4b3b.png', 0],
+                    ['Keyboard', 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/203faa0e-72d0-4032-aacd-376d49c41c6f.png', 0],
+                    ['Screen', 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/416ee7b3-f8ef-41e9-b581-ee496101ae8f.png', 1]
+                ]
+            },
+            {
+                sense: '👆', q: 'Which tool helps us click?', o: [
+                    ['Mouse', 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/92282114-d1dd-48a4-b406-abdb59f19cc0.png', 1],
+                    ['Speaker', 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/6edd8ae5-a38b-4df1-a4ae-1780b871225b.png', 0],
+                    ['Screen', 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/416ee7b3-f8ef-41e9-b581-ee496101ae8f.png', 0]
+                ]
+            }
+        ];
+        let quizIndex = 0;
+        function resetQuiz() {
+            quizIndex = 0;
+            renderQuiz();
+        }
+        function renderQuiz() {
+            const sense = document.getElementById('quizSense');
+            const q = document.getElementById('quizQuestion');
+            const o = document.getElementById('quizOptions');
+            const f = document.getElementById('quizFeedback');
+            if (!sense || !q || !o || !f) return;
+            if (quizIndex >= quizData.length) {
+                sense.textContent = '⭐';
+                q.textContent = 'Great job!';
+                o.innerHTML = '';
+                f.textContent = 'You found all the tools!';
+                f.className = 'feedback success';
+                return;
+            }
+            const item = quizData[quizIndex];
+            sense.textContent = item.sense;
+            q.textContent = item.q;
+            f.textContent = '';
+            f.className = 'feedback';
+            o.innerHTML = item.o.map(x => `<button class="quiz-option" data-correct="${x[2]}"><img src="${x[1]}" alt=""><b>${x[0]}</b></button>`).join('');
+            o.querySelectorAll('.quiz-option').forEach(btn => {
+                btn.onclick = () => {
+                    if (btn.dataset.correct === '1') {
+                        btn.classList.add('correct');
+                        f.textContent = '⭐ Yes!';
+                        f.className = 'feedback success';
+                        o.querySelectorAll('button').forEach(x => x.disabled = true);
+                        setTimeout(() => { quizIndex++; renderQuiz() }, 650);
+                    } else {
+                        btn.classList.add('wrong');
+                        f.textContent = 'Try again!';
+                        f.className = 'feedback error';
+                        setTimeout(() => btn.classList.remove('wrong'), 350);
+                    }
+                };
+            });
         }
 
-        function init(s) {
-            document.querySelectorAll('[data-say]').forEach(b => b.onclick = () => { b.classList.toggle('active'); speak(b.dataset.say) });
-            document.querySelectorAll('.tool-card').forEach(b => b.onclick = () => { b.classList.toggle('selected'); speak(b.dataset.say) });
-            if (s.layout === 'quiz') initQuiz(s);
-            if (s.layout === 'match') initMatch();
-            if (s.layout === 'choice3') initChoice();
-            if (s.layout === 'sort') initSort(s);
-            if (s.layout === 'movement') initMovement();
-            if (s.layout === 'review') document.querySelectorAll('.review-card').forEach(b => b.onclick = () => b.classList.toggle('open'));
-            if (s.layout === 'feelings') initFeelings();
-            if (s.layout === 'warmup') document.querySelectorAll('.warm-card').forEach(b => b.onclick = () => { speak(b.dataset.label); b.style.outline = '4px solid #8FD7DE' });
-            if (s.layout === 'bubbles') initBubbles();
-            if (s.layout === 'target') initTarget();
-            if (s.layout === 'feed') initFeed();
-            if (s.layout === 'trace') initCanvas();
-            if (s.layout === 'mousemoves') document.querySelectorAll('.mouse-move').forEach(b => b.onclick = () => { document.querySelectorAll('.mouse-move').forEach(x => x.classList.remove('active')); b.classList.add('active'); speak(b.dataset.label) });
+        /* SESSION 1 MATCH */
+        const matchTargetData = [
+            ['see', 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/416ee7b3-f8ef-41e9-b581-ee496101ae8f.png', 'SCREEN'],
+            ['type', 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/203faa0e-72d0-4032-aacd-376d49c41c6f.png', 'KEYBOARD'],
+            ['click', 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/92282114-d1dd-48a4-b406-abdb59f19cc0.png', 'MOUSE'],
+            ['hear', 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/6edd8ae5-a38b-4df1-a4ae-1780b871225b.png', 'SPEAKER']
+        ];
+        let matchSource = null;
+        function setupMatchTargets() {
+            const box = document.getElementById('matchTargets');
+            if (!box) return;
+            box.innerHTML = shuffled(matchTargetData).map(x => `<button class="match-card target" data-key="${x[0]}"><img src="${x[1]}" alt=""><b>${x[2]}</b></button>`).join('');
+            matchSource = null;
+            document.querySelectorAll('.match-card.source').forEach(x => x.classList.remove('selected', 'done'));
+            document.getElementById('matchFeedback').textContent = '';
+            document.querySelectorAll('.match-card.source').forEach(btn => {
+                btn.onclick = () => {
+                    document.querySelectorAll('.match-card.source').forEach(x => x.classList.remove('selected'));
+                    matchSource = btn;
+                    btn.classList.add('selected');
+                    document.getElementById('matchFeedback').textContent = 'Now choose the tool.';
+                };
+            });
+            box.querySelectorAll('.target').forEach(btn => {
+                btn.onclick = () => {
+                    const f = document.getElementById('matchFeedback');
+                    if (!matchSource) { f.textContent = 'Choose a job first.'; return }
+                    if (btn.dataset.key === matchSource.dataset.key) {
+                        btn.classList.add('done');
+                        matchSource.classList.add('done');
+                        matchSource.classList.remove('selected');
+                        matchSource = null;
+                        f.textContent = '⭐ Match!';
+                        f.className = 'feedback success';
+                    } else {
+                        f.textContent = 'Try another tool.';
+                        f.className = 'feedback error';
+                    }
+                };
+            });
         }
 
-        function initQuiz(s) {
-            state.q = 0;
-            const show = () => {
-                const q = s.questions[state.q];
-                const hint = document.getElementById('quizHint'), prompt = document.getElementById('quizPrompt'), opts = document.getElementById('quizOptions'), f = document.getElementById('feedback');
-                if (!q) {
-                    hint.textContent = '⭐'; prompt.textContent = 'Great job!';
-                    opts.innerHTML = '<button class="nav next" id="playAgain">Play Again ↻</button>'; f.textContent = 'You found the tools!';
-                    document.getElementById('playAgain').onclick = () => { state.q = 0; show() }; return;
+        /* SESSION 1 SORT */
+        const sortData = [
+            ['screen', 'Draw', 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/15ba39b3-6fbd-4f77-af73-71606fec6121.png'],
+            ['play', 'Ball', 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/b8df73d5-9a3e-4890-bf82-fa8f4c8bb843.png'],
+            ['screen', 'Video', 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/982a6ad6-15b9-46d1-8737-45a2948e9deb.png'],
+            ['play', 'Blocks', 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/51f09380-99f7-4f5c-b24e-a1ce05768f01.png'],
+            ['play', 'Bike', 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/afe988e1-ce4d-4dde-a649-e1f44651ae60.png'],
+            ['screen', 'Game', 'https://uob-1328237036.cos.ap-singapore.myqcloud.com//file-uploader/images/def25ed6-dfa5-4d9c-81f2-126ea2d094d2.png']
+        ];
+        let sortSelected = null;
+        function resetSort() {
+            const pool = document.getElementById('sortPool');
+            if (!pool) return;
+            document.querySelectorAll('.sort-bin .bin-content').forEach(x => x.innerHTML = '');
+            pool.innerHTML = sortData.map((x, i) => `<button class="sort-item" data-index="${i}" data-key="${x[0]}"><img src="${x[2]}" alt=""><b>${x[1]}</b></button>`).join('');
+            sortSelected = null;
+            document.getElementById('sortFeedback').textContent = 'Choose one picture.';
+            pool.querySelectorAll('.sort-item').forEach(btn => {
+                btn.onclick = () => {
+                    pool.querySelectorAll('.sort-item').forEach(x => x.classList.remove('selected'));
+                    sortSelected = btn;
+                    btn.classList.add('selected');
+                    document.getElementById('sortFeedback').textContent = 'Now tap SCREEN or PLAY.';
+                };
+            });
+            document.querySelectorAll('.sort-bin').forEach(bin => {
+                bin.onclick = () => {
+                    const f = document.getElementById('sortFeedback');
+                    if (!sortSelected) { f.textContent = 'Choose a picture first.'; return }
+                    if (bin.dataset.bin === sortSelected.dataset.key) {
+                        const x = sortData[Number(sortSelected.dataset.index)];
+                        bin.querySelector('.bin-content').insertAdjacentHTML('beforeend', `<div class="dropped"><img src="${x[2]}" alt=""><span>${x[1]}</span></div>`);
+                        sortSelected.classList.add('done');
+                        sortSelected.classList.remove('selected');
+                        sortSelected = null;
+                        f.textContent = '⭐ Nice!';
+                        f.className = 'feedback success';
+                    } else {
+                        f.textContent = 'Try the other basket.';
+                        f.className = 'feedback error';
+                    }
+                };
+            });
+        }
+
+        /* SESSION 2 */
+        document.querySelectorAll('.bubble').forEach(btn => {
+            btn.onclick = () => {
+                btn.classList.add('popped');
+                setTimeout(() => btn.style.visibility = 'hidden', 240);
+                const left = [...document.querySelectorAll('.bubble')].filter(x => !x.classList.contains('popped')).length;
+                document.getElementById('bubbleFeedback').textContent = left ? `${left} left!` : '🎉 All popped!';
+            };
+        });
+        document.querySelectorAll('.target-card').forEach(btn => {
+            btn.onclick = () => {
+                const ok = btn.dataset.correct === '1';
+                btn.classList.add(ok ? 'correct' : 'wrong');
+                const f = document.getElementById('targetFeedback');
+                f.textContent = ok ? '⭐ Yes!' : 'Try again!';
+                f.className = 'feedback ' + (ok ? 'success' : 'error');
+            };
+        });
+
+        const feedTargetData = [
+            ['rabbit', '🐰', 'RABBIT'],
+            ['cat', '🐱', 'CAT'],
+            ['monkey', '🐵', 'MONKEY']
+        ];
+        let feedSource = null;
+        function setupFeedTargets() {
+            const box = document.getElementById('feedTargets');
+            if (!box) return;
+            box.innerHTML = shuffled(feedTargetData).map(x => `<button class="feed-card target" data-key="${x[0]}">${x[1]}<b>${x[2]}</b></button>`).join('');
+            feedSource = null;
+            document.querySelectorAll('.feed-card.source').forEach(x => x.classList.remove('selected', 'done'));
+            document.getElementById('feedFeedback').textContent = '';
+            document.querySelectorAll('.feed-card.source').forEach(btn => {
+                btn.onclick = () => {
+                    document.querySelectorAll('.feed-card.source').forEach(x => x.classList.remove('selected'));
+                    feedSource = btn;
+                    btn.classList.add('selected');
+                    document.getElementById('feedFeedback').textContent = 'Now choose the animal.';
+                };
+            });
+            box.querySelectorAll('.target').forEach(btn => {
+                btn.onclick = () => {
+                    const f = document.getElementById('feedFeedback');
+                    if (!feedSource) { f.textContent = 'Choose food first.'; return }
+                    if (btn.dataset.key === feedSource.dataset.key) {
+                        btn.classList.add('done');
+                        feedSource.classList.add('done');
+                        feedSource.classList.remove('selected');
+                        feedSource = null;
+                        f.textContent = '⭐ Yum!';
+                        f.className = 'feedback success';
+                    } else {
+                        f.textContent = 'Try another animal.';
+                        f.className = 'feedback error';
+                    }
+                };
+            });
+        }
+
+
+        /* SESSION 2 — OBSTACLE PATH */
+        const obstacleCanvas = document.getElementById('obstacleCanvas');
+        const obstacleCtx = obstacleCanvas.getContext('2d');
+        let obstacleDrawing = false;
+        let obstacleLast = null;
+        let obstacleWon = false;
+        let obstacleRects = [];
+
+        function obstaclePoint(e) {
+            const r = obstacleCanvas.getBoundingClientRect();
+            return { x: e.clientX - r.left, y: e.clientY - r.top };
+        }
+
+        function drawObstacleBoard() {
+            const r = obstacleCanvas.getBoundingClientRect();
+            if (!r.width || !r.height) return;
+
+            const d = Math.min(2, window.devicePixelRatio || 1);
+            obstacleCanvas.width = r.width * d;
+            obstacleCanvas.height = r.height * d;
+            obstacleCtx.setTransform(d, 0, 0, d, 0, 0);
+            obstacleCtx.clearRect(0, 0, r.width, r.height);
+
+            const w = r.width, h = r.height;
+            obstacleRects = [
+                { x: w * .22, y: h * .06, w: w * .12, h: h * .40 },
+                { x: w * .43, y: h * .54, w: w * .12, h: h * .40 },
+                { x: w * .64, y: h * .06, w: w * .12, h: h * .40 },
+                { x: w * .78, y: h * .56, w: w * .08, h: h * .30 }
+            ];
+
+            obstacleCtx.lineWidth = 3;
+            obstacleRects.forEach((o, idx) => {
+                obstacleCtx.beginPath();
+                obstacleCtx.roundRect(o.x, o.y, o.w, o.h, 18);
+                obstacleCtx.fillStyle = idx % 2 === 0 ? '#ffd36b' : '#bde8b9';
+                obstacleCtx.fill();
+                obstacleCtx.strokeStyle = idx % 2 === 0 ? '#dda72f' : '#6fb56c';
+                obstacleCtx.stroke();
+                obstacleCtx.font = '28px Fredoka';
+                obstacleCtx.textAlign = 'center';
+                obstacleCtx.textBaseline = 'middle';
+                obstacleCtx.fillStyle = '#5e6b51';
+                obstacleCtx.fillText(idx % 2 === 0 ? '🧱' : '🌳', o.x + o.w / 2, o.y + o.h / 2);
+            });
+
+            obstacleCtx.lineCap = 'round';
+            obstacleCtx.lineJoin = 'round';
+        }
+
+        function initObstaclePath() {
+            obstacleDrawing = false;
+            obstacleLast = null;
+            obstacleWon = false;
+            drawObstacleBoard();
+            const f = document.getElementById('obstacleFeedback');
+            if (f) {
+                f.textContent = 'Go slowly. Do not touch the obstacles.';
+                f.className = 'feedback';
+            }
+        }
+
+        function obstacleCollision(x, y) {
+            return obstacleRects.some(o =>
+                x > o.x - 7 && x < o.x + o.w + 7 &&
+                y > o.y - 7 && y < o.y + o.h + 7
+            );
+        }
+
+        obstacleCanvas.addEventListener('pointerdown', e => {
+            if (obstacleWon) return;
+            const p = obstaclePoint(e);
+            const r = obstacleCanvas.getBoundingClientRect();
+            const start = { x: 54, y: r.height / 2 };
+
+            if (Math.hypot(p.x - start.x, p.y - start.y) > 70) {
+                const f = document.getElementById('obstacleFeedback');
+                f.textContent = 'Start at the mouse 🐭';
+                f.className = 'feedback error';
+                return;
+            }
+
+            obstacleDrawing = true;
+            obstacleLast = p;
+            obstacleCanvas.setPointerCapture(e.pointerId);
+        });
+
+        obstacleCanvas.addEventListener('pointermove', e => {
+            if (!obstacleDrawing || obstacleWon) return;
+            const p = obstaclePoint(e);
+            const f = document.getElementById('obstacleFeedback');
+
+            if (obstacleCollision(p.x, p.y)) {
+                obstacleDrawing = false;
+                drawObstacleBoard();
+                f.textContent = 'Oops! You touched an obstacle. Try again slowly.';
+                f.className = 'feedback error';
+                say('Oops! Try again slowly.');
+                return;
+            }
+
+            obstacleCtx.strokeStyle = '#2f80ed';
+            obstacleCtx.lineWidth = 9;
+            obstacleCtx.beginPath();
+            obstacleCtx.moveTo(obstacleLast.x, obstacleLast.y);
+            obstacleCtx.lineTo(p.x, p.y);
+            obstacleCtx.stroke();
+            obstacleLast = p;
+
+            const r = obstacleCanvas.getBoundingClientRect();
+            const goal = { x: r.width - 54, y: r.height / 2 };
+            if (Math.hypot(p.x - goal.x, p.y - goal.y) < 62) {
+                obstacleWon = true;
+                obstacleDrawing = false;
+                f.textContent = '⭐ Great control! You reached the cheese!';
+                f.className = 'feedback success';
+                say('Great control!');
+            }
+        });
+
+        obstacleCanvas.addEventListener('pointerup', () => {
+            obstacleDrawing = false;
+            obstacleLast = null;
+        });
+
+        document.getElementById('resetObstacle').onclick = initObstaclePath;
+
+        /* SESSION 2 — SCROLL PRACTICE */
+        const scrollState = { rabbit: 0, basket: 0, wipe: 0, lastDir: 0 };
+
+        function resetScrollPractice() {
+            scrollState.rabbit = 0;
+            scrollState.basket = 0;
+            scrollState.wipe = 0;
+            scrollState.lastDir = 0;
+
+            document.querySelectorAll('.scroll-game').forEach(x => x.classList.remove('done'));
+
+            const carrot = document.querySelector('#scrollRabbit .carrot');
+            const apple = document.querySelector('#scrollBasket .apple');
+            const wiper = document.querySelector('#scrollWindow .window-wiper');
+
+            if (carrot) carrot.style.top = '172px';
+            if (apple) apple.style.top = '8px';
+            if (wiper) wiper.style.top = '175px';
+
+            document.querySelector('#scrollRabbit .scroll-status').textContent = 'Feed the rabbit!';
+            document.querySelector('#scrollBasket .scroll-status').textContent = 'Put the apple in the basket!';
+            document.querySelector('#scrollWindow .scroll-status').textContent = 'Wipe the window!';
+
+            const f = document.getElementById('scrollFeedback');
+            if (f) {
+                f.textContent = 'Try all three scroll movements.';
+                f.className = 'feedback';
+            }
+        }
+
+        function handleScrollGame(card, dir) {
+            const mode = card.dataset.mode;
+            if (card.classList.contains('done')) return;
+
+            if (mode === 'up' && dir < 0) {
+                scrollState.rabbit = Math.min(5, scrollState.rabbit + 1);
+                const carrot = card.querySelector('.carrot');
+                carrot.style.top = (172 - scrollState.rabbit * 31) + 'px';
+
+                if (scrollState.rabbit >= 5) {
+                    card.classList.add('done');
+                    card.querySelector('.scroll-status').textContent = '🐰 Yum! Thank you!';
+                    say('Yum! Thank you!');
                 }
-                hint.textContent = q.hint; prompt.textContent = q.prompt; f.textContent = '';
-                opts.innerHTML = q.options.map(o => `<button class="quiz-option" data-correct="${o[2] ? '1' : '0'}"><img src="${o[1]}" alt=""><div class="name">${o[0]}</div></button>`).join('');
-                opts.querySelectorAll('.quiz-option').forEach(b => b.onclick = () => {
-                    if (b.dataset.correct === '1') {
-                        b.classList.add('good'); f.textContent = '⭐ Yes!'; speak('Yes!');
-                        opts.querySelectorAll('button').forEach(x => x.disabled = true);
-                        setTimeout(() => { state.q++; show() }, 650);
-                    } else { b.classList.add('bad'); f.textContent = 'Try again!'; setTimeout(() => b.classList.remove('bad'), 350) }
-                });
-            }; show();
-        }
-        function initMatch() {
-            let chosen = null; const f = document.getElementById('feedback');
-            document.querySelectorAll('.match-card.source').forEach(b => b.onclick = () => {
-                document.querySelectorAll('.match-card.source').forEach(x => x.classList.remove('pick'));
-                chosen = b; b.classList.add('pick'); f.textContent = 'Now choose the tool.';
-            });
-            document.querySelectorAll('.match-card.target').forEach(b => b.onclick = () => {
-                if (!chosen) { f.textContent = 'Choose a job first.'; return }
-                if (b.dataset.key === chosen.dataset.key) {
-                    b.classList.add('matched'); chosen.classList.add('matched'); chosen.classList.remove('pick'); chosen = null; f.textContent = '⭐ Match!';
-                } else { f.textContent = 'Try another tool.' }
-            });
-        }
-        function initChoice() {
-            const f = document.getElementById('feedback');
-            document.querySelectorAll('.choice-card').forEach(b => b.onclick = () => {
-                const ok = b.dataset.correct === '1'; b.classList.add(ok ? 'good' : 'bad'); f.textContent = ok ? '⭐ Good choice!' : 'Try another one.';
-                if (ok) speak('Good choice');
-            });
-        }
-        function initSort(s) {
-            let chosen = null; const f = document.getElementById('feedback');
-            document.querySelectorAll('.sort-item').forEach(b => b.onclick = () => {
-                document.querySelectorAll('.sort-item').forEach(x => x.classList.remove('selected')); chosen = b; b.classList.add('selected'); f.textContent = 'Now tap SCREEN or PLAY.';
-            });
-            document.querySelectorAll('.sort-bin').forEach(bin => bin.onclick = () => {
-                if (!chosen) { f.textContent = 'Choose a picture first.'; return }
-                if (bin.dataset.bin === chosen.dataset.key) {
-                    const item = s.items[Number(chosen.dataset.index)];
-                    bin.querySelector('.bin-drop').insertAdjacentHTML('beforeend', `<div class="mini-drop"><img src="${item.image}" alt=""><span>${item.label}</span></div>`);
-                    chosen.classList.add('done'); chosen.classList.remove('selected'); chosen = null; f.textContent = '⭐ Nice!';
-                } else f.textContent = 'Try the other basket.';
-            });
-        }
-        function initMovement() {
-            const f = document.getElementById('feedback');
-            document.querySelectorAll('.move-card').forEach(b => b.onclick = () => {
-                document.querySelectorAll('.move-card').forEach(x => x.classList.remove('active')); b.classList.add('active');
-                f.textContent = `Everybody: ${b.dataset.label}!`; speak(b.dataset.label);
-            });
-        }
-        function initFeelings() {
-            const f = document.getElementById('feedback');
-            document.querySelectorAll('.feel-card').forEach(b => b.onclick = () => {
-                document.querySelectorAll('.feel-card').forEach(x => x.classList.remove('active')); b.classList.add('active'); f.textContent = `You feel ${b.dataset.feel.toLowerCase()}.`;
-            });
-        }
-        function initBubbles() {
-            const f = document.getElementById('feedback');
-            document.querySelectorAll('.bubble').forEach(b => b.onclick = () => {
-                b.classList.add('pop'); setTimeout(() => b.style.visibility = 'hidden', 220);
-                const left = [...document.querySelectorAll('.bubble')].filter(x => !x.classList.contains('pop')).length;
-                f.textContent = left ? `${left} left!` : '🎉 All popped!';
-            });
-        }
-        function initTarget() {
-            const f = document.getElementById('feedback');
-            document.querySelectorAll('.target-card').forEach(b => b.onclick = () => {
-                const ok = b.dataset.correct === '1'; b.classList.add(ok ? 'good' : 'bad'); f.textContent = ok ? '⭐ Yes!' : 'Try again!';
-            });
-        }
-        function initFeed() {
-            let chosen = null; const f = document.getElementById('feedback');
-            document.querySelectorAll('.feed-card.source').forEach(b => b.onclick = () => {
-                document.querySelectorAll('.feed-card.source').forEach(x => x.classList.remove('pick')); chosen = b; b.classList.add('pick'); f.textContent = 'Now choose the animal.';
-            });
-            document.querySelectorAll('.feed-card.target').forEach(b => b.onclick = () => {
-                if (!chosen) { f.textContent = 'Choose food first.'; return }
-                if (b.dataset.key === chosen.dataset.key) { b.classList.add('matched'); chosen.classList.add('matched'); chosen.classList.remove('pick'); chosen = null; f.textContent = '⭐ Yum!' }
-                else f.textContent = 'Try another animal.';
-            });
-        }
-        function initCanvas() {
-            const c = document.getElementById('traceCanvas'), ctx = c.getContext('2d');
-            const resize = () => { const r = c.getBoundingClientRect(), d = Math.min(2, devicePixelRatio || 1); c.width = r.width * d; c.height = r.height * d; ctx.scale(d, d); ctx.lineWidth = 8; ctx.lineCap = 'round'; ctx.strokeStyle = '#2F72B7' }; resize();
-            let down = false, last = null;
-            const p = e => { const r = c.getBoundingClientRect(); return { x: e.clientX - r.left, y: e.clientY - r.top } };
-            c.onpointerdown = e => { down = true; last = p(e); c.setPointerCapture(e.pointerId) };
-            c.onpointermove = e => { if (!down) return; const n = p(e); ctx.beginPath(); ctx.moveTo(last.x, last.y); ctx.lineTo(n.x, n.y); ctx.stroke(); last = n };
-            c.onpointerup = () => { down = false; last = null };
-            document.getElementById('clearCanvas').onclick = () => ctx.clearRect(0, 0, c.width, c.height);
+            }
+
+            if (mode === 'down' && dir > 0) {
+                scrollState.basket = Math.min(5, scrollState.basket + 1);
+                const apple = card.querySelector('.apple');
+                apple.style.top = (8 + scrollState.basket * 31) + 'px';
+
+                if (scrollState.basket >= 5) {
+                    card.classList.add('done');
+                    card.querySelector('.scroll-status').textContent = '🧺 Nice! In the basket!';
+                    say('Nice! In the basket!');
+                }
+            }
+
+            if (mode === 'wipe') {
+                const currentDir = dir > 0 ? 1 : -1;
+                if (scrollState.lastDir && currentDir !== scrollState.lastDir) {
+                    scrollState.wipe++;
+                }
+                scrollState.lastDir = currentDir;
+
+                const wiper = card.querySelector('.window-wiper');
+                const current = parseFloat(wiper.style.top || '175');
+                const next = Math.max(14, Math.min(178, current + (dir > 0 ? 28 : -28)));
+                wiper.style.top = next + 'px';
+
+                if (scrollState.wipe >= 4) {
+                    card.classList.add('done');
+                    card.querySelector('.scroll-status').textContent = '✨ Sparkly clean!';
+                    say('Sparkly clean!');
+                }
+            }
+
+            const allDone = [...document.querySelectorAll('.scroll-game')]
+                .every(x => x.classList.contains('done'));
+
+            if (allDone) {
+                const f = document.getElementById('scrollFeedback');
+                f.textContent = '⭐ Scroll Master!';
+                f.className = 'feedback success';
+            }
         }
 
-        function next() { if (slide < sessions[session].slides.length - 1) { slide++; render() } }
-        function prev() { if (slide > 0) { slide--; render() } }
-        document.getElementById('nextBtn').onclick = next;
-        document.getElementById('prevBtn').onclick = prev;
-        document.getElementById('resetBtn').onclick = render;
-        select.onchange = e => { session = Number(e.target.value); slide = 0; render() };
-        document.getElementById('fullBtn').onclick = async () => { try { if (!document.fullscreenElement) await document.documentElement.requestFullscreen(); else await document.exitFullscreen() } catch (e) { } };
-        document.addEventListener('keydown', e => { if (['INPUT', 'SELECT', 'TEXTAREA'].includes(document.activeElement.tagName)) return; if (e.key === 'ArrowRight') next(); if (e.key === 'ArrowLeft') prev() });
-        select.value = '1'; render();
+        document.querySelectorAll('.scroll-game').forEach(card => {
+            card.addEventListener('wheel', e => {
+                e.preventDefault();
+                handleScrollGame(card, e.deltaY);
+            }, { passive: false });
+
+            let touchStartY = null;
+            card.addEventListener('pointerdown', e => {
+                touchStartY = e.clientY;
+            });
+            card.addEventListener('pointerup', e => {
+                if (touchStartY === null) return;
+                const dy = e.clientY - touchStartY;
+                if (Math.abs(dy) > 18) {
+                    handleScrollGame(card, dy > 0 ? 1 : -1);
+                }
+                touchStartY = null;
+            });
+        });
+
+        /* SESSION 2 — DRAG & DROP */
+        function resetDragGame() {
+            const board = document.getElementById('dragGame');
+            if (!board) return;
+
+            document.querySelectorAll('#dragGame .drag-item').forEach(item => {
+                item.classList.remove('done');
+                item.style.left = '';
+                item.style.top = '';
+                item.style.transform = '';
+                item.dataset.dragging = '0';
+            });
+
+            document.querySelectorAll('#dragGame .drop-target')
+                .forEach(t => t.classList.remove('hit'));
+
+            const f = document.getElementById('dragFeedback');
+            f.textContent = 'Drag each picture to the same picture.';
+            f.className = 'feedback';
+        }
+
+        document.querySelectorAll('#dragGame .drag-item').forEach(item => {
+            let offsetX = 0, offsetY = 0;
+
+            item.addEventListener('pointerdown', e => {
+                if (item.classList.contains('done')) return;
+
+                const board = item.parentElement;
+                const br = board.getBoundingClientRect();
+                const ir = item.getBoundingClientRect();
+
+                offsetX = e.clientX - ir.left;
+                offsetY = e.clientY - ir.top;
+
+                item.style.left = (ir.left - br.left) + 'px';
+                item.style.top = (ir.top - br.top) + 'px';
+                item.setPointerCapture(e.pointerId);
+                item.dataset.dragging = '1';
+            });
+
+            item.addEventListener('pointermove', e => {
+                if (item.dataset.dragging !== '1') return;
+
+                const board = item.parentElement;
+                const br = board.getBoundingClientRect();
+
+                item.style.left = (e.clientX - br.left - offsetX) + 'px';
+                item.style.top = (e.clientY - br.top - offsetY) + 'px';
+            });
+
+            item.addEventListener('pointerup', () => {
+                if (item.dataset.dragging !== '1') return;
+                item.dataset.dragging = '0';
+
+                const ir = item.getBoundingClientRect();
+                const cx = ir.left + ir.width / 2;
+                const cy = ir.top + ir.height / 2;
+                const target = document.querySelector(
+                    `#dragGame .drop-target[data-key="${item.dataset.key}"]`
+                );
+                const tr = target.getBoundingClientRect();
+
+                const inside =
+                    cx > tr.left && cx < tr.right &&
+                    cy > tr.top && cy < tr.bottom;
+
+                const f = document.getElementById('dragFeedback');
+
+                if (inside) {
+                    item.classList.add('done');
+                    target.classList.add('hit');
+                    item.style.left = '';
+                    item.style.top = '';
+                    f.textContent = '⭐ Nice drop!';
+                    f.className = 'feedback success';
+                    say('Nice drop!');
+
+                    if ([...document.querySelectorAll('#dragGame .drag-item')]
+                        .every(x => x.classList.contains('done'))) {
+                        f.textContent = '🎉 Drag and Drop Master!';
+                        say('Drag and drop master!');
+                    }
+                } else {
+                    item.style.left = '';
+                    item.style.top = '';
+                    f.textContent = 'Try the matching home.';
+                    f.className = 'feedback error';
+                }
+            });
+        });
+
+        /* SESSION 2 — FRUIT SLASH MAIN GAME */
+        const slashCanvas = document.getElementById('slashCanvas');
+        const slashCtx = slashCanvas.getContext('2d');
+
+        let slashFruits = [];
+        let slashRunning = false;
+        let slashScore = 0;
+        let slashBest = 0;
+        let slashLast = null;
+        let slashPointerDown = false;
+        let slashAnimation = null;
+        let slashSpawnTick = 0;
+        let slashStartTime = 0;
+
+        const fruitEmoji = ['🍎', '🍊', '🍉', '🍓', '🥝', '🍍'];
+
+        function prepareSlashCanvas() {
+            const r = slashCanvas.getBoundingClientRect();
+            if (!r.width || !r.height) return;
+
+            const d = Math.min(2, window.devicePixelRatio || 1);
+            slashCanvas.width = r.width * d;
+            slashCanvas.height = r.height * d;
+            slashCtx.setTransform(d, 0, 0, d, 0, 0);
+            slashCtx.clearRect(0, 0, r.width, r.height);
+
+            slashCtx.fillStyle = '#5b7086';
+            slashCtx.font = '700 24px Fredoka';
+            slashCtx.textAlign = 'center';
+            slashCtx.fillText('Press START and get ready!', r.width / 2, r.height / 2);
+        }
+
+        function slashPoint(e) {
+            const r = slashCanvas.getBoundingClientRect();
+            return { x: e.clientX - r.left, y: e.clientY - r.top };
+        }
+
+        function spawnFruit() {
+            const r = slashCanvas.getBoundingClientRect();
+            const radius = 28 + Math.random() * 12;
+
+            slashFruits.push({
+                x: 50 + Math.random() * (r.width - 100),
+                y: r.height + radius,
+                vx: (Math.random() - .5) * 2.5,
+                vy: -(5.8 + Math.random() * 2.6),
+                g: .13,
+                radius,
+                emoji: fruitEmoji[Math.floor(Math.random() * fruitEmoji.length)],
+                sliced: false
+            });
+        }
+
+        function distanceToSegment(px, py, x1, y1, x2, y2) {
+            const A = px - x1, B = py - y1, C = x2 - x1, D = y2 - y1;
+            const dot = A * C + B * D;
+            const len = C * C + D * D;
+            let t = len ? dot / len : 0;
+            t = Math.max(0, Math.min(1, t));
+            const x = x1 + t * C;
+            const y = y1 + t * D;
+            return Math.hypot(px - x, py - y);
+        }
+
+        function slashCheck(a, b) {
+            slashFruits.forEach(f => {
+                if (
+                    !f.sliced &&
+                    distanceToSegment(f.x, f.y, a.x, a.y, b.x, b.y) < f.radius + 9
+                ) {
+                    f.sliced = true;
+                    slashScore++;
+                    slashBest = Math.max(slashBest, slashScore);
+                    document.getElementById('slashScore').textContent = slashScore;
+                    document.getElementById('slashBest').textContent = slashBest;
+                }
+            });
+        }
+
+        function slashLoop() {
+            if (!slashRunning) return;
+
+            const r = slashCanvas.getBoundingClientRect();
+            slashCtx.clearRect(0, 0, r.width, r.height);
+
+            slashSpawnTick++;
+            if (slashSpawnTick % 38 === 0 && slashFruits.length < 8) spawnFruit();
+
+            slashFruits.forEach(f => {
+                f.x += f.vx;
+                f.y += f.vy;
+                f.vy += f.g;
+
+                slashCtx.font = `${Math.round(f.radius * 1.7)}px Fredoka`;
+                slashCtx.textAlign = 'center';
+                slashCtx.textBaseline = 'middle';
+                slashCtx.globalAlpha = f.sliced ? .35 : 1;
+                slashCtx.fillText(f.sliced ? '✨' : f.emoji, f.x, f.y);
+            });
+
+            slashCtx.globalAlpha = 1;
+            slashFruits = slashFruits.filter(f => f.y < r.height + 80 && !f.sliced);
+
+            const remaining = Math.max(
+                0,
+                20 - (performance.now() - slashStartTime) / 1000
+            );
+
+            slashCtx.fillStyle = '#314e6a';
+            slashCtx.font = '700 18px Fredoka';
+            slashCtx.textAlign = 'left';
+            slashCtx.fillText(`Time: ${Math.ceil(remaining)}`, 14, 24);
+
+            if (remaining <= 0) {
+                slashRunning = false;
+
+                slashCtx.fillStyle = 'rgba(255,255,255,.86)';
+                slashCtx.fillRect(0, 0, r.width, r.height);
+                slashCtx.fillStyle = '#2f80ed';
+                slashCtx.font = '700 34px Fredoka';
+                slashCtx.textAlign = 'center';
+                slashCtx.fillText(
+                    `Great job! Score: ${slashScore}`,
+                    r.width / 2,
+                    r.height / 2
+                );
+
+                const f = document.getElementById('slashFeedback');
+                f.textContent = `⭐ You sliced ${slashScore} fruits!`;
+                f.className = 'feedback success';
+                say('Great job!');
+                return;
+            }
+
+            slashAnimation = requestAnimationFrame(slashLoop);
+        }
+
+        function startSlashGame() {
+            cancelAnimationFrame(slashAnimation);
+            prepareSlashCanvas();
+
+            slashFruits = [];
+            slashScore = 0;
+            slashSpawnTick = 0;
+            slashLast = null;
+            slashPointerDown = false;
+            slashRunning = true;
+            slashStartTime = performance.now();
+
+            document.getElementById('slashScore').textContent = '0';
+            document.getElementById('slashFeedback').textContent =
+                'Hold and swipe through the fruits!';
+            document.getElementById('slashFeedback').className = 'feedback';
+
+            spawnFruit();
+            spawnFruit();
+            slashAnimation = requestAnimationFrame(slashLoop);
+        }
+
+        document.getElementById('startSlashGame').onclick = startSlashGame;
+
+        slashCanvas.addEventListener('pointerdown', e => {
+            if (!slashRunning) return;
+            slashPointerDown = true;
+            slashLast = slashPoint(e);
+            slashCanvas.setPointerCapture(e.pointerId);
+        });
+
+        slashCanvas.addEventListener('pointermove', e => {
+            if (!slashRunning || !slashPointerDown) return;
+            const p = slashPoint(e);
+            if (slashLast) slashCheck(slashLast, p);
+            slashLast = p;
+        });
+
+        slashCanvas.addEventListener('pointerup', () => {
+            slashPointerDown = false;
+            slashLast = null;
+        });
+
+        /* CANVAS */
+        const canvas = document.getElementById('traceCanvas');
+        const ctx = canvas.getContext('2d');
+        function sizeCanvas() {
+            const r = canvas.getBoundingClientRect();
+            const d = Math.min(2, window.devicePixelRatio || 1);
+            canvas.width = r.width * d;
+            canvas.height = r.height * d;
+            ctx.setTransform(d, 0, 0, d, 0, 0);
+            ctx.lineWidth = 8;
+            ctx.lineCap = 'round';
+            ctx.strokeStyle = '#2f80ed';
+        }
+        let drawing = false, last = null;
+        function point(e) {
+            const r = canvas.getBoundingClientRect();
+            return { x: e.clientX - r.left, y: e.clientY - r.top }
+        }
+        canvas.addEventListener('pointerdown', e => {
+            drawing = true;
+            last = point(e);
+            canvas.setPointerCapture(e.pointerId);
+        });
+        canvas.addEventListener('pointermove', e => {
+            if (!drawing) return;
+            const p = point(e);
+            ctx.beginPath();
+            ctx.moveTo(last.x, last.y);
+            ctx.lineTo(p.x, p.y);
+            ctx.stroke();
+            last = p;
+        });
+        canvas.addEventListener('pointerup', () => { drawing = false; last = null });
+        document.getElementById('clearCanvas').onclick = () => ctx.clearRect(0, 0, canvas.width, canvas.height);
+        window.addEventListener('resize', () => {
+            sizeCanvas();
+            if (obstacleCanvas) drawObstacleBoard();
+            if (slashCanvas) prepareSlashCanvas();
+        });
+        sizeCanvas();
+
+        refreshSessionSlides();
     </script>
 </body>
 
