@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Download KIDEA 2026</title>
+  <style>
+    :root { color-scheme: light; }
+    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; min-height: 100vh; display: grid; place-items: center; background: #f5f7fb; margin: 0; color: #17213c; }
+    main { background: white; padding: 32px; border-radius: 18px; box-shadow: 0 10px 35px #17213c18; max-width: 420px; text-align: center; margin: 18px; }
+    h1 { font-size: 24px; margin: 0 0 12px; }
+    p { line-height: 1.5; }
+    button { background: #2356e8; color: white; border: 0; border-radius: 10px; font: inherit; font-weight: 600; padding: 12px 20px; cursor: pointer; }
+    button:disabled { opacity: .6; cursor: wait; }
+    small { display: block; margin-top: 16px; color: #59627a; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Downloading index.html</h1>
+    <p id="status" role="status">Your download should start automatically.</p>
+    <button id="download" type="button">Download again</button>
+    <small>Always downloads the latest version from the GitHub main branch.</small>
+  </main>
+  <script>
+    const rawUrl = 'https://raw.githubusercontent.com/kalanantiacademics/kidea_2026/main/index.html';
+    const button = document.getElementById('download');
+    const status = document.getElementById('status');
+    let inProgress = false;
+
+    async function downloadFile() {
+      if (inProgress) return;
+      inProgress = true;
+      button.disabled = true;
+      status.textContent = 'Preparing your file…';
+      try {
+        const response = await fetch(rawUrl, { cache: 'no-store' });
+        if (!response.ok) throw new Error(`GitHub returned ${response.status}`);
+        const html = await response.text();
+        const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+        const objectUrl = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = objectUrl;
+        link.download = 'index.html';
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        setTimeout(() => URL.revokeObjectURL(objectUrl), 60000);
+        status.textContent = 'Your file is ready. If the download did not start, click “Download again”.';
+      } catch (error) {
+        status.textContent = 'Automatic download failed. Check that the repository is public and try again.';
+        console.error(error);
+      } finally {
+        button.disabled = false;
+        inProgress = false;
+      }
+    }
+    button.addEventListener('click', downloadFile);
+    window.addEventListener('DOMContentLoaded', downloadFile);
+  </script>
+</body>
+</html>
